@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSI TR-02102-1 (2026-01): Ablaufdatum 2031 für RSA &amp; ECDSA – Der Post-Quanten-Migrationsleitfaden | DE-Compliance-Kompass</title>
+    <meta name="description" content="Mit der im Februar 2026 vorgestellten Aktualisierung der Technischen Richtlinie BSI TR-02102 („Kryptographische Verfahren: Empfehlungen und Schlüssellängen“) ">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: block;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover { text-decoration: underline; }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+        }
+        .legal-links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+        .legal-links a {
+            color: var(--muted);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Diese Fachpublikation befindet sich im Vorab-Review. Digitale Checklisten-Pakete sind als lokale Preview-Downloads hinterlegt, bis die externen Checkout-Endpunkte freigeschaltet sind.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav><a href="index.html">&larr; Alle Leitfäden &amp; Pakete</a></nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation (§ 18 EStG) &bull; Stand: 2026-10-27 08:42 UTC
+            </div>
+            <h1 id="bsi-tr-02102-1-2026-01-ablaufdatum-2031-fur-rsa-ecdsa-der-post-quanten-migrationsleitfaden">BSI TR-02102-1 (2026-01): Ablaufdatum 2031 für RSA &amp; ECDSA – Der Post-Quanten-Migrationsleitfaden</h1>
+<p>Mit der im Februar 2026 vorgestellten Aktualisierung der Technischen Richtlinie <strong>BSI TR-02102 („Kryptographische Verfahren: Empfehlungen und Schlüssellängen“)</strong> hat das Bundesamt für Sicherheit in der Informationstechnik (BSI) eine Zäsur für die gesamte europäische IT- und Sicherheitsarchitektur markiert: Erstmals nennt das BSI ein konkretes <strong>Ablaufdatum für den alleinigen Einsatz klassischer asymmetrischer Verschlüsselungsverfahren</strong>. Ab Ende <strong>2031</strong> gelten klassische Public-Key-Verfahren wie RSA, Diffie-Hellman (DH) und elliptische Kurven (ECDH/ECDSA) zur Schlüsselaushandlung und Verschlüsselung ohne Post-Quanten-Absicherung nicht mehr als sicher im Sinne der Richtlinie; für rein klassische digitale Signaturen endet die Übergangsfrist im Jahr <strong>2035</strong>.</p>
+<p>Für IT-Leiter, CISOs, Cloud-Architekten und Datenschutzbeauftragte im DACH-Raum ist diese Festlegung weit mehr als eine theoretische Krypto-Empfehlung: Über die Verknüpfung mit dem <strong>„Stand der Technik“ nach Art. 32 DSGVO</strong> sowie den strengen Risikomanagementpflichten aus <strong>NIS-2 (§ 30 BSIG)</strong> entsteht unmittelbarer Handlungsbedarf. Dieser Leitfaden analysiert die neuen Vorgaben der TR-02102-Reihe im Detail und liefert einen strukturierten Post-Quanten-Migrationsfahrplan bis 2031.</p>
+<hr />
+<h2 id="1-analyse-des-bsi-tr-02102-1-updates-2026-die-konkreten-fristen-fur-rsa-dh-und-ecc">1. Analyse des BSI TR-02102-1 Updates (2026): Die konkreten Fristen für RSA, DH und ECC</h2>
+<p>Das Bedrohungsszenario hinter der Entscheidung des BSI ist präzise definiert: Kryptographisch relevante Quantencomputer (CRQC) sind mit Hilfe des <strong>Shor-Verfahrens</strong> in der Lage, sowohl das Faktorisierungsproblem großer ganzer Zahlen (Basis von RSA) als auch das diskrete Logarithmusproblem in endlichen Körpern und auf elliptischen Kurven (Basis von DH, DSA, ECDH, ECDSA, EdDSA) in Polynomialzeit zu lösen.</p>
+<p>Noch dringlicher wirkt das <strong>„Harvest Now, Decrypt Later“-Prinzip (Store Now, Decrypt Later)</strong>: Angreifer zeichnen bereits heute verschlüsselten Datenverkehr (TLS-Sessions, VPN-Tunnel, S/MIME-Kommunikation, verschlüsselte Backups) auf, um die Sitzungsschlüssel zu brechen, sobald ausreichende Quantenrechenkapazitäten verfügbar sind. Für Daten mit einer Vertraulichkeitsanforderung von fünf bis zehn Jahren – etwa Gesundheitsdaten, Geschäftsgeheimnisse, Finanztransaktionen oder behördliche Verschlusssachen – ist das Jahr 2031 bereits heute operativ relevant.</p>
+<h3 id="die-fristen-matrix-der-aktuellen-bsi-tr-02102-1-im-uberblick">Die Fristen-Matrix der aktuellen BSI TR-02102-1 im Überblick</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Kryptographischer Anwendungsbereich</th>
+<th style="text-align: left;">Betroffene klassische Verfahren</th>
+<th style="text-align: left;">Frist für alleinigen Einsatz (BSI TR-02102-1)</th>
+<th style="text-align: left;">Verbindliche Zielarchitektur ab Fristende</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Asymmetrische Verschlüsselung &amp; Schlüsselaushandlung (KEM / Key Exchange)</strong></td>
+<td style="text-align: left;">RSA-OAEP, FFDHE (Diffie-Hellman), ECDH (z. B. BrainpoolP256r1, secp256r1, X25519)</td>
+<td style="text-align: left;"><strong>Bis maximal Ende 2031</strong> (in Hochsicherheitsumgebungen früher)</td>
+<td style="text-align: left;"><strong>Zwingend hybride Schlüsselaushandlung</strong>: Klassisches Verfahren + PQC-KEM</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Digitale Signaturen (Authentisierung &amp; Dokumentensignatur)</strong></td>
+<td style="text-align: left;">RSA-PSS, DSA, ECDSA, EdDSA</td>
+<td style="text-align: left;"><strong>Bis maximal Ende 2035</strong> (Ausnahme: langlebige Root-CAs und Firmware-Signaturen sofort planen)</td>
+<td style="text-align: left;"><strong>Hybride Signaturen</strong> oder zugelassene zustandsbehaftete Hash-basierte Signaturen (LMS, XMSS) / ML-DSA / SLH-DSA</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Symmetrische Verschlüsselung &amp; Hashfunktionen</strong></td>
+<td style="text-align: left;">AES-256, SHA-384, SHA-512, SHA-3</td>
+<td style="text-align: left;">Weiterhin langfristig empfohlen (Grover-Effekt durch ≥ 256 Bit Schlüssellänge kompensiert)</td>
+<td style="text-align: left;">Beibehaltung von AES-256 und mindestens 256-Bit-Sicherheitsniveau</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-pflicht-zur-hybrid-implementierung-warum-das-bsi-auf-pqc-klassik-setzt">2. Pflicht zur Hybrid-Implementierung: Warum das BSI auf PQC + Klassik setzt</h2>
+<p>Ein zentrales Architekturprinzip der deutschen und europäischen Sicherheitsbehörden ist die <strong>Pflicht zum hybriden Einsatz</strong> in der Übergangsphase. Während einzelne internationale Standards einen direkten Wechsel auf reine Post-Quanten-Algorithmen diskutieren, fordert das BSI in TR-02102-1 ausdrücklich die <strong>Kombination eines bewährten klassischen Verfahrens (z. B. ECDH über Brainpool- oder NIST-Kurven mit mindestens 128 Bit klassischer Sicherheit) mit einem quantensicheren Key Encapsulation Mechanism (PQC-KEM)</strong>.</p>
+<h3 id="die-sicherheitslogik-des-hybrid-ansatzes">Die Sicherheitslogik des Hybrid-Ansatzes</h3>
+<p>Beim hybriden Schlüsselaustausch werden die erzeugten Geheimnisse (Shared Secrets) beider Verfahren über eine kryptographisch starke Key Derivation Function (KDF, z. B. HKDF nach RFC 5869 oder KMAC) so verknüpft, dass das resultierende Sitzungsgeheimnis genau dann sicher bleibt, <strong>wenn mindestens eines der beiden Teilverfahren ungebrochen ist</strong>:
+- Sollte sich in einem neueren gitterbasierten PQC-Verfahren eine unerwartete mathematische Schwäche zeigen, schützt weiterhin das Jahrzehnte erprobte ECDH-Verfahren gegen klassische Angreifer.
+- Sobald ein Quantencomputer das klassische ECDH-Verfahren bricht, schützt das PQC-Verfahren die Vertraulichkeit der Sitzung.</p>
+<h3 id="vom-bsi-empfohlene-post-quanten-verfahren-kem-signaturen">Vom BSI empfohlene Post-Quanten-Verfahren (KEM &amp; Signaturen)</h3>
+<p>In der TR-02102-1 hebt das BSI folgende PQC-Algorithmen hervor:
+1. <strong>FrodoKEM (<code>FrodoKEM-976</code>, <code>FrodoKEM-1344</code>):</strong> Konservatives, auf dem allgemeinen Learning-With-Errors-Problem (Plain LWE ohne zusätzliche algebraische Ring-/Modulstruktur) basierendes Verfahren mit sehr hohen Sicherheitsreserven.
+2. <strong>Classic McEliece:</strong> Code-basiertes Verfahren mit jahrzehntelanger Kryptoanalyse-Historie; zeichnet sich durch extrem kleine Chiffrate, aber sehr große öffentliche Schlüssel (mehrere Hundert Kilobyte bis über 1 MB) aus – ideal für statische VPN-Gateways oder Server-Infrastrukturen mit fester Gegenstelle.
+3. <strong>ML-KEM (<code>ML-KEM-768</code>, <code>ML-KEM-1024</code> / FIPS 203, ehemals CRYSTALS-Kyber):</strong> Effizientes gitterbasiertes Modul-LWE-Verfahren mit moderaten Schlüssel- und Chiffratgrößen, das sich als Standard für breite Web- und TLS-1.3-Szenarien im Hybrid-Modus (<code>X25519MLKEM768</code> bzw. <code>SecP256r1MLKEM768</code>) durchsetzt.
+4. <strong>Hash-basierte Signaturen (XMSS, LMS / HSS sowie SLH-DSA / FIPS 205):</strong> Mathematisch allein auf der Sicherheit der zugrundeliegenden Hashfunktion beruhend; besonders empfohlen für langlebige Code-Signing-, Bootloader- und Root-CA-Signaturen.</p>
+<hr />
+<h2 id="3-rechtliche-tragweite-fur-it-leiter-und-cisos-art-32-dsgvo-und-nis-2">3. Rechtliche Tragweite für IT-Leiter und CISOs: Art. 32 DSGVO und NIS-2</h2>
+<p>Warum darf die Frist 2031 nicht als bloßes Zukunftsprojekt für das Jahr 2030 missverstanden werden? Weil deutsche und europäische Gesetze über dynamische Verweisungsklauseln direkt an die technischen Richtlinien des BSI anknüpfen:</p>
+<h3 id="a-art-32-dsgvo-stand-der-technik">A. Art. 32 DSGVO („Stand der Technik“)</h3>
+<p>Gemäß Art. 32 Abs. 1 DSGVO müssen Verantwortliche und Auftragsverarbeiter geeignete technische und organisatorische Maßnahmen (TOM) implementieren, darunter ausdrücklich die <strong>Verschlüsselung personenbezogener Daten unter Berücksichtigung des Stands der Technik</strong>. In der Prüfpraxis der deutschen Datenschutzaufsichtsbehörden (DSK) sowie in der Orientierungshilfe des TeleTrusT/BSI bildet die <strong>BSI TR-02102 den maßgeblichen Referenzmaßstab für den kryptographischen Stand der Technik</strong>.
+- Werden besondere Kategorien personenbezogener Daten (Art. 9 DSGVO, z. B. Gesundheitsdaten, biometrische Daten oder langfristige Finanz- und Personalakten) über das Jahr 2031 hinaus gespeichert oder heute über ungeschützte Weitverkehrsstrecken übertragen, entsteht ohne PQC-Migrationsplan bereits heute eine <strong>Nachweislücke in der Datenschutz-Folgenabschätzung (DSFA)</strong>.</p>
+<h3 id="b-nis-2-richtlinie-und-30-bsig-kryptographie-konzepte-als-geschaftsleiterpflicht">B. NIS-2-Richtlinie und § 30 BSIG (Kryptographie-Konzepte als Geschäftsleiterpflicht)</h3>
+<p>Für wichtige und besonders wichtige Einrichtungen nach dem NIS-2-Umsetzungsgesetz schreibt der Maßnahmenkatalog ausdrücklich <strong>Konzepte und Verfahren für den Einsatz von Kryptographie und Verschlüsselung</strong> vor – verbunden mit persönlicher Haftung der Geschäftsleitung bei schuldhafter Pflichtverletzung. Ein modernes Kryptographie-Konzept muss heute zwingend zwei Säulen nachweisen:
+1. Ein vollständiges <strong>Kryptographisches Inventar (Cryptographic Bill of Materials / CBOM)</strong>.
+2. <strong>Krypto-Agilität (Crypto-Agility)</strong> sowie einen verbindlichen, budgetierten <strong>Post-Quanten-Migrationsfahrplan bis 2031</strong>.</p>
+<hr />
+<h2 id="4-protokollspezifische-manahmen-tls-tr-02102-2-ipsecikev2-tr-02102-3-und-ssh-tr-02102-4">4. Protokollspezifische Maßnahmen: TLS (TR-02102-2), IPsec/IKEv2 (TR-02102-3) und SSH (TR-02102-4)</h2>
+<p>Die Umstellung auf hybride Post-Quanten-Kryptographie greift tief in die Netzwerk- und Transportprotokolle ein. Beachten Sie bei Ihrer Architekturplanung die spezifischen Vorgaben der Teilrichtlinien:</p>
+<h3 id="1-tls-13-gema-bsi-tr-02102-2">1. TLS 1.3 gemäß BSI TR-02102-2</h3>
+<ul>
+<li><strong>TLS 1.2 konsequent ablösen:</strong> Hybride PQC-Schlüsselaushandlung wird in der Praxis ausschließlich für <strong>TLS 1.3</strong> standardisiert und unterstützt.</li>
+<li><strong>Hybride Named Groups aktivieren:</strong> Aktualisieren Sie Load-Balancer, Reverse-Proxies (NGINX, Envoy, HAProxy) und OpenSSL-Stacks (OpenSSL ≥ 3.5 / OQS-Provider) auf hybride KeyShares wie <code>SecP256r1MLKEM768</code>, <code>SecP384r1MLKEM1024</code> oder <code>FrodoKEM</code>-Hybride.</li>
+<li><strong>MTU- und Handshake-Größen testen:</strong> Da PQC-Schlüssel und -Chiffrate größer sind als klassische ECDHE-Pakete, überschreitet das <code>ClientHello</code> / <code>ServerHello</code> häufig eine einzelne TCP-MTU (1.500 Byte). Prüfen Sie Firewalls und Middleboxes auf fehlerhafte Paketverwerfung bei fragmentierten TLS-Handshakes.</li>
+</ul>
+<h3 id="2-ipsec-und-ikev2-gema-bsi-tr-02102-3">2. IPsec und IKEv2 gemäß BSI TR-02102-3</h3>
+<p>Standortvernetzungen (Site-to-Site-VPNs) zwischen Rechenzentren und Cloud-VPCs sind das primäre Ziel von „Harvest Now, Decrypt Later“-Angriffen.
+- <strong>RFC 9370 (Multiple Key Exchanges in IKEv2) implementieren:</strong> Da klassische IKEv2-Pakete ohne Fragmentierung schnell an UDP-Grenzen stoßen, definiert RFC 9370 in Verbindung mit RFC 9242 (Intermediate Exchange) das Nachschalten von bis zu sieben zusätzlichen Schlüsselaustauschen (Additional Key Exchange, <code>AKE1</code>–<code>AKE7</code>) nach dem initialen <code>IKE_SA_INIT</code>.
+- <strong>VPN-Gateways evaluieren:</strong> Prüfen Sie bei Ihren Firewall- und VPN-Herstellern (z. B. strongSwan, genua, Rohde &amp; Schwarz Cybersecurity, Cisco, Fortinet, Palo Alto), ob <strong>IKEv2 Fragmentation (RFC 7383)</strong> und <strong>Multiple Key Exchanges (RFC 9370)</strong> mit ML-KEM oder FrodoKEM in produktiven Firmware-Releases unterstützt werden.</p>
+<h3 id="3-secure-shell-ssh-gema-bsi-tr-02102-4">3. Secure Shell (SSH) gemäß BSI TR-02102-4</h3>
+<p>Administrativer Fernzugriff auf Linux-Server, Netzwerkkomponenten und CI/CD-Infrastrukturen erfordert einen sofortigen Schutz gegen aufgezeichnete Sessions:
+- <strong>OpenSSH ab Version 9.9 / 10.x einsetzen:</strong> Neuere OpenSSH-Versionen unterstützen standardmäßig hybride Post-Quanten-Schlüsselaustauschverfahren wie <code>mlkem768x25519-sha256</code> (sowie <code>sntrup761x25519-sha512</code>).
+- <strong><code>sshd_config</code> und <code>ssh_config</code> härten:</strong> Priorisieren Sie in der <code>KexAlgorithms</code>-Direktive hybride Verfahren vor rein klassischen Diffie-Hellman-Gruppen (<code>diffie-hellman-group14-sha256</code> entfernen!) und bereiten Sie für Host- und User-Keys einen schrittweisen Übergang auf PQC-fähige Zertifikats-Authorities vor.</p>
+<hr />
+<h2 id="5-der-4-phasen-migrationsplan-20262031-fur-unternehmen">5. Der 4-Phasen-Migrationsplan (2026–2031) für Unternehmen</h2>
+<ol>
+<li><strong>Phase 1 – Discovery &amp; Krypto-Inventar (2026–2027):</strong> Erfassung aller externen und internen Endpunkte, Zertifikate, HSMs, VPN-Strecken, Datenbanken und Quellcode-Abhängigkeiten (CBOM). Klassifikation nach Schutzbedarf und Lebensdauer der verarbeiteten Daten.</li>
+<li><strong>Phase 2 – Krypto-Agilität &amp; Pilotierung (2027–2028):</strong> Beseitigung hartcodierter Algorithmen und fester Schlüsselgrößen in Eigenentwicklungen; Aktivierung hybrider PQC-Schlüsselaushandlung auf Edge-Load-Balancern, Site-to-Site-IPsec-Tunneln und SSH-Bastion-Hosts.</li>
+<li><strong>Phase 3 – Rollout &amp; PKI-/HSM-Modernisierung (2028–2030):</strong> Firmware-Upgrades für Hardware Security Modules (HSMs) auf FIPS-203/204/205- und BSI-TR-02102-konforme Module; Einführung hybrider interner PKI-Hierarchien.</li>
+<li><strong>Phase 4 – Vollständige Abschaltung rein klassischer Public-Key-Verschlüsselung (bis Q4 2030 / 2031):</strong> Durchsetzung strenger Richtlinien, die Verbindungen ohne PQC-Hybridanteil ablehnen; lückenloser Audit-Nachweis für DSGVO und NIS-2.</li>
+</ol>
+<div class="cta-box">
+    <h3>Sofort einsetzbares Compliance-Paket: BSI-TR-02102-PQC-Migrations-Pack</h3>
+    <p>Starten Sie Ihre Post-Quanten-Migration strukturiert und prüfungssicher: Unser <strong>BSI-TR-02102-PQC-Migrations-Pack</strong> beinhaltet das direkt einsetzbare Krypto-Inventar-Template <code>Krypto-Inventar-PQC-2031.csv</code> (für TLS, SSH nach TR-02102-4 und IPsec/IKEv2 nach TR-02102-3) sowie den vollständigen Management-Leitfaden <code>PQC-Migrationsplan-2026-2031.md</code> für Art. 32 DSGVO &amp; NIS-2 Audits.</p>
+    <div class="cta-links">
+        <a class="btn" href="products/BSI-TR-02102-PQC-Migrations-Pack.zip" data-product="BSI-TR-02102-PQC-Migrations-Pack.zip">BSI-TR-02102-PQC-Migrations-Pack herunterladen (Vorschau / Paket)</a>
+    </div>
+</div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &ndash; Freiberufliche technische &amp; schriftstellerische Fachpublikation (§ 18 EStG). Alle Inhalte dienen der technischen Information und stellen keine individuelle Rechtsberatung im Sinne des RDG dar.</div>
+        <details class="legal-modal">
+            <summary>Impressum (§ 5 DDG) &amp; Datenschutzerklärung (DSGVO) – Platzhalter / Vorschau-Angaben</summary>
+            <p><strong>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):</strong><br>
+            [Vorname Nachname / Freiberufliche technische Dokumentation &amp; Fachpublizistik nach § 18 EStG]<br>
+            [Straße Hausnummer, PLZ Ort, Deutschland]<br>
+            E-Mail: [kontakt@domain-eintragen.de] (Stealth-/Preview-Platzhalter vor Live-Schaltung kommerzieller Checkouts)</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider technisch notwendige Server-Logdaten (IP-Adresse, Zeitstempel, angeforderte Ressource) zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+</body>
+</html>

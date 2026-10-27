@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSI TR-03185 Leitfaden (2026): Software-Updates ohne Re-Zertifizierungsfalle ausrollen | DE-Compliance-Kompass</title>
+    <meta name="description" content="Die Softwareentwicklung in regulierten Branchen stand jahrelang vor einem strukturellen Dilemma: Während moderne DevSecOps-Teams Sicherheits-Patches, Dependen">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: block;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover { text-decoration: underline; }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+        }
+        .legal-links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+        .legal-links a {
+            color: var(--muted);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Diese Fachpublikation befindet sich im Vorab-Review. Digitale Checklisten-Pakete sind als lokale Preview-Downloads hinterlegt, bis die externen Checkout-Endpunkte freigeschaltet sind.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav><a href="index.html">&larr; Alle Leitfäden &amp; Pakete</a></nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation (§ 18 EStG) &bull; Stand: 2026-10-27 08:42 UTC
+            </div>
+            <h1 id="bsi-tr-03185-leitfaden-2026-software-updates-ohne-re-zertifizierungsfalle-ausrollen">BSI TR-03185 Leitfaden (2026): Software-Updates ohne Re-Zertifizierungsfalle ausrollen</h1>
+<p>Die Softwareentwicklung in regulierten Branchen stand jahrelang vor einem strukturellen Dilemma: Während moderne DevSecOps-Teams Sicherheits-Patches, Dependency-Updates und Funktions-Releases im Wochen- oder Tagesrhythmus ausrollen müssen, basierten klassische Prüf- und Zertifizierungsverfahren auf einer statischen <strong>Produktversions-Prüfung</strong>. Jede relevante Code-Änderung drohte den Konformitätsstatus zu gefährden oder kostspielige Nachprüfungen auszulösen. Mit der Technischen Richtlinie <strong>BSI TR-03185 („Sicherer Software-Lebenszyklus“)</strong> und dem im Jahr 2026 etablierten Verfahren zur aufrechterhaltenen Konformität vollzieht das Bundesamt für Sicherheit in der Informationstechnik (BSI) einen tiefgreifenden Paradigmenwechsel: <strong>Weg von der isolierten Stichtags-Prüfung einzelner Artefakte, hin zur belastbaren Prozess- und Lebenszyklus-Zertifizierung.</strong></p>
+<p>Dieser technische Leitfaden analysiert die Architektur der BSI TR-03185, beleuchtet die unmittelbaren Synergien für Hersteller Digitaler Gesundheitsanwendungen (DiGA nach BSI TR-03161) sowie B2B-SaaS-Anbieter und liefert eine direkt umsetzbare 5-Schritte-Checkliste für Engineering- und Compliance-Verantwortliche.</p>
+<hr />
+<h2 id="1-der-paradigmenwechsel-von-der-produktversions-prufung-zum-prozess-audit-nach-bsi-tr-03185">1. Der Paradigmenwechsel: Von der Produktversions-Prüfung zum Prozess-Audit nach BSI TR-03185</h2>
+<p>In traditionellen Evaluierungsmodellen wurde ein Softwareprodukt in einer exakt eingefrorenen Version (<code>v1.4.0</code>) durch eine Prüfstelle begutachtet. Sobald am Folgetag eine kritische Schwachstelle in einer Drittbibliothek (z. B. OpenSSL, Log4j oder einem Container-Base-Image) bekannt wurde, entstand ein gefährlicher Zielkonflikt zwischen <strong>operativer IT-Sicherheit</strong> und <strong>formaler regulatorischer Konformität</strong>:</p>
+<ol>
+<li><strong>Verzögertes Patching aus Angst vor Zertifikatsverlust:</strong> Hersteller bündelten Sicherheitsupdates in großen Quartals-Releases, um Re-Audit-Aufwände zu minimieren – und ließen Systeme in der Zwischenzeit angreifbar.</li>
+<li><strong>Hohe Transaktionskosten:</strong> Jede Delta-Zertifizierung band interne Entwicklerkapazitäten, verzögerte Time-to-Market und verursachte erhebliche Prüfkosten.</li>
+<li><strong>Fehlende Abbildung agiler CI/CD-Pipelines:</strong> Statische Prüfberichte spiegelten nicht wider, wie sicher der eigentliche Build-, Test- und Deployment-Prozess im Tagesgeschäft arbeitet.</li>
+</ol>
+<h3 id="das-neue-bsi-verfahren-2026-und-das-pilotzertifikat-fur-dux-healthcare">Das neue BSI-Verfahren (2026) und das Pilotzertifikat für DUX Healthcare</h3>
+<p>Im Februar 2026 stellte das BSI das neue Verfahren vor, mit dem Hersteller Software auch nach laufenden Updates <strong>ohne erneute Einzelzertifizierung</strong> als konform ausweisen können – vorausgesetzt, die Entwicklung und Auslieferung unterliegen einem nach <strong>BSI TR-03185</strong> zertifizierten sicheren Software-Lebenszyklus (Secure SDLC). </p>
+<p>Einen zentralen Meilenstein markierte die Verleihung des <strong>ersten offiziellen BSI-Zertifikats nach diesem neuen Verfahren im September 2026 an DUX Healthcare</strong>. Dieser Präzedenzfall belegt in der Praxis, dass hochregulierte Softwarehersteller kontinuierliche Sicherheits- und Pflege-Updates veröffentlichen können, während das ursprüngliche Sicherheitszertifikat durchgängig erhalten bleibt. Geprüft wird dabei nicht mehr nur das kompilierte Endergebnis zu einem einzelnen Zeitpunkt, sondern die reproduzierbare Qualitätssicherung, die kryptographische Integrität der Build-Kette und die automatisierte Verifikation jeder Änderung über den gesamten Lebenszyklus hinweg.</p>
+<hr />
+<h2 id="2-konkrete-vorteile-fur-diga-hersteller-bsi-tr-03161-und-b2b-saas-anbieter">2. Konkrete Vorteile für DiGA-Hersteller (BSI TR-03161) und B2B-SaaS-Anbieter</h2>
+<p>Die Auswirkungen der TR-03185 reichen weit über den öffentlichen Sektor hinaus und treffen insbesondere zwei Marktsegmente mit unmittelbarem wirtschaftlichem Hebel:</p>
+<h3 id="a-hersteller-digitaler-gesundheitsanwendungen-diga-und-bsi-tr-03161">A. Hersteller Digitaler Gesundheitsanwendungen (DiGA) und BSI TR-03161</h3>
+<p>Seit die Nachweispflichten gemäß § 139e SGB V für Digitale Gesundheitsanwendungen und Digitale Pflegeanwendungen (DiPA) eng an die Prüfkriterien der <strong>BSI TR-03161</strong> (Teile 1 bis 3: Mobile Anwendungen, Web-Anwendungen und Hintergrundsysteme) gekoppelt sind, stehen MedTech- und Digital-Health-Unternehmen unter permanentem Nachweisdruck gegenüber dem BfArM und den Prüfstellen.</p>
+<ul>
+<li><strong>Nahtlose Update-Zyklen für Mobile- und Cloud-Backends:</strong> Betriebssystem-Updates unter iOS und Android oder API-Änderungen erzwingen häufige Anpassungen der Client-Apps. Mit einer TR-03185-Prozesszertifizierung lassen sich Hotfixes und Minor-Releases ausrollen, ohne dass der TR-03161-Konformitätsstatus bei jedem Patch in Frage steht.</li>
+<li><strong>Verkürzte Time-to-Remediation bei CVE-Meldungen:</strong> Wenn das Schwachstellenmanagement nach TR-03185 zertifiziert ist, wird das schnelle Einspielen von Sicherheitspatches vom regulatorischen Risiko zum dokumentierten Nachweis gelebter Sorgfaltspflicht.</li>
+<li><strong>Synergie mit ISO 13485 und IEC 62304:</strong> Viele Anforderungen der TR-03185 an Risikomanagement, Anforderungsverfolgbarkeit (Traceability) und Konfigurationsmanagement lassen sich direkt mit bestehenden Qualitätsmanagementsystemen für Medizinprodukte harmonisieren.</li>
+</ul>
+<h3 id="b-enterprise-b2b-saas-kritis-zulieferer-und-nis-2-regulierte-unternehmen">B. Enterprise B2B-SaaS, KRITIS-Zulieferer und NIS-2-regulierte Unternehmen</h3>
+<p>Unter dem Eindruck des NIS-2-Umsetzungsgesetzes und des europäischen Cyber Resilience Act (CRA) fordern Enterprise-Einkaufsabteilungen sowie Betreiber kritischer Infrastrukturen belastbare Nachweise für <strong>Supply-Chain-Security</strong>.</p>
+<ul>
+<li><strong>Wettbewerbsvorteil in B2B-Ausschreibungen (RfP):</strong> Ein nach BSI TR-03185 ausgerichteter und auditierbarer Entwicklungsprozess reduziert den Aufwand bei kundenseitigen Vendor-Security-Assessments drastisch.</li>
+<li><strong>Rechtssicherheit nach Stand der Technik:</strong> Die Einhaltung der TR-03185 dokumentiert gegenüber Aufsichtsbehörden und Cyber-Versicherern, dass Sicherheit nicht nachträglich („bolt-on“), sondern strukturell („Security by Design &amp; Default“) in der Engineering-Organisation verankert ist.</li>
+<li><strong>Drastische Senkung der Compliance-Gesamtkosten (TCO):</strong> Statt wiederkehrender externer Vollprüfungen bei jedem Release verlagert sich der Aufwand auf automatisierte Policy-Gates innerhalb der eigenen CI/CD-Umgebung.</li>
+</ul>
+<hr />
+<h2 id="3-die-kernarchitektur-der-bsi-tr-03185-im-uberblick">3. Die Kernarchitektur der BSI TR-03185 im Überblick</h2>
+<p>Die Technische Richtlinie gliedert die Anforderungen an einen sicheren Software-Lebenszyklus in ineinandergreifende Prozessdomänen, die alle Phasen von der Planung bis zur Außerbetriebnahme (Decommissioning) abdecken:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prozessdomäne nach TR-03185</th>
+<th style="text-align: left;">Technische Kernanforderung</th>
+<th style="text-align: left;">Typischer Audit-Nachweis (Evidenz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. Governance &amp; Rollenmodell</strong></td>
+<td style="text-align: left;">Klare Trennung von Entwicklung, Review und Freigabe; benannte Security Champions / Product Security Officer</td>
+<td style="text-align: left;">RACI-Matrix, Berechtigungskonzept im Git- &amp; CI-System</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. Bedrohungsmodellierung &amp; Design</strong></td>
+<td style="text-align: left;">Systematisches Threat Modeling (z. B. STRIDE) vor Architektur- und Feature-Änderungen</td>
+<td style="text-align: left;">Versionierte Threat-Models, Sicherheitsanforderungs-Katalog</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. Sichere Implementierung &amp; Build</strong></td>
+<td style="text-align: left;">Vier-Augen-Prinzip, signierte Commits, gehärtete Build-Runner, reproduzierbare Builds (SLSA)</td>
+<td style="text-align: left;">Branch-Protection-Regeln, Commit-Signatur-Protokolle</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4. Automatisierte Verifikation</strong></td>
+<td style="text-align: left;">Kombinierte SAST-, DAST-, SCA- und Secret-Scanning-Gates ohne unautorisierte Bypässe</td>
+<td style="text-align: left;">Unveränderliche CI-Logs, SARIF-Reports, Quality-Gate-Historie</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5. Abhängigkeit- &amp; SBOM-Pflege</strong></td>
+<td style="text-align: left;">Vollständige Software Bill of Materials (CycloneDX/SPDX) je Build; kontinuierliches VEX/CVE-Monitoring</td>
+<td style="text-align: left;">Automatisch signierte SBOM-Artefakte pro Release-Tag</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6. Änderungs- &amp; Patch-Klassifikation</strong></td>
+<td style="text-align: left;">Formale Einstufung jedes Updates (Security-Hotfix vs. Architektur-Änderung) bzgl. Zertifikatsrelevanz</td>
+<td style="text-align: left;">Standardisiertes Change-Impact-Assessment-Protokoll</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-technische-5-schritte-implementierungs-checkliste-fur-engineering-teams">4. Technische 5-Schritte-Implementierungs-Checkliste für Engineering-Teams</h2>
+<p>Um Ihre Entwicklungsorganisation gezielt auf die Anforderungen der BSI TR-03185 vorzubereiten und die Voraussetzung für zertifizierungserhaltende Updates zu schaffen, empfiehlt sich folgendes schrittweises Vorgehen:</p>
+<h3 id="schritt-1-formale-anderungs-klassifikation-change-impact-assessment-etablieren">Schritt 1: Formale Änderungs-Klassifikation (Change Impact Assessment) etablieren</h3>
+<p>Nicht jedes Software-Update hat denselben Einfluss auf die Sicherheitsarchitektur. Definieren Sie in Ihrer Release-Richtlinie drei verbindliche Änderungsklassen:
+- <strong>Klasse A (Reine Sicherheits- &amp; Dependency-Patches):</strong> Keine Änderung an Sicherheitsfunktionen (SFRs), Schnittstellen oder Datenflüssen; ausschließliche Behebung bekannter Schwachstellen oder Bugfixes.
+- <strong>Klasse B (Funktionale Erweiterungen innerhalb bestehender Sicherheitsgrenzen):</strong> Neue Geschäftslogik, die bestehende Authentifizierungs-, Autorisierungs- und Kryptographie-Module unverändert nutzt.
+- <strong>Klasse C (Architektur- oder kryptographierelevante Änderungen):</strong> Eingriffe in IAM-Flüsse, Verschlüsselungsmechanismen, Mandantentrennung oder externe Vertrauensgrenzen.</p>
+<p>Für Updates der Klassen A und B muss Ihr Prozess automatisiert nachweisen, dass sämtliche Sicherheits-Invaria­nten erhalten bleiben – genau hier greift das vereinfachte Fortführungsverfahren nach TR-03185.</p>
+<h3 id="schritt-2-cicd-pipeline-als-deterministische-nachweiskette-harten">Schritt 2: CI/CD-Pipeline als deterministische Nachweiskette härten</h3>
+<p>Ihre Build-Pipeline ist im Prozess-Audit das zentrale Prüfobjekt. Stellen Sie sicher:
+- <strong>Strikte Branch-Protection:</strong> Direkte Pushes auf <code>main</code>/<code>release</code> sind technisch gesperrt; jeder Merge erfordert mindestens ein unabhängiges Code-Review sowie kryptographisch signierte Commits (SSH/GPG).
+- <strong>Nicht-umgehbare Security-Gates:</strong> Integrieren Sie SAST (Static Application Security Testing), SCA (Software Composition Analysis), Container-Image-Scanning und Secret-Detection so, dass ein Build bei Befunden mit Schweregrad <em>High</em> oder <em>Critical</em> deterministisch abbricht.
+- <strong>Ephemere, isolierte Build-Umgebungen:</strong> Builds müssen auf kurzlebigen, gehärteten Runnern ohne unkontrollierten Netzwerkzugriff ausgeführt werden, um Build-Injection-Angriffe auszuschließen.</p>
+<h3 id="schritt-3-automatisierte-sbom-generierung-und-vex-gestutztes-schwachstellenmanagement">Schritt 3: Automatisierte SBOM-Generierung und VEX-gestütztes Schwachstellenmanagement</h3>
+<p>Jedes auslieferbare Release-Artefakt muss zwingend mit einer maschinenlesbaren <strong>Software Bill of Materials (SBOM)</strong> im Format <strong>CycloneDX</strong> oder <strong>SPDX</strong> verknüpft werden:
+- Erzeugen Sie die SBOM direkt im Build-Schritt aus den aufgelösten Lockfiles (<code>package-lock.json</code>, <code>poetry.lock</code>, <code>go.sum</code>, <code>Cargo.lock</code>, <code>pom.xml</code>).
+- Koppeln Sie die SBOM an ein automatisiertes Monitoring (z. B. Dependency-Track), das neu veröffentlichte CVEs sofort gegen produktive Release-Stände abgleicht.
+- Dokumentieren Sie nicht ausnutzbare Schwachstellen strukturiert über <strong>VEX (Vulnerability Exploitability eXchange)</strong> inklusive nachvollziehbarer technischer Begründung und definierter SLA-Fristen für die Behebung (z. B. kritische CVEs innerhalb von 72 Stunden).</p>
+<h3 id="schritt-4-automatisierte-regressions-und-sicherheits-testabdeckung-fur-sicherheitsfunktionen">Schritt 4: Automatisierte Regressions- und Sicherheits-Testabdeckung für Sicherheitsfunktionen</h3>
+<p>Damit ein Update ohne manuelle Nachprüfung durch eine Prüfstelle ausgerollt werden darf, muss die Unversehrtheit aller zertifizierungsrelevanten Sicherheitsfunktionen automatisiert verifiziert werden:
+- Pflegen Sie eine dedizierte <strong>Security-Regression-Testsuite</strong>, die Authentifizierung, Session-Handling, Zugriffskontrollen (RBAC/ABAC), Input-Validierung, TLS-Konfiguration und Audit-Logging bei jedem Release-Kandidaten prüft.
+- Verknüpfen Sie jeden Testfall über eindeutige IDs mit den korrespondierenden Anforderungen aus BSI TR-03185 bzw. BSI TR-03161 (bidirektionale Traceability-Matrix).</p>
+<h3 id="schritt-5-revisionssicheres-evidence-repository-audit-trail-automatisierung-aufbauen">Schritt 5: Revisionssicheres Evidence-Repository (Audit-Trail-Automatisierung) aufbauen</h3>
+<p>Im Auditfall zählt ausschließlich dokumentierte, fälschungssichere Evidenz. Konfigurieren Sie Ihre Pipeline so, dass für jedes veröffentlichte Release automatisch ein <strong>Release-Evidence-Bundle</strong> archiviert wird:
+- Commit-Hash, Versions-Tag und kryptographische Signatur (z. B. via Cosign / Sigstore).
+- Zugehöriges Change-Impact-Assessment und Freigabevermerk des Product Security Officers.
+- Vollständige Test- und Scan-Berichte (SAST, DAST, SCA, Security-Regression) sowie die erzeugte SBOM.</p>
+<hr />
+<h2 id="5-fazit-prozessreife-als-strategischer-beschleuniger">5. Fazit: Prozessreife als strategischer Beschleuniger</h2>
+<p>Das neue BSI-Verfahren auf Basis der <strong>TR-03185</strong> beendet den jahrelangen Stillstand zwischen agiler Softwareentwicklung und regulatorischer Zertifizierung. Wie das erste Zertifikat für DUX Healthcare im September 2026 eindrucksvoll gezeigt hat, belohnt das BSI Organisationen, die Sicherheit systematisch in ihren Entwicklungs- und Release-Prozess integrieren, mit echter operativer Geschwindigkeit: <strong>Schnelle Sicherheitsupdates bei vollem Erhalt der Zertifizierung.</strong></p>
+<p>Wer jetzt seine CI/CD-Governance, SBOM-Prozesse und Änderungs-Klassifikation nach den Vorgaben der TR-03185 strukturiert, senkt nicht nur seine Audit-Kosten erheblich, sondern schafft ein belastbares Fundament für TR-03161 (DiGA), NIS-2 und den kommenden Cyber Resilience Act.</p>
+<div class="cta-box">
+    <h3>Sofort einsetzbares Compliance-Paket: BSI-TR-03185-Audit-Readiness-Pack</h3>
+    <p>Sparen Sie Wochen an Konzeptionsarbeit: Unser praxiserprobtes <strong>BSI-TR-03185-Audit-Readiness-Pack</strong> enthält die vollständige <code>TR-03185-Prozess-Audit-Matrix.csv</code> (inkl. DiGA TR-03161 Mapping &amp; Prüfkriterien) sowie die direkt anpassbare Standard Operating Procedure <code>SOP-Sicherer-Release-Prozess-TR03185.md</code> für Ihr Engineering-Team.</p>
+    <div class="cta-links">
+        <a class="btn" href="products/BSI-TR-03185-Audit-Readiness-Pack.zip" data-product="BSI-TR-03185-Audit-Readiness-Pack.zip">BSI-TR-03185-Audit-Readiness-Pack herunterladen (Vorschau / Paket)</a>
+    </div>
+</div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &ndash; Freiberufliche technische &amp; schriftstellerische Fachpublikation (§ 18 EStG). Alle Inhalte dienen der technischen Information und stellen keine individuelle Rechtsberatung im Sinne des RDG dar.</div>
+        <details class="legal-modal">
+            <summary>Impressum (§ 5 DDG) &amp; Datenschutzerklärung (DSGVO) – Platzhalter / Vorschau-Angaben</summary>
+            <p><strong>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):</strong><br>
+            [Vorname Nachname / Freiberufliche technische Dokumentation &amp; Fachpublizistik nach § 18 EStG]<br>
+            [Straße Hausnummer, PLZ Ort, Deutschland]<br>
+            E-Mail: [kontakt@domain-eintragen.de] (Stealth-/Preview-Platzhalter vor Live-Schaltung kommerzieller Checkouts)</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider technisch notwendige Server-Logdaten (IP-Adresse, Zeitstempel, angeforderte Ressource) zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+</body>
+</html>
