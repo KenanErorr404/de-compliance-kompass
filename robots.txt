@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /products/
-Sitemap: https://de-compliance-kompass.github.io/de-compliance-kompass/sitemap.xml
+Sitemap: https://kenanerorr404.github.io/de-compliance-kompass/sitemap.xml
