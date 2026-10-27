@@ -77,8 +77,31 @@
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
+            margin-left: 1rem;
         }
         nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
         article {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -144,17 +167,6 @@
             font-size: 0.85rem;
             padding: 2rem 1.5rem 3rem 1.5rem;
         }
-        .legal-links {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            margin-top: 0.75rem;
-        }
-        .legal-links a {
-            color: var(--muted);
-            text-decoration: underline;
-            cursor: pointer;
-        }
         details.legal-modal {
             margin-top: 1rem;
             background: var(--surface);
@@ -171,19 +183,29 @@
 </head>
 <body>
     <div id="stealth-banner" class="stealth-banner">
-        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Diese Fachpublikation befindet sich im Vorab-Review. Digitale Checklisten-Pakete sind als lokale Preview-Downloads hinterlegt, bis die externen Checkout-Endpunkte freigeschaltet sind.
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
         <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
     </div>
     <header>
         <div class="header-inner">
             <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
-            <nav><a href="index.html">&larr; Alle Leitfäden &amp; Pakete</a></nav>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Gratis CSV-Leseprobe</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
         </div>
     </header>
     <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
         <article>
             <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
-                Fachpublikation (§ 18 EStG) &bull; Stand: 2026-10-27 08:42 UTC
+                Fachpublikation (§ 18 EStG) &bull; Stand: 2026-10-27 10:14 UTC
             </div>
             <h1 id="bsi-tr-02102-1-2026-01-ablaufdatum-2031-fur-rsa-ecdsa-der-post-quanten-migrationsleitfaden">BSI TR-02102-1 (2026-01): Ablaufdatum 2031 für RSA &amp; ECDSA – Der Post-Quanten-Migrationsleitfaden</h1>
 <p>Mit der im Februar 2026 vorgestellten Aktualisierung der Technischen Richtlinie <strong>BSI TR-02102 („Kryptographische Verfahren: Empfehlungen und Schlüssellängen“)</strong> hat das Bundesamt für Sicherheit in der Informationstechnik (BSI) eine Zäsur für die gesamte europäische IT- und Sicherheitsarchitektur markiert: Erstmals nennt das BSI ein konkretes <strong>Ablaufdatum für den alleinigen Einsatz klassischer asymmetrischer Verschlüsselungsverfahren</strong>. Ab Ende <strong>2031</strong> gelten klassische Public-Key-Verfahren wie RSA, Diffie-Hellman (DH) und elliptische Kurven (ECDH/ECDSA) zur Schlüsselaushandlung und Verschlüsselung ohne Post-Quanten-Absicherung nicht mehr als sicher im Sinne der Richtlinie; für rein klassische digitale Signaturen endet die Übergangsfrist im Jahr <strong>2035</strong>.</p>
@@ -272,10 +294,13 @@
 <li><strong>Phase 4 – Vollständige Abschaltung rein klassischer Public-Key-Verschlüsselung (bis Q4 2030 / 2031):</strong> Durchsetzung strenger Richtlinien, die Verbindungen ohne PQC-Hybridanteil ablehnen; lückenloser Audit-Nachweis für DSGVO und NIS-2.</li>
 </ol>
 <div class="cta-box">
-    <h3>Sofort einsetzbares Compliance-Paket: BSI-TR-02102-PQC-Migrations-Pack</h3>
-    <p>Starten Sie Ihre Post-Quanten-Migration strukturiert und prüfungssicher: Unser <strong>BSI-TR-02102-PQC-Migrations-Pack</strong> beinhaltet das direkt einsetzbare Krypto-Inventar-Template <code>Krypto-Inventar-PQC-2031.csv</code> (für TLS, SSH nach TR-02102-4 und IPsec/IKEv2 nach TR-02102-3) sowie den vollständigen Management-Leitfaden <code>PQC-Migrationsplan-2026-2031.md</code> für Art. 32 DSGVO &amp; NIS-2 Audits.</p>
+    <h3>Interaktives Tool &amp; Compliance-Paket: BSI-TR-02102-PQC-Migrations-Pack (€49)</h3>
+    <p>Berechnen Sie in 60 Sekunden Ihren individuellen Compliance-Gap-Score im <a href="pqc-nis2-rechner.html"><strong>interaktiven BSI TR-02102 &amp; NIS-2 Krypto-Risiko-Schnelltest 2026 &rarr;</strong></a></p>
+    <p>Starten Sie Ihre Post-Quanten-Migration strukturiert und prüfungssicher: Unser <strong>BSI-TR-02102-PQC-Migrations-Pack (€49)</strong> beinhaltet das direkt einsetzbare Krypto-Inventar-Template <code>Krypto-Inventar-PQC-2031.csv</code> (für TLS, SSH nach TR-02102-4 und IPsec/IKEv2 nach TR-02102-3) sowie den vollständigen Management-Leitfaden <code>PQC-Migrationsplan-2026-2031.md</code> für Art. 32 DSGVO &amp; NIS-2 Audits.</p>
     <div class="cta-links">
-        <a class="btn" href="products/BSI-TR-02102-PQC-Migrations-Pack.zip" data-product="BSI-TR-02102-PQC-Migrations-Pack.zip">BSI-TR-02102-PQC-Migrations-Pack herunterladen (Vorschau / Paket)</a>
+        <a class="btn" href="#checkout-tr02102-vorbereitung" data-product="BSI-TR-02102-PQC-Migrations-Pack.zip">Vollversion: BSI-TR-02102-PQC-Migrations-Pack kaufen (€49) &rarr;</a>
+        <a class="btn btn-secondary" href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>Kostenlose CSV-Leseprobe herunterladen (Auszug)</a>
+        <a class="btn btn-secondary" href="pqc-nis2-rechner.html">Zum interaktiven PQC-Risiko-Rechner</a>
     </div>
 </div>
         </article>

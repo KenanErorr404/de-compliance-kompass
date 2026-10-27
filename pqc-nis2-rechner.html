@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSI TR-02102 &amp; NIS-2 Krypto-Risiko-Schnelltest 2026 | DE-Compliance-Kompass</title>
+    <meta name="description" content="Interaktiver Schnelltest: Prüfen Sie in 60 Sekunden Ihre Post-Quanten-Compliance-Lücke (Ablaufdatum 2031 für RSA/ECDSA nach BSI TR-02102-1, Art. 32 DSGVO &amp; NIS-2).">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --danger: #dc2626;
+            --warning: #d97706;
+            --success: #16a34a;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.25rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+            margin-bottom: 1.75rem;
+        }
+        h1 { font-size: 1.85rem; margin-top: 0; line-height: 1.28; }
+        h2 { font-size: 1.3rem; margin-top: 1.5rem; }
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label.section-label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.55rem;
+            font-size: 1rem;
+        }
+        select {
+            width: 100%;
+            padding: 0.7rem 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.98rem;
+            background: #fff;
+            color: var(--text);
+        }
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.75rem;
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.75rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #f8fafc;
+            cursor: pointer;
+            font-size: 0.93rem;
+        }
+        .check-item:hover {
+            border-color: #93c5fd;
+            background: #eff6ff;
+        }
+        .check-item input {
+            margin-top: 0.25rem;
+            transform: scale(1.15);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.75rem 1.4rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background: var(--accent-hover); }
+        .btn-outline {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--accent) !important;
+            border: 1px solid var(--accent);
+            padding: 0.7rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .result-panel {
+            border-top: 2px solid var(--border);
+            margin-top: 2rem;
+            padding-top: 1.75rem;
+        }
+        .score-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            margin-bottom: 1.5rem;
+        }
+        .score-number {
+            font-size: 2.3rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .finding-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        .finding-list li {
+            padding: 0.85rem 1rem;
+            border-left: 4px solid var(--danger);
+            background: #f8fafc;
+            margin-bottom: 0.65rem;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.94rem;
+        }
+        .cta-offer {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #93c5fd;
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-top: 1.75rem;
+        }
+        .cta-offer h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 1.1rem;
+        }
+        footer {
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 1rem 1.5rem 3rem 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass</a>
+            <nav>
+                <a href="index.html">&larr; Startseite</a>
+                <a href="bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html">TR-02102 Leitfaden</a>
+                <a href="bsi-tr-03185-software-updates-ohne-rezertifizierung.html">TR-03185 Leitfaden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="card">
+            <span class="badge">Interaktives Audit-Tool (100% Client-Side &bull; Keine Datenübertragung)</span>
+            <h1>BSI TR-02102 &amp; NIS-2 Krypto-Risiko-Schnelltest 2026</h1>
+            <p style="color: var(--muted);">
+                Das BSI hat in der <strong>TR-02102-1 (2026)</strong> das Ablaufdatum für rein klassische asymmetrische Verschlüsselung (RSA, DH, ECDH) auf <strong>Ende 2031</strong> (Signaturen: <strong>2035</strong>) festgelegt. Wählen Sie Ihre eingesetzten Protokolle und Ihre Branche aus, um Ihren <strong>BSI-Compliance-Gap-Score</strong> sowie die konkreten Handlungsfristen nach Art. 32 DSGVO &amp; § 30 BSIG (NIS-2) sofort zu berechnen.
+            </p>
+
+            <form id="pqc-form" onsubmit="event.preventDefault(); calculateRisk();">
+                <div class="form-group">
+                    <label class="section-label" for="sector">1. Ihr Sektor &amp; Regulatorischer Rahmen</label>
+                    <select id="sector" onchange="calculateRisk()">
+                        <option value="nis2_kritis">KRITIS / NIS-2 Wichtige oder besonders wichtige Einrichtung (Energie, Finanzen, IT/Cloud, Industrie, Logistik)</option>
+                        <option value="health_diga">Gesundheitswesen / MedTech / DiGA-Hersteller (BSI TR-03161 &amp; Art. 9 DSGVO Gesundheitsdaten)</option>
+                        <option value="public_gov">Öffentlicher Sektor / Behörden-IT / GovTech-Zulieferer</option>
+                        <option value="b2b_enterprise">Allgemeiner Mittelstand / B2B-SaaS (Art. 32 DSGVO „Stand der Technik“)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="section-label" for="retention">2. Vertraulichkeits-Horizont Ihrer geschützten Daten (Harvest-Now-Decrypt-Later-Exposition)</label>
+                    <select id="retention" onchange="calculateRisk()">
+                        <option value="10plus">Über 5–10 Jahre (Gesundheitsakten, IP/Patente, Finanz-/Personaldaten, langfristige Verträge)</option>
+                        <option value="3to5">3 bis 5 Jahre (Standard-Geschäftskommunikation, Kundendaten, Backups)</option>
+                        <option value="under3">Unter 3 Jahre (Kurzlebige operative Telemetrie)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="section-label">3. Aktuell produktiv eingesetzte Kryptographie &amp; Netzwerkprotokolle (Mehrfachauswahl)</label>
+                    <div class="checkbox-grid">
+                        <label class="check-item">
+                            <input type="checkbox" id="proto_rsa" checked onchange="calculateRisk()">
+                            <span><strong>RSA-2048 / RSA-3072 / RSA-4096</strong><br><small style="color:var(--muted);">Zertifikate, Key-Wrapping, S/MIME, Legacy-TLS</small></span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" id="proto_ecdsa" checked onchange="calculateRisk()">
+                            <span><strong>Klassisches ECDH / ECDSA (P-256, Brainpool, X25519)</strong><br><small style="color:var(--muted);">Ohne PQC-Hybridanteil (ML-KEM / FrodoKEM)</small></span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" id="proto_tls" checked onchange="calculateRisk()">
+                            <span><strong>TLS 1.2 oder Standard-TLS 1.3</strong><br><small style="color:var(--muted);">Webserver, Load-Balancer, REST/gRPC-APIs (TR-02102-2)</small></span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" id="proto_ssh" checked onchange="calculateRisk()">
+                            <span><strong>OpenSSH (&lt; 9.9 oder Standard-Kex)</strong><br><small style="color:var(--muted);">Admin-Zugriff, CI/CD-Runner, Server-Management (TR-02102-4)</small></span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" id="proto_ipsec" checked onchange="calculateRisk()">
+                            <span><strong>IPsec / IKEv2 Site-to-Site VPNs</strong><br><small style="color:var(--muted);">Ohne RFC 9370 Multiple Key Exchanges (TR-02102-3)</small></span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" id="proto_sdlc" onchange="calculateRisk()">
+                            <span><strong>Regulierte Software-Releases ohne TR-03185</strong><br><small style="color:var(--muted);">Kein zertifizierter Secure-SDLC für laufende Updates</small></span>
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <div id="result-panel" class="result-panel">
+                <div id="score-box" class="score-box">
+                    <div>
+                        <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;" id="risk-label">Kritischer Handlungsbedarf (BSI-Frist 2031 &amp; Harvest-Now-Risiko)</div>
+                        <div style="font-size: 0.95rem; margin-top: 0.25rem;" id="risk-subtitle">Ihre aktuelle Architektur weist signifikante Lücken gegenüber BSI TR-02102-1 (2026) und § 30 BSIG auf.</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="score-number" id="score-value">84 / 100</div>
+                        <div style="font-size: 0.78rem; color: var(--muted);">BSI Compliance-Gap-Score</div>
+                    </div>
+                </div>
+
+                <h3>Ihre protokollspezifischen Audit-Befunde (2026–2031 / 2035):</h3>
+                <ul class="finding-list" id="finding-list"></ul>
+
+                <div class="cta-offer">
+                    <h3>Schließen Sie Ihre Audit-Lücke sofort mit dem fertigen Migrations-Paket</h3>
+                    <p style="margin-bottom: 0.5rem;">
+                        Statt wochenlanger Einzelrecherche erhalten Sie mit dem <strong>BSI-TR-02102-PQC-Migrations-Pack (€49)</strong> das schlüsselfertige Krypto-Inventar-Template (<code>Krypto-Inventar-PQC-2031.csv</code> für TLS, SSH &amp; IPsec/IKEv2) sowie den 4-Phasen-Management-Migrationsplan (<code>PQC-Migrationsplan-2026-2031.md</code>) inklusive Beschlussvorlage für Geschäftsleitung, DSB und NIS-2-Prüfer.
+                    </p>
+                    <div class="cta-actions">
+                        <a class="btn" id="buy-pqc-btn" href="#checkout-tr02102-vorbereitung">Jetzt BSI-TR-02102-PQC-Migrations-Pack sichern (€49) &rarr;</a>
+                        <a class="btn-outline" href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>Kostenlose CSV-Leseprobe herunterladen (Auszug)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Freiberufliche technische Dokumentation (§ 18 EStG) &bull; Alle Berechnungen erfolgen lokal in Ihrem Browser.</div>
+    </footer>
+
+    <script>
+        function calculateRisk() {
+            const sector = document.getElementById('sector').value;
+            const retention = document.getElementById('retention').value;
+            const rsa = document.getElementById('proto_rsa').checked;
+            const ecdsa = document.getElementById('proto_ecdsa').checked;
+            const tls = document.getElementById('proto_tls').checked;
+            const ssh = document.getElementById('proto_ssh').checked;
+            const ipsec = document.getElementById('proto_ipsec').checked;
+            const sdlc = document.getElementById('proto_sdlc').checked;
+
+            let score = 15;
+            const findings = [];
+
+            if (sector === 'nis2_kritis') {
+                score += 20;
+                findings.push('<strong>§ 30 Abs. 2 Nr. 8 BSIG (NIS-2 Geschäftsleiterpflicht):</strong> Als regulierte Einrichtung müssen Sie ein dokumentiertes Kryptographie-Konzept inkl. Krypto-Agilität und PQC-Migrationspfad vorweisen.');
+            } else if (sector === 'health_diga') {
+                score += 22;
+                findings.push('<strong>Art. 9 &amp; Art. 32 DSGVO / BSI TR-03161 (Gesundheitswesen):</strong> Gesundheitsdaten unterliegen höchstem Schutzbedarf. Aufgezeichnete TLS-/VPN-Datenströme („Harvest Now, Decrypt Later“) verletzen ohne PQC-Fahrplan den Stand der Technik.');
+            } else if (sector === 'public_gov') {
+                score += 18;
+                findings.push('<strong>BSI-Mindeststandards &amp; TR-02102 Verbindlichkeit:</strong> Für Behörden und öffentliche Auftragnehmer sind die Fristen der BSI TR-02102-1 (2031/2035) unmittelbar vergabe- und prüfungsrelevant.');
+            } else {
+                score += 12;
+                findings.push('<strong>Art. 32 DSGVO („Stand der Technik“):</strong> Die Datenschutzaufsichtsbehörden ziehen die BSI TR-02102 als Referenzmaßstab für angemessene Verschlüsselung heran.');
+            }
+
+            if (retention === '10plus') {
+                score += 20;
+                findings.push('<strong>Akutes „Harvest Now, Decrypt Later“-Risiko (2026!):</strong> Da Ihre Daten über das Jahr 2031 hinaus vertraulich bleiben müssen, sind heute abgefangene klassische Ciphertexte akut gefährdet.');
+            } else if (retention === '3to5') {
+                score += 12;
+            }
+
+            if (rsa) {
+                score += 12;
+                findings.push('<strong>RSA-Ablaufdatum Ende 2031 (BSI TR-02102-1):</strong> Rein klassische RSA-Schlüsselaushandlung und RSA-OAEP Key-Wrapping verlieren Ende 2031 ihre BSI-Eignung; RSA-Signaturen laufen bis 2035 aus.');
+            }
+            if (ecdsa) {
+                score += 11;
+                findings.push('<strong>ECDH / ECDSA ohne Hybrid-KEM:</strong> Klassische elliptische Kurven (secp256r1, Brainpool, X25519) müssen bis 2031 zwingend im Hybrid-Modus mit PQC (z. B. ML-KEM-768 / FrodoKEM) kombiniert werden.');
+            }
+            if (tls) {
+                score += 9;
+                findings.push('<strong>TLS 1.2 / 1.3 Handlungsbedarf (BSI TR-02102-2):</strong> Ablösung von TLS 1.2 und Aktivierung hybrider Named Groups (<code>SecP256r1MLKEM768</code> / <code>X25519MLKEM768</code>) auf Ingress-Proxies erforderlich.');
+            }
+            if (ssh) {
+                score += 7;
+                findings.push('<strong>SSH-Härtung nach BSI TR-02102-4 (Quick-Win 2026/2027):</strong> Umstellung auf OpenSSH &ge; 9.9 mit hybridem Schlüsselaustausch <code>mlkem768x25519-sha256</code> dringend empfohlen.');
+            }
+            if (ipsec) {
+                score += 9;
+                findings.push('<strong>IPsec / IKEv2 VPN-Migration (BSI TR-02102-3):</strong> Site-to-Site-VPNs benötigen ein Upgrade auf RFC 9370 (Multiple Key Exchanges) + IKE Fragmentation (RFC 7383) mit ML-KEM oder Classic McEliece.');
+            }
+            if (sdlc) {
+                score += 6;
+                findings.push('<strong>Prozess-Zertifizierung nach BSI TR-03185 prüfen:</strong> Nutzen Sie das neue BSI-Verfahren (2026), um Krypto- und Security-Patches ohne Verlust bestehender Zertifikate auszurollen.');
+            }
+
+            if (score > 98) score = 98;
+
+            const scoreBox = document.getElementById('score-box');
+            const scoreValue = document.getElementById('score-value');
+            const riskLabel = document.getElementById('risk-label');
+            const riskSubtitle = document.getElementById('risk-subtitle');
+
+            scoreValue.textContent = score + ' / 100';
+
+            if (score >= 70) {
+                scoreBox.style.background = '#fef2f2';
+                scoreBox.style.borderColor = '#fecaca';
+                scoreValue.style.color = '#dc2626';
+                riskLabel.style.color = '#991b1b';
+                riskLabel.textContent = 'HOHER / KRITISCHER HANDLUNGSBEDARF (BSI-FRIST 2031 & NIS-2)';
+                riskSubtitle.textContent = 'Sofortiger Aufbau eines Krypto-Inventars (CBOM) und einer hybriden PQC-Migrations-Roadmap erforderlich.';
+            } else if (score >= 45) {
+                scoreBox.style.background = '#fffbeb';
+                scoreBox.style.borderColor = '#fde68a';
+                scoreValue.style.color = '#d97706';
+                riskLabel.style.color = '#92400e';
+                riskLabel.textContent = 'MITTLERER HANDLUNGSBEDARF (MIGRATIONSPLANUNG 2026/2027)';
+                riskSubtitle.textContent = 'Planen Sie Krypto-Agilität und hybride TLS/SSH-Pilotierungen rechtzeitig vor den Einkaufszyklen.';
+            } else {
+                scoreBox.style.background = '#f0fdf4';
+                scoreBox.style.borderColor = '#bbf7d0';
+                scoreValue.style.color = '#16a34a';
+                riskLabel.style.color = '#166534';
+                riskLabel.textContent = 'MODERATES RISIKO (DOKUMENTATIONSPFLICHT PRÜFEN)';
+                riskSubtitle.textContent = 'Dokumentieren Sie Ihr Krypto-Inventar dennoch revisionssicher für Art. 32 DSGVO Audits.';
+            }
+
+            const listEl = document.getElementById('finding-list');
+            listEl.innerHTML = findings.map(f => '<li>' + f + '</li>').join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateRisk);
+    </script>
+</body>
+</html>

@@ -77,8 +77,31 @@
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
+            margin-left: 1rem;
         }
         nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
         article {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -144,17 +167,6 @@
             font-size: 0.85rem;
             padding: 2rem 1.5rem 3rem 1.5rem;
         }
-        .legal-links {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            margin-top: 0.75rem;
-        }
-        .legal-links a {
-            color: var(--muted);
-            text-decoration: underline;
-            cursor: pointer;
-        }
         details.legal-modal {
             margin-top: 1rem;
             background: var(--surface);
@@ -171,19 +183,29 @@
 </head>
 <body>
     <div id="stealth-banner" class="stealth-banner">
-        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Diese Fachpublikation befindet sich im Vorab-Review. Digitale Checklisten-Pakete sind als lokale Preview-Downloads hinterlegt, bis die externen Checkout-Endpunkte freigeschaltet sind.
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
         <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
     </div>
     <header>
         <div class="header-inner">
             <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
-            <nav><a href="index.html">&larr; Alle Leitfäden &amp; Pakete</a></nav>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Gratis CSV-Leseprobe</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
         </div>
     </header>
     <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
         <article>
             <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
-                Fachpublikation (§ 18 EStG) &bull; Stand: 2026-10-27 08:42 UTC
+                Fachpublikation (§ 18 EStG) &bull; Stand: 2026-10-27 10:14 UTC
             </div>
             <h1 id="bsi-tr-03185-leitfaden-2026-software-updates-ohne-re-zertifizierungsfalle-ausrollen">BSI TR-03185 Leitfaden (2026): Software-Updates ohne Re-Zertifizierungsfalle ausrollen</h1>
 <p>Die Softwareentwicklung in regulierten Branchen stand jahrelang vor einem strukturellen Dilemma: Während moderne DevSecOps-Teams Sicherheits-Patches, Dependency-Updates und Funktions-Releases im Wochen- oder Tagesrhythmus ausrollen müssen, basierten klassische Prüf- und Zertifizierungsverfahren auf einer statischen <strong>Produktversions-Prüfung</strong>. Jede relevante Code-Änderung drohte den Konformitätsstatus zu gefährden oder kostspielige Nachprüfungen auszulösen. Mit der Technischen Richtlinie <strong>BSI TR-03185 („Sicherer Software-Lebenszyklus“)</strong> und dem im Jahr 2026 etablierten Verfahren zur aufrechterhaltenen Konformität vollzieht das Bundesamt für Sicherheit in der Informationstechnik (BSI) einen tiefgreifenden Paradigmenwechsel: <strong>Weg von der isolierten Stichtags-Prüfung einzelner Artefakte, hin zur belastbaren Prozess- und Lebenszyklus-Zertifizierung.</strong></p>
@@ -293,10 +315,13 @@
 <p>Das neue BSI-Verfahren auf Basis der <strong>TR-03185</strong> beendet den jahrelangen Stillstand zwischen agiler Softwareentwicklung und regulatorischer Zertifizierung. Wie das erste Zertifikat für DUX Healthcare im September 2026 eindrucksvoll gezeigt hat, belohnt das BSI Organisationen, die Sicherheit systematisch in ihren Entwicklungs- und Release-Prozess integrieren, mit echter operativer Geschwindigkeit: <strong>Schnelle Sicherheitsupdates bei vollem Erhalt der Zertifizierung.</strong></p>
 <p>Wer jetzt seine CI/CD-Governance, SBOM-Prozesse und Änderungs-Klassifikation nach den Vorgaben der TR-03185 strukturiert, senkt nicht nur seine Audit-Kosten erheblich, sondern schafft ein belastbares Fundament für TR-03161 (DiGA), NIS-2 und den kommenden Cyber Resilience Act.</p>
 <div class="cta-box">
-    <h3>Sofort einsetzbares Compliance-Paket: BSI-TR-03185-Audit-Readiness-Pack</h3>
-    <p>Sparen Sie Wochen an Konzeptionsarbeit: Unser praxiserprobtes <strong>BSI-TR-03185-Audit-Readiness-Pack</strong> enthält die vollständige <code>TR-03185-Prozess-Audit-Matrix.csv</code> (inkl. DiGA TR-03161 Mapping &amp; Prüfkriterien) sowie die direkt anpassbare Standard Operating Procedure <code>SOP-Sicherer-Release-Prozess-TR03185.md</code> für Ihr Engineering-Team.</p>
+    <h3>Interaktives Tool &amp; Compliance-Paket: BSI-TR-03185-Audit-Readiness-Pack (€49)</h3>
+    <p>Prüfen Sie vorab Ihre kryptographischen &amp; NIS-2-Abhängigkeiten mit unserem kostenlosen <a href="pqc-nis2-rechner.html"><strong>BSI TR-02102 &amp; NIS-2 Krypto-Risiko-Schnelltest 2026 &rarr;</strong></a></p>
+    <p>Sparen Sie Wochen an Konzeptionsarbeit: Unser praxiserprobtes <strong>BSI-TR-03185-Audit-Readiness-Pack (€49)</strong> enthält die vollständige <code>TR-03185-Prozess-Audit-Matrix.csv</code> (inkl. DiGA TR-03161 Mapping &amp; Prüfkriterien) sowie die direkt anpassbare Standard Operating Procedure <code>SOP-Sicherer-Release-Prozess-TR03185.md</code> für Ihr Engineering-Team.</p>
     <div class="cta-links">
-        <a class="btn" href="products/BSI-TR-03185-Audit-Readiness-Pack.zip" data-product="BSI-TR-03185-Audit-Readiness-Pack.zip">BSI-TR-03185-Audit-Readiness-Pack herunterladen (Vorschau / Paket)</a>
+        <a class="btn" href="#checkout-tr03185-vorbereitung" data-product="BSI-TR-03185-Audit-Readiness-Pack.zip">Vollversion: BSI-TR-03185-Audit-Readiness-Pack kaufen (€49) &rarr;</a>
+        <a class="btn btn-secondary" href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>Kostenlose CSV-Leseprobe herunterladen (Auszug)</a>
+        <a class="btn btn-secondary" href="pqc-nis2-rechner.html">Zum interaktiven BSI-Risiko-Rechner</a>
     </div>
 </div>
         </article>

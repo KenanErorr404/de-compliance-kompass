@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DE-Compliance-Kompass | BSI Technische Richtlinien, PQC &amp; Secure SDLC</title>
-    <meta name="description" content="Praxisleitfäden, Audit-Matrizen und SOP-Vorlagen zu BSI TR-03185 (Sicherer Software-Lebenszyklus), BSI TR-02102 (Post-Quanten-Kryptographie 2031), NIS-2 und DSGVO.">
+    <meta name="description" content="Praxisleitfäden, interaktiver PQC-Risiko-Rechner, Audit-Matrizen und SOP-Vorlagen zu BSI TR-03185 (Sicherer Software-Lebenszyklus), BSI TR-02102 (Post-Quanten-Kryptographie 2031), NIS-2 und DSGVO.">
     <style>
         :root {
             --bg: #f8fafc;
@@ -49,6 +49,45 @@
             max-width: 880px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
+        }
+        .hero-tool {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 2rem 2.25rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+        }
+        .hero-tool h2 {
+            margin-top: 0.35rem;
+            margin-bottom: 0.6rem;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 1.25rem;
+        }
+        .btn-hero {
+            background: #3b82f6;
+            color: #ffffff !important;
+            padding: 0.7rem 1.35rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.96rem;
+        }
+        .btn-hero-secondary {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff !important;
+            padding: 0.7rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
         .card {
             background: var(--surface);
@@ -102,22 +141,35 @@
 </head>
 <body>
     <div id="stealth-banner" class="stealth-banner">
-        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Fachportal &amp; B2B-Compliance-Vorlagen im Preview-Modus.
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Fachportal, interaktiver PQC-Rechner &amp; kostenlose CSV-Leseprobe sind live.
         <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
     </div>
     <main class="container">
         <h1>DE-Compliance-Kompass</h1>
         <p style="color: var(--muted); font-size: 1.05rem;">Technische Leitfäden, Audit-Matrizen und Implementierungsvorlagen für BSI Technische Richtlinien, NIS-2 und DSGVO-konforme IT-Architekturen.</p>
+
+        <div class="hero-tool">
+            <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: #93c5fd; font-weight: 700;">Neu &bull; Kostenloses Interaktives Audit-Tool</div>
+            <h2>BSI TR-02102 &amp; NIS-2 Krypto-Risiko-Schnelltest 2026</h2>
+            <p style="margin: 0; color: #e2e8f0; font-size: 0.96rem;">
+                Prüfen Sie in 60 Sekunden Ihre Post-Quanten-Compliance-Lücke zum BSI-Ablaufdatum 2031 (RSA, ECDH, TLS, SSH, IPsec/IKEv2) und laden Sie unsere kostenlose CSV-Audit-Leseprobe herunter.
+            </p>
+            <div class="hero-actions">
+                <a class="btn-hero" href="pqc-nis2-rechner.html">⚡ Jetzt Krypto-Risiko-Schnelltest starten &rarr;</a>
+                <a class="btn-hero-secondary" href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Kostenlose CSV-Audit-Leseprobe (.csv)</a>
+            </div>
+        </div>
+
         <div class="card">
-            <h2 style="margin-top: 0;">Aktuelle Fachleitfäden &amp; Compliance-Pakete</h2>
+            <h2 style="margin-top: 0;">Aktuelle Fachleitfäden &amp; B2B-Compliance-Pakete</h2>
             <ul class="doc-list">
-<li><a href="bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html">BSI TR-02102-1 (2026-01): Ablaufdatum 2031 für RSA &amp; ECDSA – Der Post-Quanten-Migrationsleitfaden</a><div class="desc">Mit der im Februar 2026 vorgestellten Aktualisierung der Technischen Richtlinie BSI TR-02102 („Kryptographische Verfahren: Empfehlungen und Schlüssellängen“) </div><div class="meta">Veröffentlicht / Aktualisiert: 2026-10-27 08:42 UTC</div></li>
-<li><a href="bsi-tr-03185-software-updates-ohne-rezertifizierung.html">BSI TR-03185 Leitfaden (2026): Software-Updates ohne Re-Zertifizierungsfalle ausrollen</a><div class="desc">Die Softwareentwicklung in regulierten Branchen stand jahrelang vor einem strukturellen Dilemma: Während moderne DevSecOps-Teams Sicherheits-Patches, Dependen</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-10-27 08:42 UTC</div></li>
+<li><a href="bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html">BSI TR-02102-1 (2026-01): Ablaufdatum 2031 für RSA &amp; ECDSA – Der Post-Quanten-Migrationsleitfaden</a><div class="desc">Mit der im Februar 2026 vorgestellten Aktualisierung der Technischen Richtlinie BSI TR-02102 („Kryptographische Verfahren: Empfehlungen und Schlüssellängen“) </div><div class="meta">Veröffentlicht / Aktualisiert: 2026-10-27 10:14 UTC</div></li>
+<li><a href="bsi-tr-03185-software-updates-ohne-rezertifizierung.html">BSI TR-03185 Leitfaden (2026): Software-Updates ohne Re-Zertifizierungsfalle ausrollen</a><div class="desc">Die Softwareentwicklung in regulierten Branchen stand jahrelang vor einem strukturellen Dilemma: Während moderne DevSecOps-Teams Sicherheits-Patches, Dependen</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-10-27 10:14 UTC</div></li>
 </ul>
         </div>
     </main>
     <footer>
-        <div>&copy; 2026 DE-Compliance-Kompass &bull; Freiberufliche technische Dokumentation (§ 18 EStG) &bull; Zuletzt aktualisiert: 2026-10-27 10:07 UTC</div>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Freiberufliche technische Dokumentation (§ 18 EStG) &bull; Zuletzt aktualisiert: 2026-10-27 10:14 UTC</div>
         <details class="legal-modal">
             <summary>Impressum (§ 5 DDG) &amp; Datenschutzerklärung (DSGVO) – Platzhalter / Vorschau-Angaben</summary>
             <p><strong>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):</strong><br>
