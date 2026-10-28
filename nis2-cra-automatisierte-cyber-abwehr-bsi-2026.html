@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIS-2 &amp; Cyber Resilience Act (CRA) 2026: Automatisierte Compliance-Gates &amp; Krypto-Inventarisierung in CI/CD-Pipelines | DE-Compliance-Kompass</title>
+    <meta name="description" content="Auf dem europäischen Cyber Security Directors’ Meeting (CSDM) im Rahmen der Munich Cyber Security Conference (BSI-Meldung vom 13. Februar 2026 – „Steigender B">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Gratis CSV-Leseprobe</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation (§ 18 EStG) &bull; Stand: 2026-10-28 09:53 UTC
+            </div>
+            <h1 id="nis-2-cyber-resilience-act-cra-2026-automatisierte-compliance-gates-krypto-inventarisierung-in-cicd-pipelines">NIS-2 &amp; Cyber Resilience Act (CRA) 2026: Automatisierte Compliance-Gates &amp; Krypto-Inventarisierung in CI/CD-Pipelines</h1>
+<p>Auf dem europäischen <strong>Cyber Security Directors’ Meeting (CSDM)</strong> im Rahmen der Munich Cyber Security Conference (BSI-Meldung vom 13. Februar 2026 – <em>„Steigender Bedarf nach automatisierter Verteidigung“</em>) haben die Spitzen der europäischen Cybersicherheitsbehörden eine klare strategische Leitlinie für das Jahr 2026 formuliert: Die gleichzeitige Umsetzung von <strong>NIS-2 (§ 30 BSIG)</strong> und dem europäischen <strong>Cyber Resilience Act (CRA)</strong> lässt sich in modernen IT- und Software-Architekturen nicht mehr über manuelle Punkt-Audits oder statische Papier-Checklisten bewältigen. Gefordert sind <strong>automatisierte Detektions-, Verifikations- und Compliance-Gates direkt im Entwicklungs- und Betriebszyklus (DevSecOps)</strong>.</p>
+<p>Für CISOs, Plattform-Architekten, DiGA-/MedTech-Hersteller und B2B-SaaS-Unternehmen bedeutet dies: Sowohl die <strong>kryptographische Bestandsaufnahme (CBOM nach BSI TR-02102-1)</strong> als auch die <strong>zertifizierungserhaltende Update-Freigabe (BSI TR-03185 &amp; TR-03183 SBOM)</strong> müssen als deterministische CI/CD-Pipelines implementiert werden.</p>
+<hr />
+<h2 id="1-das-zusammenspiel-von-nis-2-30-bsig-cra-und-bsi-technischen-richtlinien">1. Das Zusammenspiel von NIS-2 (§ 30 BSIG), CRA und BSI Technischen Richtlinien</h2>
+<p>Während <strong>NIS-2</strong> die Betreiberpflichten (Risikomanagement, Kryptographie-Konzepte, Lieferkettensicherheit und Geschäftsleiterhaftung nach § 38 BSIG) regelt, nimmt der <strong>Cyber Resilience Act (CRA)</strong> – bei dem das BSI den Vorsitz der europäischen Marktüberwachungsgruppe <em>AdCo CRA</em> übernommen hat – alle Hersteller von Produkten mit digitalen Elementen in die Pflicht:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Regulatorische Säule</th>
+<th style="text-align: left;">Kernforderung ab 2026</th>
+<th style="text-align: left;">Technische Automatisierung in CI/CD (BSI-Referenz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>NIS-2 (§ 30 Abs. 2 Nr. 8 BSIG)</strong></td>
+<td style="text-align: left;">Dokumentiertes Konzept für Kryptographie, Schlüsselmanagement &amp; Krypto-Agilität.</td>
+<td style="text-align: left;">Automatischer Lauf eines <strong>CBOM-Scanners (<code>bsi_pqc_check.py</code>)</strong> gegen SSH-, TLS- und X.509-Konfigurationen zur Einhaltung der <strong>BSI-Frist 2031 (TR-02102-1)</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cyber Resilience Act (CRA Art. 13)</strong></td>
+<td style="text-align: left;"><em>Secure by Default</em>, kostenfreie Sicherheitsupdates über den gesamten Supportzeitraum &amp; maschinenlesbare SBOM.</td>
+<td style="text-align: left;">Automatisierte <strong>CycloneDX SBOM/VEX-Erzeugung (BSI TR-03183-2)</strong> bei jedem Tag/Release ohne manuelle Nacharbeit.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>BSI TR-03185 (Secure SDLC)</strong></td>
+<td style="text-align: left;">Ausrollen von Security- und Krypto-Patches ohne Verlust bestehender Zertifikate oder DiGA-Zulassungen.</td>
+<td style="text-align: left;">Formale <strong>Update-Klassifizierungsmatrix (Klasse A/B/C)</strong> &amp; kryptographisch signierte Release-Evidence-Bundles.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-automatisierte-krypto-inventarisierung-cbom-per-pipx-oder-github-action">2. Automatisierte Krypto-Inventarisierung (CBOM) per <code>pipx</code> oder GitHub Action</h2>
+<p>Um den vom BSI geforderten Übergang zu automatisierter Verteidigung und Compliance-Prüfung ohne Agenten-Overhead umzusetzen, lässt sich unser Open-Source-Scanner <strong><code>bsi-tr02102-pqc-audit-cli</code> (v1.3.0)</strong> direkt als Python-Package oder als Composite GitHub Action in jede Pipeline integrieren:</p>
+<pre><code class="language-bash"># 1. Sofort-Ausführung in jeder Linux-CI/CD-Umgebung via pipx:
+pipx run git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git
+
+# 2. Oder als fest installiertes CLI-Kommando mit JSON-CBOM &amp; Executive HTML-Report:
+pip install git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git
+bsi-pqc-check --json-out cbom_findings.json --html-out bsi-pqc-audit-report.html
+</code></pre>
+<p>Der Scanner prüft vollautomatisch:
+1. <strong>SSH-Daemons &amp; Host-Keys (<code>BSI TR-02102-4</code>):</strong> Erkennung abgekündigter <code>RSA-2048</code>-Schlüssel und Prüfung auf hybride Post-Quanten-Schlüsselaustauschverfahren (<code>mlkem768x25519-sha256</code> / <code>sntrup761x25519</code>).
+2. <strong>OpenSSL 3.5+ &amp; TLS 1.3 Policies (<code>BSI TR-02102-2</code>):</strong> Verifikation von <code>MinProtocol = TLSv1.3</code>, <code>SECLEVEL&gt;=2</code> und hybriden ML-KEM-Gruppen (<code>X25519MLKEM768</code>, <code>SecP256r1MLKEM768</code>).
+3. <strong>X.509-Zertifikatsbestände (<code>BSI TR-02102-1</code>):</strong> Identifikation klassischer RSA-/ECDSA-Zertifikate, die vor dem BSI-Ablaufdatum <strong>Ende 2031</strong> (bzw. 2035 für Signaturen) migriert werden müssen.</p>
+<blockquote>
+<p><strong>⚡ Interaktiver 60-Sekunden-Schnelltest im Browser:</strong>
+Berechnen Sie Ihren aktuellen NIS-2- und PQC-Compliance-Gap-Score ohne Installation direkt in unserem <strong><a href="pqc-nis2-rechner.html">BSI TR-02102 &amp; NIS-2 Krypto-Risiko-Schnelltest</a></strong> und laden Sie die kostenlose CSV-Audit-Leseprobe herunter.</p>
+</blockquote>
+<hr />
+<h2 id="3-warum-automatisierte-release-gates-die-re-zertifizierungsfalle-unter-cra-diga-verhindern">3. Warum automatisierte Release-Gates die Re-Zertifizierungsfalle unter CRA &amp; DiGA verhindern</h2>
+<p>Sobald automatisierte Scanner eine verwundbare Bibliothek (CVE) oder eine veraltete TLS-/SSH-Standardkonfiguration melden, muss das Engineering-Team kurzfristig patchen. Ohne einen nach <strong>BSI TR-03185</strong> strukturierten Prozess führt jeder Sicherheits-Patch in regulierten Branchen (KRITIS, MedTech/DiGA nach TR-03161, Behörden-IT) zu der Frage, ob eine formale <strong>Re-Zertifizierung</strong> erforderlich ist.</p>
+<p>Durch ein automatisiertes <strong>TR-03185 Release-Gate</strong> in GitHub Actions oder GitLab CI wird bei jedem Build automatisch ein revisionssicheres <strong>Release-Evidence-Bundle</strong> erzeugt, das gegenüber Prüfern belegt:
+* Das Update fällt unter <strong>Änderungsklasse A (Security-/Dependency-/Krypto-Config-Patch)</strong> oder <strong>Klasse B (Funktionales Minor-Release innerhalb bestehender Trust-Boundaries)</strong>.
+* Alle Sicherheitsfunktionen (SFRs) haben die automatisierte Regression-Testsuite zu 100 % bestanden.
+* Die aktualisierte <strong>SBOM (BSI TR-03183-2)</strong> und der <strong>CBOM-Report (<code>cbom_findings.json</code>)</strong> sind kryptographisch per SHA-256-Manifest signiert.</p>
+<hr />
+<div class="cta-box">
+    <h3>📦 Schlüsselfertige Enterprise Compliance-Toolkits (Excel .xlsx Workbooks, Server-Configs &amp; CI/CD-Pipelines)</h3>
+    <p>Für Teams, die ihre NIS-2-, CRA- und BSI-Nachweise sofort prüfungsfertig im ISMS und in ihren GitLab-/GitHub-Pipelines verankern wollen, stehen unsere zwei aktualisierten Enterprise-Pakete bereit:</p>
+    <ul>
+        <li><strong>BSI TR-02102 PQC &amp; NIS-2 Enterprise-Migrations-Toolkit (€49):</strong> Enthält das 3-Tab Excel-Workbook <code>BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx</code> (Live-KPI-Formeln + 45-Zeilen CBOM-Inventar + § 38 BSIG Sign-Off-Log), produktionsreife Drop-in Configs für <strong>OpenSSH 9.9+</strong>, <strong>OpenSSL 3.5+</strong> und <strong>Nginx TLS 1.3</strong>, fertige GitLab/GitHub CI-CD Workflows sowie die druckbare Geschäftsleitungs-Beschlussvorlage (<code>Management-Vorlage-Haftungsfreistellung-BSIG38.html</code>).</li>
+        <li><strong>BSI TR-03185 &amp; DiGA (TR-03161) Audit-Readiness-Toolkit (€49):</strong> Enthält das 3-Tab Excel-Workbook <code>BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx</code> (automatisches Readiness-Scoring, Patch-Klassifizierungsmatrix Klasse A/B/C &amp; BfArM DiGA Mapping), das automatisierte Release-Gate (<code>ci-cd/tr03185-release-gate.yml</code>) sowie das druckbare Prüf- und Freigabeprotokoll (<code>Checkliste-Update-Ohne-Rezertifizierung.html</code>).</li>
+    </ul>
+    <div class="cta-links">
+        <a class="btn" href="https://kenanghalioun.gumroad.com/l/wcqysh">🔐 BSI TR-02102 PQC-Migrations-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn btn-secondary" href="https://kenanghalioun.gumroad.com/l/juznqz">🛡️ BSI TR-03185 Audit-Readiness-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn" style="background: #0f766e;" href="pqc-nis2-rechner.html">⚡ Kostenloser PQC- &amp; NIS-2-Rechner</a>
+    </div>
+</div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community- &amp; Forschungsprojekt (MIT-Lizenz). Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <details class="legal-modal">
+            <summary>Projekt-Hinweis, Open-Source-Lizenz &amp; Datenschutz (DSGVO)</summary>
+            <p><strong>Nicht-kommerzielles Open-Source- &amp; Fachinformationsprojekt:</strong><br>
+            Dieses Portal wird als offenes technisches Dokumentations- und Open-Source-Projekt (<a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">GitHub: KenanErorr404/bsi-tr02102-pqc-audit-cli</a>) bereitgestellt. Kontakt, Bug-Reports &amp; Pull-Requests über den <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/issues" target="_blank" rel="noopener">GitHub Issue-Tracker</a>. Sofern auf externe Drittplattformen (z.&nbsp;B. Gumroad Inc.) verwiesen wird, erfolgt eine etwaige Vertragsabwicklung ausschließlich über den jeweiligen Plattformbetreiber (Merchant of Record).</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+</body>
+</html>
