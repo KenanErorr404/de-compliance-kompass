@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSI-Prüfbericht 2026: Sicherheitsmängel in Standardkonfigurationen im Gesundheitswesen beheben (TR-03161 &amp; TR-03185 Leitfaden) | DE-Compliance-Kompass</title>
+    <meta name="description" content="Die aktuelle Untersuchung des Bundesamts für Sicherheit in der Informationstechnik (BSI, Pressemitteilung vom 17. März 2026 – „BSI bemängelt IT-Sicherheit von">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Gratis CSV-Leseprobe</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation (§ 18 EStG) &bull; Stand: 2026-10-28 09:19 UTC
+            </div>
+            <h1 id="bsi-prufbericht-2026-sicherheitsmangel-in-standardkonfigurationen-im-gesundheitswesen-beheben-tr-03161-tr-03185-leitfaden">BSI-Prüfbericht 2026: Sicherheitsmängel in Standardkonfigurationen im Gesundheitswesen beheben (TR-03161 &amp; TR-03185 Leitfaden)</h1>
+<p>Die aktuelle Untersuchung des Bundesamts für Sicherheit in der Informationstechnik (<strong>BSI</strong>, Pressemitteilung vom 17. März 2026 – <em>„BSI bemängelt IT-Sicherheit von Software-Produkten des Gesundheitswesens“</em>) legt einen kritischen Schwachpunkt in der deutschen Healthcare-IT offen: Bei der sicherheitstechnischen Prüfung der <strong>Standardkonfigurationen (Default-Settings)</strong> verbreiteter Software-Produkte im Gesundheitswesen zeigten sich erhebliche Defizite in der Transport- und Speicherverschlüsselung, der Authentisierung sowie beim sicheren Patch- und Update-Management.</p>
+<p>Für Hersteller <strong>Digitaler Gesundheitsanwendungen (DiGA nach § 139e SGB V)</strong>, Krankenhausinformationssysteme (KIS), Praxisverwaltungssysteme (PVS) sowie MedTech-Zulieferer verschärft sich damit der regulatorische Handlungsdruck durch das <strong>BfArM</strong>, die <strong>BSI TR-03161 (Anforderungen an Anwendungen im Gesundheitswesen)</strong>, die <strong>BSI TR-03185 (Sicherer Software-Lebenszyklus)</strong> und das <strong>NIS-2-Umsetzungsgesetz (§ 30 BSIG)</strong>.</p>
+<hr />
+<h2 id="1-kernbefunde-des-bsi-warum-secure-by-default-im-gesundheitswesen-scheitert">1. Kernbefunde des BSI: Warum „Secure by Default“ im Gesundheitswesen scheitert</h2>
+<p>Besonders sensible Gesundheitsdaten nach <strong>Art. 9 DSGVO</strong> unterliegen dem höchsten Schutzbedarf. Dennoch stellte das BSI fest, dass zahlreiche Software-Produkte im Auslieferungszustand („Out-of-the-Box“) unsichere Voreinstellungen aufweisen, die im Klinik- oder Praxisalltag selten nachträglich gehärtet werden:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prüfbereich der Standardkonfiguration</th>
+<th style="text-align: left;">Typischer Mangel laut BSI-Untersuchung</th>
+<th style="text-align: left;">Verbindliche Zielvorgabe (BSI TR-03161 / TR-02102 / TR-03185)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Kryptographie &amp; TLS-Voreinstellungen</strong></td>
+<td style="text-align: left;">Zulassen veralteter Cipher-Suites (TLS 1.0/1.1, schwache ECDH-Kurven, <code>RSA-2048</code> ohne PQC-Migrationspfad).</td>
+<td style="text-align: left;">Strikte <strong>BSI TR-02102-2</strong> Härtung (<code>TLS 1.3</code>, <code>SECLEVEL&gt;=2</code>) &amp; Vorbereitung auf hybride Post-Quanten-Kryptographie (<code>ML-KEM-768</code>) bis <strong>2031</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Authentisierung &amp; Zugriffssteuerung</strong></td>
+<td style="text-align: left;">Deaktivierte Mehr-Faktor-Authentisierung (MFA) im Standardprofil, zu lange Session-Timeouts, schwache Passwort-Defaults.</td>
+<td style="text-align: left;"><strong>Secure-by-Default (BSI TR-03161 Teil 1–3):</strong> Erzwungene MFA für privilegierte und medizinische Zugriffe ab Erstinstallation.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abhängigkeiten &amp; SBOM-Transparenz</strong></td>
+<td style="text-align: left;">Veraltete Drittanbieter-Bibliotheken (z. B. OpenSSL, Web-Frameworks) ohne maschinenlesbare Software-Stückliste.</td>
+<td style="text-align: left;">Kontinuierliche <strong>SBOM/VEX-Generierung</strong> nach <strong>BSI TR-03183</strong> und dokumentiertes Vulnerability-Handling im CI/CD-Prozess.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Update-Auslieferung &amp; Zertifizierung</strong></td>
+<td style="text-align: left;">Verzögerte Security-Patches aus Angst vor einer kostspieligen <strong>BfArM-/BSI-Rezertifizierung</strong>.</td>
+<td style="text-align: left;">Prozessbasierte Freigabe über <strong>BSI TR-03185 („Sicherer Software-Lebenszyklus“)</strong> mittels formaler Update-Klassifizierungsmatrix.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-das-harvest-now-decrypt-later-risiko-bei-art-9-dsgvo-gesundheitsdaten">2. Das „Harvest Now, Decrypt Later“-Risiko bei Art.-9-DSGVO-Gesundheitsdaten</h2>
+<p>Gesundheitsakten, genetische Daten und Therapieverläufe müssen oft über <strong>10 bis 30 Jahre</strong> vertraulich bleiben. Damit fällt jede DiGA-, Telematik- und KIS-Architektur unmittelbar unter das vom BSI in der <strong>TR-02102-1 (2026-01)</strong> adressierte <strong>„Harvest Now, Decrypt Later“-Szenario</strong>:</p>
+<ul>
+<li>Angreifer zeichnen heute verschlüsselte TLS- oder VPN-Datenströme auf, um sie nach Erreichen kryptographisch relevanter Quantencomputer (BSI-Auslaufszenario <strong>Ende 2031</strong> für rein klassisches RSA/ECDH) rückwirkend zu entschlüsseln.</li>
+<li>Nach <strong>Art. 32 DSGVO („Stand der Technik“)</strong> sowie <strong>§ 30 Abs. 2 Nr. 8 BSIG (NIS-2)</strong> müssen Betreiber und Hersteller im Gesundheitssektor ein dokumentiertes <strong>Krypto-Inventar (CBOM)</strong> und einen Migrationsfahrplan auf hybride Post-Quanten-Verfahren (<code>X25519MLKEM768</code> / <code>SecP256r1MLKEM768</code>) nachweisen.</li>
+</ul>
+<blockquote>
+<p><strong>⚡ Kostenloser 60-Sekunden-Selbsttest für Healthcare &amp; DiGA:</strong>
+Prüfen Sie Ihren aktuellen Compliance-Gap-Score für die Branche <em>„Gesundheitswesen / MedTech / DiGA-Hersteller (BSI TR-03161 &amp; Art. 9 DSGVO)“</em> direkt in unserem clientseitigen <strong><a href="pqc-nis2-rechner.html">BSI TR-02102 &amp; NIS-2 Krypto-Risiko-Schnelltest</a></strong> oder scannen Sie Ihre Linux-Server kostenlos mit unserem <strong><a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli">Open-Source CLI-Scanner auf GitHub</a></strong>.</p>
+</blockquote>
+<hr />
+<h2 id="3-technische-hartungs-checkliste-secure-by-default-fur-diga-healthcare-releases">3. Technische Härtungs-Checkliste: Secure-by-Default für DiGA- &amp; Healthcare-Releases</h2>
+<p>Um bei Prüfungen durch das <strong>BSI</strong>, das <strong>BfArM (DiGA-Fast-Track)</strong> oder nach <strong>§ 391 SGB V / NIS-2</strong> keine Beanstandungen der Standardkonfiguration zu riskieren, sollten Entwicklungsteams vier technische Leitplanken direkt im Build-Artefakt verankern:</p>
+<ol>
+<li><strong>Harte Deaktivierung von Legacy-Protokollen im Auslieferungs-Image:</strong></li>
+<li>In <code>/etc/ssl/openssl.cnf</code> bzw. im Application-Container muss <code>MinProtocol = TLSv1.3</code> (oder mindestens <code>TLSv1.2</code> ausschließlich mit AEAD-Ciphern gemäß BSI TR-02102-2) als unveränderlicher Default gesetzt sein.</li>
+<li>Für administrative SSH-Zugänge (<code>BSI TR-02102-4</code>) sind <code>ssh-rsa</code> und klassische NIST-Kurven ohne Hybrid-KEM durch <code>mlkem768x25519-sha256</code> (ab OpenSSH 9.9) zu ersetzen.</li>
+<li><strong>Automatisierter CI/CD-Konfigurations-Scan vor jedem Release:</strong></li>
+<li>Binden Sie unseren Open-Source-Scanner <code>KenanErorr404/bsi-tr02102-pqc-audit-cli@v1.1.0</code> als <strong>GitHub Action</strong> in Ihre Build-Pipeline ein, um jedes Container-Image oder VM-Template vor dem Release automatisiert gegen die BSI-Kryptovorgaben zu prüfen und das JSON-CBOM als Audit-Artefakt zu archivieren.</li>
+<li><strong>Trennung von Security-Hotfixes und Major-Änderungen nach BSI TR-03185:</strong></li>
+<li>Wenn Sie unsichere Standardkonfigurationen beheben oder OpenSSL/Krypto-Bibliotheken aktualisieren, darf dies nicht jedes Mal einen monatelangen Rezertifizierungs-Stillstand auslösen.</li>
+<li>Dokumentieren Sie über eine <strong>TR-03185 Update-Klassifizierungsmatrix</strong>, dass das Härtungs-Release keine sicherheitskritischen Architektur-Grenzen verletzt, sondern als kompensierendes Security-Release im zertifizierten SDLC ausgerollt wird.</li>
+</ol>
+<hr />
+<div class="cta-box">
+    <h3>📦 Schlüsselfertige Audit- &amp; Umsetzungs-Pakete für DiGA-, MedTech- &amp; KRITIS-Teams</h3>
+    <p>Sparen Sie Wochen an manueller Dokumentationsarbeit für BfArM-, BSI- und ISO-27001-/NIS-2-Prüfungen. Unsere sofort einsetzbaren B2B-Vorlagenpakete enthalten alle geforderten Matrizen, SOPs und Nachweisdokumente:</p>
+    <ul>
+        <li><strong>BSI TR-03185 Audit-Readiness-Pack (€49):</strong> Vollständige <code>TR-03185-Prozess-Audit-Matrix.csv</code>, Update-Klassifizierungs-SOP (Sicherheits- und Konfigurations-Updates ohne Re-Zertifizierungsfalle), SBOM/VEX-Freigabe-Checkliste und Management-Sign-Off.</li>
+        <li><strong>BSI TR-02102 PQC-Migrations-Pack (€49):</strong> Schlüsselfertiges Krypto-Inventar-Template (<code>Krypto-Inventar-PQC-2031.csv</code> für TLS, SSH, IPsec &amp; Zertifikate) + 4-Phasen-Migrationsplan (2026–2031) gemäß § 30 BSIG &amp; Art. 32 DSGVO.</li>
+    </ul>
+    <div class="cta-links">
+        <a class="btn" href="https://kenanghalioun.gumroad.com/l/juznqz">📥 BSI TR-03185 Audit-Readiness-Pack herunterladen (€49) &rarr;</a>
+        <a class="btn btn-secondary" href="https://kenanghalioun.gumroad.com/l/wcqysh">🔐 BSI TR-02102 PQC-Migrations-Pack sichern (€49) &rarr;</a>
+        <a class="btn" style="background: #0f766e;" href="pqc-nis2-rechner.html">⚡ Kostenloser PQC- &amp; DiGA-Risiko-Rechner</a>
+    </div>
+</div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community- &amp; Forschungsprojekt (MIT-Lizenz). Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <details class="legal-modal">
+            <summary>Projekt-Hinweis, Open-Source-Lizenz &amp; Datenschutz (DSGVO)</summary>
+            <p><strong>Nicht-kommerzielles Open-Source- &amp; Fachinformationsprojekt:</strong><br>
+            Dieses Portal wird als offenes technisches Dokumentations- und Open-Source-Projekt (<a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">GitHub: KenanErorr404/bsi-tr02102-pqc-audit-cli</a>) bereitgestellt. Kontakt, Bug-Reports &amp; Pull-Requests über den <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/issues" target="_blank" rel="noopener">GitHub Issue-Tracker</a>. Sofern auf externe Drittplattformen (z.&nbsp;B. Gumroad Inc.) verwiesen wird, erfolgt eine etwaige Vertragsabwicklung ausschließlich über den jeweiligen Plattformbetreiber (Merchant of Record).</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+</body>
+</html>
