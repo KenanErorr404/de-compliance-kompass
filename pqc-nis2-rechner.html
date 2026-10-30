@@ -306,6 +306,94 @@
                         <a class="btn-outline" href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Kostenlose CSV-Leseprobe (.csv)</a>
                         <a class="btn-outline" href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">💻 Open-Source Linux CLI-Scanner (GitHub)</a>
                     </div>
+                    <div style="margin-top:0.85rem;font-size:0.84rem;color:#1e3a8a;background:#ffffff;border:1px solid #bfdbfe;border-radius:6px;padding:0.55rem 0.85rem;display:inline-block;">
+                        ✅ <strong>Sofort-Download nach § 30 / § 38 BSIG (Rechnung inkl. Steuerausweis via Gumroad MoR)</strong> – Direkt für die B2B-Buchhaltung &amp; Spesenabrechnung nutzbar.
+                    </div>
+
+                    <div style="margin-top:1.5rem;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;padding:1.25rem;">
+                        <h4 style="margin-top:0;margin-bottom:0.75rem;color:#0f172a;font-size:1.05rem;">🔍 Blick ins Paket (Vorschau der 9 Enterprise-Dateien)</h4>
+                        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid #e2e8f0;padding-bottom:0.65rem;margin-bottom:1rem;">
+                            <button type="button" onclick="showPreviewTab('tab-xlsx', this)" style="background:#1d4ed8;color:#fff;border:1px solid #1d4ed8;padding:0.45rem 0.9rem;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">📊 Tab 1: Excel-Workbook (.xlsx Formeln &amp; 45-CBOM)</button>
+                            <button type="button" onclick="showPreviewTab('tab-cfg', this)" style="background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1;padding:0.45rem 0.9rem;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.85rem;">⚙️ Tab 2: Server-Configs (OpenSSH 9.9+ &amp; OpenSSL 3.5+)</button>
+                            <button type="button" onclick="showPreviewTab('tab-bsig', this)" style="background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1;padding:0.45rem 0.9rem;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.85rem;">⚖️ Tab 3: § 38 BSIG Geschäftsführungs-Vorlage (PDF/HTML)</button>
+                        </div>
+
+                        <div id="tab-xlsx" class="preview-tab-pane" style="display:block;font-size:0.84rem;overflow-x:auto;">
+                            <div style="margin-bottom:0.5rem;color:#475569;"><strong>Datei:</strong> <code>BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx</code> (3 Arbeitsblätter: <code>1_Executive_Dashboard</code>, <code>2_CBOM_Inventar_45</code>, <code>3_NIS2_BSIG38_SignOff_Log</code>)</div>
+                            <table style="width:100%;border-collapse:collapse;margin-bottom:0.75rem;">
+                                <thead>
+                                    <tr style="background:#0f172a;color:#fff;">
+                                        <th style="padding:0.5rem;border:1px solid #cbd5e1;">Asset_ID / KPI</th>
+                                        <th style="padding:0.5rem;border:1px solid #cbd5e1;">System / Excel-Formel</th>
+                                        <th style="padding:0.5rem;border:1px solid #cbd5e1;">Algorithmus / Wert</th>
+                                        <th style="padding:0.5rem;border:1px solid #cbd5e1;">HNDL-Risiko</th>
+                                        <th style="padding:0.5rem;border:1px solid #cbd5e1;">Hybride PQC-Zielarchitektur (BSI 2031)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background:#f8fafc;">
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><strong>KPI-DASH-01</strong></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><code>=COUNTA('2_CBOM_Inventar_45'!A2:A46)</code></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><strong>45 Assets</strong></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><span style="background:#dcfce7;color:#166534;padding:2px 6px;border-radius:4px;font-weight:700;">LIVE-FORMEL</span></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">Automatische Berechnung der PQC-Readiness-Quote (%)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><strong> KPI-DASH-02</strong></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><code>=COUNTIF('2_CBOM_Inventar_45'!I2:I46,"KRITISCH")</code></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><strong>20 Kritisch</strong></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><span style="background:#fee2e2;color:#991b1b;padding:2px 6px;border-radius:4px;font-weight:700;">KRITISCH</span></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">Sofort-Priorisierung für Art. 9/32 DSGVO &amp; § 30 BSIG</td>
+                                    </tr>
+                                    <tr style="background:#f8fafc;">
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><strong>CBOM-001</strong></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">Public Ingress Load Balancer (Prod)</td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">RSA-2048 / secp256r1</td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><span style="background:#fee2e2;color:#991b1b;padding:2px 6px;border-radius:4px;font-weight:700;">KRITISCH</span></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">TLS 1.3 Hybrid Groups: <code>X25519MLKEM768</code> / <code>SecP256r1MLKEM768</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><strong>CBOM-002</strong></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">Admin Bastion Host &amp; CI/CD Runner</td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">ssh-rsa / Ed25519</td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;"><span style="background:#fef3c7;color:#92400e;padding:2px 6px;border-radius:4px;font-weight:700;">HOCH</span></td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">OpenSSH &ge; 9.9 <code>mlkem768x25519-sha256</code> (BSI TR-02102-4)</td>
+                                    </tr>
+                                    <tr style="filter:blur(3px);user-select:none;color:#64748b;">
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">CBOM-003..045</td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">Core IPsec VPN / KMS / HSM Root-CA / DB TDE</td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">ECDH Brainpool / RSA-OAEP</td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">KRITISCH</td>
+                                        <td style="padding:0.5rem;border:1px solid #cbd5e1;">RFC 9370 Multiple Key Exchanges + ML-KEM-1024 + ML-DSA-65</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="tab-cfg" class="preview-tab-pane" style="display:none;font-size:0.84rem;">
+                            <div style="margin-bottom:0.5rem;color:#475569;"><strong>Dateien:</strong> <code>configs/sshd_config_bsi_tr02102_4_pqc.conf</code>, <code>configs/openssl_3_5_pqc_hybrid.cnf</code> &amp; <code>configs/nginx_tls13_bsi_tr02102_2.conf</code></div>
+                            <pre style="background:#0f172a;color:#e2e8f0;padding:0.85rem;border-radius:6px;overflow-x:auto;margin:0;"><code># /etc/ssh/sshd_config.d/10-bsi-tr02102-pqc.conf (BSI TR-02102-4 Hybrid-PQC)
+KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512@openssh.com,curve25519-sha256
+HostKeyAlgorithms ssh-ed25519-cert-v01@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
+
+# /etc/ssl/openssl_bsi_pqc.cnf (BSI TR-02102-2 OpenSSL 3.5+ Hybrid-KEM)
+[system_default_sect]
+MinProtocol = TLSv1.3
+Groups = X25519MLKEM768:SecP256r1MLKEM768:SecP384r1MLKEM1024:x25519:secp384r1
+<span style="filter:blur(3.5px);user-select:none;">SignatureAlgorithms = ed25519:ecdsa_secp384r1_sha384:rsa_pss_rsae_sha512
+Options = ServerPreference,PrioritizeChaCha,NoRenegotiation,NoResumptionOnRenegotiation</span></code></pre>
+                        </div>
+
+                        <div id="tab-bsig" class="preview-tab-pane" style="display:none;font-size:0.84rem;">
+                            <div style="margin-bottom:0.5rem;color:#475569;"><strong>Datei:</strong> <code>Management-Vorlage-Haftungsfreistellung-BSIG38.html</code> (Druckfertige A4 PDF-Beschlussvorlage)</div>
+                            <div style="border:1px solid #cbd5e1;padding:0.9rem;border-radius:6px;background:#f8fafc;">
+                                <strong>VORSTANDS- &amp; GESCHÄFTSLEITUNGS-BESCHLUSSVORLAGE (§ 30 Abs. 2 Nr. 8 &amp; § 38 BSIG)</strong><br>
+                                1. Einführung des Krypto-Inventars (<code>BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx</code>) als verbindliches ISMS-Steuerungsdokument.<br>
+                                2. Beschaffungssperre für Legacy-Kryptographie ohne PQC-Migrationspfad (<code>ML-KEM</code> / <code>ML-DSA</code>).<br>
+                                <span style="filter:blur(3.5px);user-select:none;">3. Genehmigung des 4-Phasen-Budgets und halbjährliche KPI-Überwachung durch die Geschäftsleitung zur persönlichen Haftungsentlastung nach § 38 BSIG.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -408,6 +496,22 @@
 
             const listEl = document.getElementById('finding-list');
             listEl.innerHTML = findings.map(f => '<li>' + f + '</li>').join('');
+        }
+
+        function showPreviewTab(tabId, btnEl) {
+            document.querySelectorAll('.preview-tab-pane').forEach(el => el.style.display = 'none');
+            const target = document.getElementById(tabId);
+            if (target) target.style.display = 'block';
+            if (btnEl && btnEl.parentElement) {
+                Array.from(btnEl.parentElement.children).forEach(b => {
+                    b.style.background = '#f8fafc';
+                    b.style.color = '#0f172a';
+                    b.style.borderColor = '#cbd5e1';
+                });
+                btnEl.style.background = '#1d4ed8';
+                btnEl.style.color = '#ffffff';
+                btnEl.style.borderColor = '#1d4ed8';
+            }
         }
 
         document.addEventListener('DOMContentLoaded', calculateRisk);
