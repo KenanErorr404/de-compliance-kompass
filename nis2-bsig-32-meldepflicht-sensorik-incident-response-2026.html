@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIS-2 Meldepflicht (§ 32 BSIG) &amp; BSI-Sensorik 2026: Der 24h/72h Incident-Response- und Krypto-Vorfalls-Leitfaden | DE-Compliance-Kompass</title>
+    <meta name="description" content="Das Bundesamt für Sicherheit in der Informationstechnik (BSI) baut die bundesweite Reaktionsfähigkeit gegen Cyber-Angriffe massiv aus: Durch eine erweiterte K">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Gratis CSV-Leseprobe</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation &bull; Stand: 2026-11-01 17:23 UTC
+            </div>
+            <h1 id="nis-2-meldepflicht-32-bsig-bsi-sensorik-2026-der-24h72h-incident-response-und-krypto-vorfalls-leitfaden">NIS-2 Meldepflicht (§ 32 BSIG) &amp; BSI-Sensorik 2026: Der 24h/72h Incident-Response- und Krypto-Vorfalls-Leitfaden</h1>
+<p>Das Bundesamt für Sicherheit in der Informationstechnik (BSI) baut die bundesweite Reaktionsfähigkeit gegen Cyber-Angriffe massiv aus: Durch eine erweiterte Kooperation mit öffentlichen IT-Dienstleistern auf Länder- und Kommunalebene wird der flächendeckende Einsatz von <strong>Echtzeit-Cybersicherheits-Sensorik</strong> forciert (BSI-Pressemitteilung vom 18.03.2026). Ziel ist die frühzeitige Erkennung großflächiger Angriffsvektoren, Supply-Chain-Kompromittierungen und Datenabflüsse über föderale Grenzen hinweg.</p>
+<p>Für Geschäftsleitungen, CISOs und DevSecOps-Teams in regulierten Einrichtungen (besonders wichtige und wichtige Einrichtungen nach NIS-2) markiert dieser Schritt einen Paradigmenwechsel: Wenn das BSI Angriffe über eigene Netzwerksensoren in Echtzeit mitverfolgt, entfällt jede Ausrede für verspätete oder lückenhafte Meldungen. Unter <strong>§ 32 BSIG (NIS-2-Umsetzungsgesetz)</strong> gelten strikte Fristen für Sicherheitsvorfälle – gekoppelt an persönliche Geschäftsführerhaftung (§ 38 BSIG) und drakonische Bußgelder (§ 60 BSIG).</p>
+<hr />
+<h2 id="1-die-gesetzlichen-meldefristen-nach-32-bsig-im-uberblick">1. Die gesetzlichen Meldefristen nach § 32 BSIG im Überblick</h2>
+<p>Treten erhebliche Sicherheitsvorfälle auf – etwa durch unbefugten Zugriff auf Authentifizierungsinfrastrukturen, Ransomware, Datenexfiltration oder den Bruch kryptographischer Transportkanäle –, schreibt das BSIG einen gestuften Melde-Workflow an das BSI vor:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Stufe</th>
+<th style="text-align: left;">Frist nach Kenntnisnahme</th>
+<th style="text-align: left;">Inhalt &amp; Art der Meldung</th>
+<th style="text-align: left;">Rechtsgrundlage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Stufe 1: Frühwarnung</strong></td>
+<td style="text-align: left;"><strong>Max. 24 Stunden</strong></td>
+<td style="text-align: left;">Erste Kurzmeldung: Verdacht auf rechtswidrige Handlung, potenziell grenzüberschreitende Auswirkung, erste Indikatoren (IoCs).</td>
+<td style="text-align: left;">§ 32 Abs. 1 Satz 1 Nr. 1 BSIG</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stufe 2: Vollständige Vorfallsmeldung</strong></td>
+<td style="text-align: left;"><strong>Max. 72 Stunden</strong></td>
+<td style="text-align: left;">Aktualisierte Bewertung: Schweregrad, Auswirkungen, Art der Kompromittierung, betroffene Systeme und Datenkategorien.</td>
+<td style="text-align: left;">§ 32 Abs. 1 Satz 1 Nr. 2 BSIG</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stufe 3: Zwischenbericht</strong></td>
+<td style="text-align: left;"><strong>Auf Verlangen des BSI</strong></td>
+<td style="text-align: left;">Bereitstellung aktueller Statusberichte und technischer Forensikdaten an das BSI / zuständige CSIRTs.</td>
+<td style="text-align: left;">§ 32 Abs. 1 Satz 2 BSIG</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stufe 4: Abschlussbericht</strong></td>
+<td style="text-align: left;"><strong>Spätestens 1 Monat</strong></td>
+<td style="text-align: left;">Detaillierte Ursachenanalyse (Root Cause), Kausalität, angewandte Krypto-Schutzmaßnahmen und durchgeführte Remediations.</td>
+<td style="text-align: left;">§ 32 Abs. 1 Satz 1 Nr. 3 BSIG</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Wichtig für die Praxis:</strong> Die 24-Stunden-Frist beginnt mit der <em>Kenntnisnahme</em> des Vorfalls. Wenn interne SIEM-Systeme oder behördliche BSI-Sensoren Anomalien registrieren, gilt die Organisation ab dem ersten qualifizierten Alarm als in Kenntnis gesetzt.</p>
+</blockquote>
+<hr />
+<h2 id="2-warum-incident-response-ohne-krypto-inventar-cbom-scheitert">2. Warum Incident Response ohne Krypto-Inventar (CBOM) scheitert</h2>
+<p>Bei Sicherheitsvorfällen im Zusammenhang mit abgefangenem Datenverkehr ("Store Now, Decrypt Later") oder kompromittierten Schlüsseln (z. B. gestohlene private SSH-Hostkeys oder kompromittierte CA-Zertifikate) verlangt das BSI im Stufe-2- und Stufe-4-Bericht belastbare Nachweise zur Krypto-Hygiene:</p>
+<ol>
+<li><strong>Welche Algorithmen und Schlüssellängen waren aktiv?</strong> Wurden noch rein klassische RSA-2048 oder veraltete ECDSA-Kurven ohne Hybrid-PQC genutzt, die gegen BSI TR-02102-1 verstoßen?</li>
+<li><strong>Lag ein maschinenlesbares Krypto-Inventar vor?</strong> Gemäß § 30 Abs. 2 Nr. 8 BSIG müssen Einrichtungen ein dokumentiertes Konzept über den Einsatz von Kryptographie führen. Fehlt eine <strong>Cryptographic Bill of Materials (CBOM)</strong>, werten Prüfer dies als grobe Fahrlässigkeit im Risikomanagement.</li>
+<li><strong>Wurden Sicherheits-Patches ohne Rezertifizierungsverlust eingespielt?</strong> Wurden Krypto-Libraries (wie OpenSSL 3.5 oder OpenSSH 9.9) nach einem standardisierten, dokumentierten Prozess gemäß <strong>BSI TR-03185 (Sicherer Software-Lebenszyklus)</strong> aktualisiert?</li>
+</ol>
+<hr />
+<h2 id="3-bsi-sensorik-siem-technische-integration-in-den-incident-response-plan">3. BSI-Sensorik &amp; SIEM: Technische Integration in den Incident-Response-Plan</h2>
+<p>Um die 24h-Frühwarnung und 72h-Meldung audit-sicher zu automatisieren, empfiehlt sich ein dreistufiger technischer Ablauf:</p>
+<pre><code>[Lokale Server &amp; Gateways]
+       │
+       ▼
+ [CBOM-Scanner (bsi_pqc_check.py) &amp; SBOM-Audit] ──► Host-CBOM &amp; Integritätsnachweis
+       │
+       ▼
+ [Zentrales SIEM / SOC-Sensorik] ──────────────────► Korrelation mit BSI-Warnmeldungen (WID/CERT-Bund)
+       │
+       ▼
+ [Automatisierter Vorfalls-Workflow] ───────────────► 24h-Frühwarnung &amp; 72h-Dossier (§ 32 BSIG)
+</code></pre>
+<h3 id="schritt-1-lokalen-krypto-status-in-30-sekunden-verifizieren">Schritt 1: Lokalen Krypto-Status in 30 Sekunden verifizieren</h3>
+<p>Führen Sie auf Ihren SSH-Bastions, Web-Proxies und API-Gateways den Zero-Dependency CLI-Scanner aus, um sofort zu sehen, ob Ihre Systeme anfällige Krypto-Verfahren einsetzen:</p>
+<pre><code class="language-bash">pipx run git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git --generate-cbom-csv
+</code></pre>
+<p>Der Scanner prüft <code>sshd_config</code>, <code>openssl.cnf</code> und X.509-Zertifikate nach BSI TR-02102-1 bis -4, generiert einen interaktiven HTML-Audit-Report und schreibt ein lokales CBOM-Preview (<code>host-cbom-preview.csv</code>) für Ihr ISMS.</p>
+<h3 id="schritt-2-risiko-score-bugeldrahmen-berechnen">Schritt 2: Risiko-Score &amp; Bußgeldrahmen berechnen</h3>
+<p>Nutzen Sie unseren clientseitigen <strong><a href="pqc-nis2-rechner.html">BSI PQC &amp; NIS-2 Risiko- und Bußgeld-Rechner</a></strong> (100 % lokale Berechnung im Browser), um Ihr regulatorisches Risiko nach § 30, § 32 und § 60 BSIG sofort zu quantifizieren.</p>
+<hr />
+<h2 id="4-revisionssichere-dokumentation-fur-post-incident-audits">4. Revisionssichere Dokumentation für Post-Incident-Audits</h2>
+<p>Wird nach einem Sicherheitsvorfall eine Prüfung nach § 33 oder § 34 BSIG durch das BSI eingeleitet, muss die Geschäftsleitung nachweisen, dass sie ihren Aufsichts- und Sorgfaltspflichten nach <strong>§ 38 BSIG</strong> nachgekommen ist. Zwei Dokumente sind hierbei entscheidend:</p>
+<ul>
+<li><strong>Das Krypto-Inventar mit Risikomatrix (BSI TR-02102-1):</strong> Nachweis, dass der Migrationspfad auf Post-Quanten-Kryptographie (Frist 2031/2035) geplant und dokumentiert ist.</li>
+<li><strong>Die Secure-SDLC-Patch-Matrix (BSI TR-03185):</strong> Nachweis, dass Sicherheits-Updates für Firmware, Microservices und Krypto-Bibliotheken strukturiert freigegeben und versioniert wurden.</li>
+</ul>
+<hr />
+<div class="cta-box">
+    <h3>📦 Sofort einsatzbereite B2B-Compliance-Pakete für NIS-2 & BSI-Audits</h3>
+    <p>Sparen Sie Wochen interner Vorbereitungszeit mit sofort auditfähigen Enterprise-Workbooks, Konfigurationsvorlagen und Geschäftsführungs-Beschlussmustern:</p>
+    <ul>
+        <li><strong>BSI TR-02102 PQC &amp; CBOM Migrations-Pack (€49):</strong> 3-Tab Excel-Workbook (<code>.xlsx</code>) mit KPI-Dashboard, 45-Zeilen CBOM-Inventar, gehärteten Server-Configs (OpenSSH 9.9+, OpenSSL 3.5+, Nginx TLS 1.3) und NIS-2 § 38 BSIG Management Sign-Off Log.</li>
+        <li><strong>BSI TR-03185 &amp; DiGA Audit-Readiness-Pack (€49):</strong> 3-Tab Excel-Workbook mit automatischer Patch-Klassifizierung (Klasse A/B/C), CI/CD Release-Gate Workflow (CycloneDX TR-03183-2) und druckbarer Freigabe-SOP.</li>
+    </ul>
+    <div class="cta-links">
+        <a class="btn" href="https://kenanghalioun.gumroad.com/l/wcqysh">🔐 BSI TR-02102 PQC-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn" style="background:#0f172a;" href="https://kenanghalioun.gumroad.com/l/juznqz">🛡️ BSI TR-03185 Update-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn-outline" href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Gratis CSV-Leseprobe</a>
+    </div>
+</div>
+            <div style="margin-top:1rem;font-size:0.84rem;color:#1e3a8a;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:0.6rem 0.9rem;">
+                ✅ <strong>Sofort-Download (.zip) • Automatischer Kaufbeleg &amp; EU-USt.-Rechnungsgenerierung (inkl. USt-IdNr.-Eintrag) via Gumroad (Merchant of Record)</strong> – Inkl. 3-Tab Excel-Workbooks (<code>.xlsx</code>), Drop-in Server-Configs (OpenSSH 9.9+, OpenSSL 3.5+, Nginx TLS 1.3) &amp; CI/CD-Pipelines.
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community-Werkzeuge (MIT-Lizenz) &bull; Fachpublikation &bull; Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <div style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);"><span id="impressum-contact"></span><script>document.getElementById("impressum-contact").innerText=atob("S29udGFrdCAmIHZlcmFudHdvcnRsaWNoZXIgSGVyYXVzZ2ViZXIgKMKnIDUgRERHKTogTW9oYW1tYWQgS2VuYW4gR2hhbGlvdW4sIExvcmNoZXIgU3RyYcOfZSAxMSwgNzMwMzMgR8O2cHBpbmdlbiDigJQgRS1NYWlsIMO8YmVyIEdpdEh1YiBJc3N1ZXMgLyBQcm9maWw=");</script></div>
+        <details class="legal-modal">
+            <summary>Projekt-Hinweis, Open-Source-Lizenz, Impressum &amp; Datenschutz (DSGVO)</summary>
+            <p><strong>Open-Source-Software &amp; Kommerzielle Toolkits:</strong><br>
+            Der CLI-Scanner (<a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">bsi_pqc_check.py</a>) sowie die interaktiven Online-Rechner werden als freie Open-Source-Tools unter der MIT-Lizenz bereitgestellt. Optional erhältliche Enterprise-Workbooks (.xlsx) und gehärtete Referenzkonfigurationen werden über die Plattform Gumroad Inc. (San Francisco, USA) als bevollmächtigter Wiederverkäufer (Merchant of Record) mit automatischer EU-USt.-Rechnungsstellung vertrieben.</p>
+            <p><strong>Kontakt &amp; Bug-Reports:</strong><br>
+            Technische Fragen, Fehlerberichte und Pull-Requests richten Sie bitte an den <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/issues" target="_blank" rel="noopener">GitHub Issue-Tracker</a>.</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+</body>
+</html>
