@@ -197,6 +197,25 @@
             gap: 0.85rem;
             margin-top: 1.1rem;
         }
+        .btn-sepa {
+            display: inline-block;
+            padding: 0.55rem 1.05rem;
+            background: #ffffff;
+            color: #1e3a8a !important;
+            border: 1.5px solid #1e3a8a;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            line-height: 1.4;
+        }
+        .btn-sepa:hover {
+            background: #eff6ff;
+            border-color: #1d4ed8;
+            color: #1d4ed8 !important;
+        }
         footer {
             max-width: 900px;
             margin: 0 auto;
@@ -303,11 +322,17 @@
                     <div class="cta-actions">
                         <a class="btn" id="buy-pqc-btn" href="https://kenanghalioun.gumroad.com/l/wcqysh">🔐 BSI-TR-02102-PQC-Migrations-Pack sichern (€49) &rarr;</a>
                         <a class="btn" style="background: #0f172a;" href="https://kenanghalioun.gumroad.com/l/juznqz">🛡️ BSI-TR-03185-Audit-Readiness-Pack sichern (€49) &rarr;</a>
+                        <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI TR-02102-1 PQC &amp; CBOM Migrations-Pack')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
                         <a class="btn-outline" href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Kostenlose CSV-Leseprobe (.csv)</a>
                         <a class="btn-outline" href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">💻 Open-Source Linux CLI-Scanner (GitHub)</a>
                     </div>
-                    <div style="margin-top:0.85rem;font-size:0.84rem;color:#1e3a8a;background:#ffffff;border:1px solid #bfdbfe;border-radius:6px;padding:0.55rem 0.85rem;display:inline-block;">
-                        ✅ <strong>Sofort-Download (.zip) • Automatischer Kaufbeleg &amp; EU-USt.-Rechnungsgenerierung (inkl. USt-IdNr.-Eintrag) via Gumroad (Merchant of Record)</strong> – Direkt für die B2B-Buchhaltung &amp; Spesenabrechnung nutzbar.
+                    <div style="margin-top:0.85rem;font-size:0.84rem;color:#1e3a8a;background:#ffffff;border:1px solid #bfdbfe;border-radius:6px;padding:0.75rem 0.95rem;">
+                        <div>
+                            ✅ <strong>Sofort-Download (.zip) • Automatischer Kaufbeleg &amp; EU-USt.-Rechnungsgenerierung (inkl. USt-IdNr.-Eintrag) via Gumroad (Merchant of Record)</strong> – Direkt für die B2B-Buchhaltung &amp; Spesenabrechnung nutzbar.
+                        </div>
+                        <div style="margin-top:0.5rem;">
+                            <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI TR-02102 &amp; TR-03185 Enterprise Toolkits')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+                        </div>
                     </div>
 
                     <div style="margin-top:1.5rem;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;padding:1.25rem;">
@@ -525,6 +550,64 @@ Options = ServerPreference,PrioritizeChaCha,NoRenegotiation,NoResumptionOnRenego
         }
 
         document.addEventListener('DOMContentLoaded', calculateRisk);
+    </script>
+
+    <!-- B2B SEPA Invoice Modal Dialog -->
+    <dialog id="b2b-invoice-dialog" style="max-width: 600px; width: 92%; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); background: #ffffff; color: #0f172a; margin: auto;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.25rem; color: #0f172a;">🏢 B2B-Bestellung auf Rechnung (SEPA)</h3>
+                <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: #64748b;">Offizielle deutsche Firmenrechnung (gem. § 19 UStG) &bull; 14 Tage Zahlungsziel</p>
+            </div>
+            <button type="button" onclick="document.getElementById('b2b-invoice-dialog').close()" style="background:none; border:none; font-size:1.6rem; cursor:pointer; color:#64748b; line-height:1; padding:0 0.25rem;">&times;</button>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.5; color: #334155; margin-bottom: 0.85rem;">
+            Deutsche Unternehmen, Behörden und Körperschaften können alle Compliance-Pakete direkt gegen <strong>SEPA-Überweisung auf Rechnung</strong> beziehen. Sie erhalten die prüffähige PDF/HTML-Rechnung und den Download des Enterprise-Pakets (.zip) unverzüglich per E-Mail.
+        </p>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.84rem;">
+            <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 0.5rem;">Option 1: 1-Klick E-Mail-Bestellung</div>
+            <a id="b2b-mailto-link" href="mailto:kenanghalioun@gmail.com?subject=B2B-Bestellung%20auf%20Rechnung%20(SEPA)%3A%20BSI%20Compliance%20Toolkit" style="display:inline-block; padding: 0.55rem 1.1rem; font-size: 0.88rem; background:#1e3a8a; color:#fff !important; text-decoration:none; border-radius:6px; font-weight:600;">✉️ E-Mail-Bestellung öffnen (Mail-Client) &rarr;</a>
+            
+            <div style="font-weight: 600; color: #1e3a8a; margin-top: 1rem; margin-bottom: 0.4rem;">Option 2: Text für Ihren Einkauf kopieren</div>
+            <textarea id="b2b-copy-text" rows="5" readonly style="width: 100%; font-family: monospace; font-size: 0.78rem; padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; background: #ffffff; resize: vertical;"></textarea>
+            <div style="margin-top: 0.4rem;">
+                <button type="button" onclick="copyB2bOrderText()" id="btn-copy-order" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; font-weight: 600; color: #334155;">📋 Bestelltext in die Zwischenablage kopieren</button>
+                <span id="copy-success-badge" style="display:none; color: #16a34a; font-size: 0.8rem; font-weight: 600; margin-left: 0.5rem;">✓ Kopiert!</span>
+            </div>
+        </div>
+        <div style="font-size: 0.78rem; color: #64748b; line-height: 1.45;">
+            Rechnungsaussteller: Mohammad Kenan Ghalioun &bull; Lorcher Straße 11, 73033 Göppingen &bull; E-Mail: kenanghalioun@gmail.com<br>
+            Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Digitale Lieferung (.zip) erfolgt am gleichen Werktag.
+        </div>
+    </dialog>
+    <script>
+    function openB2bInvoiceModal(productTitle) {
+        var dialog = document.getElementById('b2b-invoice-dialog');
+        if (!dialog) return;
+        var title = productTitle || 'BSI Compliance Enterprise-Toolkit';
+        var mailto = document.getElementById('b2b-mailto-link');
+        var txtArea = document.getElementById('b2b-copy-text');
+        var rawText = 'Sehr geehrter Herr Ghalioun,\n\nbitte stellen Sie uns folgendes Compliance-Paket auf Rechnung (SEPA, 14 Tage Zahlungsziel) aus:\n\nGewünschtes Paket: ' + title + ' (€49)\n\nUnsere Rechnungsanschrift:\nFirma / Organisation:\nAnsprechpartner:\nStraße & Hausnummer:\nPLZ & Ort:\nUSt-IdNr. (optional):\nE-Mail für Rechnungsversand & Download-Lieferung:\n\nVielen Dank!';
+        if (txtArea) txtArea.value = rawText;
+        if (mailto) {
+            var subj = encodeURIComponent('B2B-Bestellung auf Rechnung (SEPA): ' + title);
+            mailto.href = 'mailto:kenanghalioun@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(rawText);
+        }
+        dialog.showModal();
+    }
+    function copyB2bOrderText() {
+        var txt = document.getElementById('b2b-copy-text');
+        if (txt) {
+            txt.select();
+            navigator.clipboard.writeText(txt.value).then(function() {
+                var badge = document.getElementById('copy-success-badge');
+                if (badge) {
+                    badge.style.display = 'inline';
+                    setTimeout(function() { badge.style.display = 'none'; }, 2500);
+                }
+            });
+        }
+    }
     </script>
 </body>
 </html>
