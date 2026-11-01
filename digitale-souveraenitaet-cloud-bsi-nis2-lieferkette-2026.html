@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitale Souveränität &amp; Cloud-Compliance 2026: BSI-Vorgaben für Bundes-, Landes- und KRITIS-Zulieferer | DE-Compliance-Kompass</title>
+    <meta name="description" content="Im Februar 2026 haben das BSI und Schwarz Digits (die IT-Sparte der Schwarz Gruppe, u. a. mit STACKIT) im Rahmen der Münchner Sicherheitskonferenz eine strate">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="samples/BSI-Audit-Matrix-Leseprobe.csv" download>📥 Gratis CSV-Leseprobe</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation &bull; Stand: 2026-11-01 17:06 UTC
+            </div>
+            <h1 id="digitale-souveranitat-cloud-compliance-2026-bsi-vorgaben-fur-bundes-landes-und-kritis-zulieferer">Digitale Souveränität &amp; Cloud-Compliance 2026: BSI-Vorgaben für Bundes-, Landes- und KRITIS-Zulieferer</h1>
+<p>Im Februar 2026 haben das BSI und Schwarz Digits (die IT-Sparte der Schwarz Gruppe, u. a. mit STACKIT) im Rahmen der Münchner Sicherheitskonferenz eine strategische Partnerschaft vereinbart (BSI-Pressemitteilung vom 13.02.2026). Erklärtes Ziel ist die gemeinsame Entwicklung <strong>souveräner Cloud-Lösungen</strong>, die auch in der Bundes- und Landesverwaltung einsetzbar sein sollen.</p>
+<p>Für IT-Dienstleister, SaaS-Anbieter und KRITIS-Zulieferer stellt sich damit eine konkrete Frage: Welche nachweisbaren Anforderungen müssen eine Cloud-Architektur und die darauf betriebene Software erfüllen, damit sie in öffentlichen Ausschreibungen und in NIS-2-regulierten Lieferketten bestehen?</p>
+<hr />
+<h2 id="1-was-digitale-souveranitat-technisch-prufbar-macht">1. Was „digitale Souveränität“ technisch prüfbar macht</h2>
+<p>Souveränität ist kein Marketing-Label. In Audits und Vergaben läuft sie auf drei überprüfbare Ebenen hinaus:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Ebene</th>
+<th style="text-align: left;">Prüffrage</th>
+<th style="text-align: left;">Typischer Nachweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Betrieb &amp; Rechtsraum</strong></td>
+<td style="text-align: left;">Wo werden Daten verarbeitet, und welcher Rechtsordnung unterliegt der Betreiber?</td>
+<td style="text-align: left;">BSI C5-Testat (Typ 2), Datenlokalisierung in der EU, Subprozessoren-Verzeichnis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Schlüsselhoheit</strong></td>
+<td style="text-align: left;">Wer kontrolliert die kryptographischen Schlüssel – der Kunde oder der Provider?</td>
+<td style="text-align: left;">BYOK/HYOK-Konzept, HSM-gestütztes KMS, dokumentiertes Key-Lifecycle-Management</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kryptographische Zukunftsfähigkeit</strong></td>
+<td style="text-align: left;">Sind die eingesetzten Verfahren bis zum Ende der Vertragslaufzeit BSI-konform?</td>
+<td style="text-align: left;">Krypto-Inventar (CBOM), Migrationsplan gemäß <strong>BSI TR-02102-1</strong> (rein klassische Schlüsselaushandlung bis Ende 2031)</td>
+</tr>
+</tbody>
+</table>
+<p>Gerade die dritte Ebene wird häufig unterschätzt. Ein Rahmenvertrag mit einer Behörde, der 2026 geschlossen wird, läuft oft über 2031 hinaus. Ohne hybride Post-Quanten-Schlüsselaushandlung (z. B. <code>X25519MLKEM768</code> in TLS 1.3) liefert ein Anbieter dann gegen Vertragsende nicht mehr den Stand der Technik.</p>
+<hr />
+<h2 id="2-nis-2-macht-lieferanten-zum-prufgegenstand">2. NIS-2 macht Lieferanten zum Prüfgegenstand</h2>
+<p>Nach <strong>§ 30 Abs. 2 Nr. 4 BSIG</strong> müssen besonders wichtige und wichtige Einrichtungen die <strong>Sicherheit der Lieferkette</strong> einschließlich der Beziehungen zu unmittelbaren Anbietern und Diensteanbietern in ihr Risikomanagement aufnehmen. In der Praxis reichen regulierte Einrichtungen diese Pflicht vertraglich an ihre Dienstleister weiter, meist über:</p>
+<ul>
+<li>Fragebögen zur Kryptographie (Verfahren, Schlüssellängen, Migrationsplanung),</li>
+<li>die Pflicht zur Lieferung einer <strong>SBOM</strong> (vgl. BSI TR-03183-2) und zunehmend auch einer <strong>CBOM</strong>,</li>
+<li>Nachweise über einen kontrollierten Update-Prozess (vgl. <strong>BSI TR-03185</strong>).</li>
+</ul>
+<p>Wer diese Fragen mit belastbaren, maschinenlesbaren Artefakten beantworten kann, verkürzt Vergabe- und Onboarding-Prozesse spürbar.</p>
+<hr />
+<h2 id="3-praxis-checkliste-fur-cloud-und-saas-anbieter-in-offentlichen-lieferketten">3. Praxis-Checkliste für Cloud- und SaaS-Anbieter in öffentlichen Lieferketten</h2>
+<ol>
+<li><strong>Krypto-Inventar erstellen:</strong> Erfassen Sie alle TLS-Endpunkte, SSH-Zugänge, VPN-Strecken, KMS-Schlüssel und Zertifikate mit Verfahren, Schlüssellänge und BSI-Ablaufdatum.</li>
+<li><strong>Transportverschlüsselung härten:</strong> TLS 1.3 als Mindeststandard auf Ingress und API-Gateways, hybride ML-KEM-Gruppen pilotieren (OpenSSL ≥ 3.5).</li>
+<li><strong>Administrative Zugänge absichern:</strong> OpenSSH ≥ 9.9 mit <code>mlkem768x25519-sha256</code> als bevorzugtem Schlüsselaustausch, kein <code>ssh-rsa</code> mit SHA-1.</li>
+<li><strong>Schlüsselhoheit dokumentieren:</strong> BYOK/HYOK-Optionen und das Key-Wrapping im KMS beschreiben, inklusive Migrationspfad für RSA-OAEP-Wrapping.</li>
+<li><strong>Nachweise automatisieren:</strong> CBOM- und SBOM-Erzeugung in die CI/CD-Pipeline integrieren, damit jede Ausschreibungsanfrage mit aktuellen Daten beantwortet werden kann.</li>
+</ol>
+<p>Für Schritt 1 und 5 können Sie unseren kostenlosen Open-Source-Scanner nutzen:</p>
+<pre><code class="language-bash">pipx run git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git --generate-cbom-csv
+</code></pre>
+<p>Der Scanner prüft lokale SSH-, OpenSSL- und X.509-Konfigurationen und schreibt die ersten Befunde in eine CSV-Datei (<code>host-cbom-preview.csv</code>), die Sie als Ausgangspunkt für Ihr Krypto-Inventar verwenden können.</p>
+<blockquote>
+<p><strong>Kostenloser 60-Sekunden-Schnelltest:</strong> Ermitteln Sie Ihren Compliance-Gap-Score für TLS, SSH, IPsec und PKI direkt im Browser mit dem <strong><a href="pqc-nis2-rechner.html">BSI TR-02102 &amp; NIS-2 Krypto-Risiko-Schnelltest</a></strong>. Die Berechnung erfolgt vollständig lokal.</p>
+</blockquote>
+<hr />
+<h2 id="4-einordnung">4. Einordnung</h2>
+<p>Die Partnerschaft zwischen BSI und Schwarz Digits zeigt, dass souveräne Cloud-Angebote politisch gewollt sind und in öffentlichen Vergaben an Gewicht gewinnen. Für Anbieter entscheidet sich die Wettbewerbsfähigkeit aber nicht am Rechenzentrumsstandort allein. Entscheidend ist, ob sich Kryptographie, Schlüsselhoheit und Update-Prozesse prüfbar dokumentieren lassen.</p>
+<p><em>Hinweis: Dieser Beitrag dient der technischen Information und stellt keine Rechtsberatung dar.</em></p>
+<hr />
+<div class="cta-box">
+    <h3>📦 Vorlagen für Krypto-Inventar und Lieferketten-Nachweise</h3>
+    <ul>
+        <li><strong>BSI TR-02102 PQC-Migrations-Toolkit (€49):</strong> 3-Tab-Excel-Workbook mit 45-Zeilen-CBOM und KPI-Formeln, Konfigurationsvorlagen für OpenSSH, OpenSSL und Nginx, CI/CD-Workflows sowie eine Beschlussvorlage für die Geschäftsleitung.</li>
+        <li><strong>BSI TR-03185 &amp; DiGA Audit-Readiness-Toolkit (€49):</strong> Workbook mit Readiness-Scoring und Patch-Klassifizierung, SBOM-Release-Gate-Workflow und druckbares Freigabeprotokoll.</li>
+    </ul>
+    <div class="cta-links">
+        <a class="btn" href="https://kenanghalioun.gumroad.com/l/wcqysh">🔐 PQC-Migrations-Toolkit ansehen (€49) &rarr;</a>
+        <a class="btn btn-secondary" href="https://kenanghalioun.gumroad.com/l/juznqz">🛡️ TR-03185 Audit-Toolkit ansehen (€49) &rarr;</a>
+        <a class="btn" style="background: #0f766e;" href="pqc-nis2-rechner.html">⚡ Kostenloser Risiko-Rechner</a>
+    </div>
+</div>
+            <div style="margin-top:1rem;font-size:0.84rem;color:#1e3a8a;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:0.6rem 0.9rem;">
+                ✅ <strong>Sofort-Download nach § 30 / § 38 BSIG (Rechnung inkl. Steuerausweis via Gumroad MoR)</strong> – Inkl. 3-Tab Excel-Workbooks (<code>.xlsx</code>), Drop-in Server-Configs (OpenSSH 9.9+, OpenSSL 3.5+, Nginx TLS 1.3) &amp; CI/CD-Pipelines.
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community- &amp; Forschungsprojekt (MIT-Lizenz). Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <details class="legal-modal">
+            <summary>Projekt-Hinweis, Open-Source-Lizenz &amp; Datenschutz (DSGVO)</summary>
+            <p><strong>Nicht-kommerzielles Open-Source- &amp; Fachinformationsprojekt:</strong><br>
+            Dieses Portal wird als offenes technisches Dokumentations- und Open-Source-Projekt (<a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">GitHub: KenanErorr404/bsi-tr02102-pqc-audit-cli</a>) bereitgestellt. Kontakt, Bug-Reports &amp; Pull-Requests über den <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/issues" target="_blank" rel="noopener">GitHub Issue-Tracker</a>. Sofern auf externe Drittplattformen (z.&nbsp;B. Gumroad Inc.) verwiesen wird, erfolgt eine etwaige Vertragsabwicklung ausschließlich über den jeweiligen Plattformbetreiber (Merchant of Record).</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+</body>
+</html>
