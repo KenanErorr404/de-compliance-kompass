@@ -184,7 +184,58 @@
             margin: 0 auto;
             color: var(--muted);
             font-size: 0.85rem;
-            padding: 2rem 1.5rem 3rem 1.5rem;
+            padding: 2rem 1.5rem 5.5rem 1.5rem;
+        }
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #334155;
+            padding: 0.65rem 1rem;
+            z-index: 999;
+            box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.25);
+        }
+        .sticky-bottom-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        .btn-sticky-free {
+            display: inline-block;
+            background: #ffffff;
+            color: #0f172a !important;
+            padding: 0.5rem 0.95rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            border: 1px solid #cbd5e1;
+            white-space: nowrap;
+        }
+        .btn-sticky-free:hover {
+            background: #f1f5f9;
+        }
+        .btn-sticky-pro {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            border: 1px solid #3b82f6;
+            white-space: nowrap;
+        }
+        .btn-sticky-pro:hover {
+            background: #1e40af;
         }
         details.legal-modal {
             margin-top: 1rem;
@@ -224,7 +275,7 @@
         </div>
         <article>
             <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
-                Fachpublikation &bull; Stand: 2026-11-01 17:40 UTC
+                Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
             </div>
             <h1 id="bsi-prufbericht-2026-sicherheitsmangel-in-standardkonfigurationen-im-gesundheitswesen-beheben-tr-03161-tr-03185-leitfaden">BSI-Prüfbericht 2026: Sicherheitsmängel in Standardkonfigurationen im Gesundheitswesen beheben (TR-03161 &amp; TR-03185 Leitfaden)</h1>
 <p>Die aktuelle Untersuchung des Bundesamts für Sicherheit in der Informationstechnik (<strong>BSI</strong>, Pressemitteilung vom 17. März 2026 – <em>„BSI bemängelt IT-Sicherheit von Software-Produkten des Gesundheitswesens“</em>) legt einen kritischen Schwachpunkt in der deutschen Healthcare-IT offen: Bei der sicherheitstechnischen Prüfung der <strong>Standardkonfigurationen (Default-Settings)</strong> verbreiteter Software-Produkte im Gesundheitswesen zeigten sich erhebliche Defizite in der Transport- und Speicherverschlüsselung, der Authentisierung sowie beim sicheren Patch- und Update-Management.</p>
@@ -325,6 +376,14 @@ Prüfen Sie Ihren aktuellen Compliance-Gap-Score für die Branche <em>„Gesundh
             Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
         </details>
     </footer>
+
+    <!-- Sticky Bottom Conversion Bar (Free Sample vs. Enterprise .xlsx) -->
+    <div class="sticky-bottom-bar" id="sticky-cta-bar">
+        <div class="sticky-bottom-inner">
+            <a class="btn-sticky-free" href="https://kenanghalioun.gumroad.com/l/flcsb" target="_blank" rel="noopener">📥 Kostenlose CSV-Leseprobe + 20% Rabattcode (€0+ auf Gumroad)</a>
+            <a class="btn-sticky-pro" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO" target="_blank" rel="noopener">⚡ Vollständiges 9-Dateien Enterprise .xlsx Toolkit (39,20 € mit Code BSI2026PRO)</a>
+        </div>
+    </div>
 
     <!-- B2B SEPA Invoice Modal Dialog -->
     <dialog id="b2b-invoice-dialog" style="max-width: 600px; width: 92%; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); background: #ffffff; color: #0f172a; margin: auto;">
