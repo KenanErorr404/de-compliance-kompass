@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSI C5:2026 Cloud-Compliance, IT-Grundschutz &amp; Nationale PQC-Leitlinie: Krypto-Nachweise (CRY), CBOM-Pflicht &amp; DevSecOps-Audit 2026 | DE-Compliance-Kompass</title>
+    <meta name="description" content="Mit der Veröffentlichung des neuen Cloud Computing Compliance Criteria Catalogue (C5:2026) (BSI-Pressemitteilung vom 07.04.2026) sowie der gemeinsamen Leitlin">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        .btn-sepa {
+            display: inline-block;
+            padding: 0.5rem 0.95rem;
+            background: #ffffff;
+            color: #1e3a8a !important;
+            border: 1.5px solid #1e3a8a;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.86rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            line-height: 1.4;
+        }
+        .btn-sepa:hover {
+            background: #eff6ff;
+            border-color: #1d4ed8;
+            color: #1d4ed8 !important;
+        }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="https://kenanghalioun.gumroad.com/l/flcsb" target="_blank" rel="noopener">📥 Gratis CSV-Leseprobe (€0+)</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation &bull; Stand: 2026-11-04 17:16 UTC
+            </div>
+            <h1 id="bsi-c52026-cloud-compliance-it-grundschutz-nationale-pqc-leitlinie-krypto-nachweise-cry-cbom-pflicht-devsecops-audit-2026">BSI C5:2026 Cloud-Compliance, IT-Grundschutz &amp; Nationale PQC-Leitlinie: Krypto-Nachweise (CRY), CBOM-Pflicht &amp; DevSecOps-Audit 2026</h1>
+<p>Mit der Veröffentlichung des neuen <strong>Cloud Computing Compliance Criteria Catalogue (C5:2026)</strong> (BSI-Pressemitteilung vom 07.04.2026) sowie der gemeinsamen <strong>Leitlinie von BMI, BMDS und BSI zur nationalen Umsetzung der EU-Post-Quanten-Roadmap</strong> (12.10.2026) hat das Bundesamt für Sicherheit in der Informationstechnik (BSI) die Prüfmaßstäbe für Cloud-Dienstleister, SaaS-Plattformen, Rechenzentren und regulierte Enterprise-Kunden grundlegend verschärft.</p>
+<p>Für Cloud Service Provider (CSPs), Managed Service Provider (MSPs), DiGA- und Gesundheits-Cloud-Anbieter (<strong>§ 393 SGB V</strong>), Finanz- und ERP-/E-Rechnungs-Plattformen sowie Betreiber kritischer Infrastrukturen (<strong>NIS-2 / § 30 BSIG</strong>) gilt ab sofort: Ein positives <strong>C5-Testat (Typ 1 und Typ 2 nach ISAE 3000 / IDW PS 951)</strong> setzt voraus, dass die eingesetzten Verschlüsselungsverfahren strikt dem Stand der Technik nach <strong>BSI TR-02102-1 bis -4</strong> entsprechen, ein maschinenlesbares <strong>Krypto-Inventar (Cryptographic Bill of Materials – CBOM)</strong> gepflegt wird und kontinuierliche Cloud-Releases nach einem zertifizierten, rückverfolgbaren Secure-SDLC-Prozess gemäß <strong>BSI TR-03185</strong> ausgerollt werden.</p>
+<hr />
+<h2 id="1-warum-der-neue-bsi-c52026-zum-verbindlichen-b2b-marktzugangsstandard-wird">1. Warum der neue BSI C5:2026 zum verbindlichen B2B-Marktzugangsstandard wird</h2>
+<p>Seit seiner Einführung im Jahr 2016 hat sich der BSI C5 vom behördlichen Orientierungsrahmen zur <strong>gesetzlichen Mindestvoraussetzung</strong> in zahlreichen Schlüsselbranchen entwickelt. Mit der Version <strong>C5:2026</strong> reagiert das BSI auf vier zentrale regulatorische Treiber:</p>
+<ol>
+<li><strong>NIS-2-Umsetzungsgesetz (§ 30 Abs. 2 Nr. 4 &amp; Nr. 8 BSIG – Sicherheit der Lieferkette &amp; Kryptographie):</strong><br />
+   Besonders wichtige und wichtige Einrichtungen dürfen IT- und Cloud-Workloads nur noch an Dienstleister auslagern, die ihre Sicherheitsmaßnahmen nachweisbar dokumentieren. In Lieferketten-Audits wird der C5:2026-Bericht (inklusive der korrespondierenden Kunden-Komplementärkriterien) als primärer Nachweis für § 30 BSIG herangezogen.</li>
+<li><strong>Gesetzliche C5-Typ-2-Pflicht im Gesundheitswesen (§ 393 SGB V &amp; DiGA TR-03161):</strong><br />
+   Für die Verarbeitung von Sozial- und Gesundheitsdaten in der Cloud verlangt der Gesetzgeber ein vollwertiges <strong>C5-Typ-2-Testat</strong> (Nachweis der Wirksamkeit über einen Prüfzeitraum von mindestens 6 bis 12 Monaten). Wirtschaftsprüfer prüfen dabei explizit die Einhaltung der aktuellen BSI Technischen Richtlinien.</li>
+<li><strong>Verzahnung mit der nationalen PQC-Leitlinie (BMI, BMDS &amp; BSI, Oktober 2026):</strong><br />
+   Die neue Bundesleitlinie zur Umsetzung der europäischen Post-Quanten-Kryptographie-Roadmap verpflichtet Bundes-, Landes- und Kommunalverwaltungen sowie KRITIS-Betreiber, bei Cloud-Ausschreibungen ( u. a. im Kontext der <strong>Criteria enabling Cloud Computing Autonomy – C3A</strong> und <strong>CyberGovSecure</strong>) einen verbindlichen Migrationspfad weg von klassischem <code>RSA-2048</code> und klassischem <code>ECDH</code>/<code>ECDSA</code> (BSI-Frist Ende <strong>2031</strong> bzw. <strong>2035</strong> für Signaturen) einzufordern.</li>
+<li><strong>Automatisierte Continuous-Compliance &amp; SBOM-Nachweise (Cyber Resilience Act &amp; BSI TR-03183-2):</strong><br />
+   Statische Jahres-PDFs reichen im C5:2026 nicht mehr aus. In den Domänen <strong>DEV (Entwicklung &amp; Change Management)</strong> und <strong>OPS (Betrieb &amp; Schwachstellenmanagement)</strong> erwarten Prüfer automatisierte CI/CD-Nachweise, lückenlose Software Bills of Materials (CycloneDX SBOM) und reproduzierbare Härtungskonfigurationen.</li>
+</ol>
+<hr />
+<h2 id="2-die-cry-domane-im-bsi-c52026-krypto-inventar-cbom-tls-13-ssh-kmshsm-hartung">2. Die CRY-Domäne im BSI C5:2026: Krypto-Inventar (CBOM), TLS 1.3, SSH &amp; KMS/HSM-Härtung</h2>
+<p>Die Kriteriengruppe <strong>CRY (Kryptographie und Schlüsselmanagement)</strong> bildet im C5:2026 eines der häufigsten Feststellungsfelder („Abweichungen / Exceptions") bei Wirtschaftsprüfungen durch Big-4-Prüfungsgesellschaften und akkreditierte Auditoren.</p>
+<p>Während in älteren C5-Prüfungen oft ein allgemeiner Verweis auf „TLS-Verschlüsselung und AES-256" akzeptiert wurde, verlangt der C5:2026 in Verbindung mit <strong>BSI TR-02102-1</strong> und der <strong>nationalen PQC-Leitlinie 2026</strong> präzise technische Evidenz über den gesamten Lebenszyklus kryptographischer Schlüssel:</p>
+<ul>
+<li><strong>CRY-01 (Kryptographische Richtlinie &amp; CBOM-Inventar):</strong><br />
+  Der Cloud-Anbieter muss eine durch die Geschäftsleitung freigegebene Kryptographie-Richtlinie unterhalten, die exakt definiert, welche Algorithmen, Schlüssellängen und Protokolle für Transportverschlüsselung (Data in Transit), ruhende Daten (Data at Rest) und Backups zulässig sind. Zwingend erforderlich ist ein aktuelles <strong>Krypto-Inventar (CBOM)</strong>, das alle Ingress-Controller, API-Gateways, Service-Meshes (mTLS), SSH-Bastions, VPN-Endpunkte und Datenbank-TDE-Schlüssel inklusive ihres <strong>BSI-Ablaufdatums (2031/2035)</strong> und ihres <em>„Harvest Now, Decrypt Later" (HNDL)</em>-Risikos klassifiziert.</li>
+<li><strong>CRY-02 (Transportverschlüsselung nach BSI TR-02102-2, -3 und -4):</strong><br />
+  Öffentliche und interne Cloud-Endpunkte müssen nach BSI TR-02102-2 gehärtet sein (<code>TLS 1.3</code> mit Perfect Forward Secrecy sowie Einführung hybrider Post-Quanten-Schlüsselaustauschgruppen wie <code>X25519MLKEM768</code> oder <code>SecP256r1MLKEM768</code> unter OpenSSL 3.5+). Für administrativen SSH-Zugriff auf Cloud-Nodes verlangt <strong>BSI TR-02102-4</strong> die Abschaltung von <code>ssh-rsa</code> (SHA-1) und die Aktivierung von <code>mlkem768x25519-sha256</code> (OpenSSH 9.9+).</li>
+<li><strong>CRY-03 &amp; CRY-04 (Schlüsselgenerierung, KMS/HSM-Trennung &amp; Rotation):</strong><br />
+  Kryptographische Hauptschlüssel (Master Keys / Customer Managed Keys – CMK) müssen in zertifizierten Hardware Security Modulen (HSM nach FIPS 140-3 Level 3 / Common Criteria) verwaltet, rollenbasiert vom regulären Cloud-Admin-Zugriff getrennt (Split Knowledge / Dual Control) und nach dokumentierten Intervallen rotiert werden.</li>
+</ul>
+<hr />
+<h2 id="3-prufungs-und-mapping-matrix-bsi-c52026-vs-bsi-tr-02102-tr-03185-nis-2">3. Prüfungs- und Mapping-Matrix: BSI C5:2026 vs. BSI TR-02102, TR-03185 &amp; NIS-2</h2>
+<p>Die folgende Matrix zeigt CISOs, Cloud-Architekten und IT-Prüfern, wie die Kernanforderungen des <strong>BSI C5:2026</strong> technisch mit den aktuellen BSI-Richtlinien und dem NIS-2-Umsetzungsgesetz korrespondieren und welche Artefakte im Audit vorgelegt werden müssen:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">C5:2026 Domäne &amp; Kriterium</th>
+<th style="text-align: left;">Regulatorische Referenz (BSI TR / Gesetz)</th>
+<th style="text-align: left;">Technische Soll-Anforderung im Audit (2026–2031)</th>
+<th style="text-align: left;">Erforderliches Prüfungs-Artefakt (Evidenz für WP / BSI)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>OIS-01 / OIS-02</strong><br>Informationssicherheits-Managementsystem &amp; Leitungspflicht</td>
+<td style="text-align: left;"><strong>§ 38 BSIG (NIS-2)</strong> &bull; ISO/IEC 27001 &bull; BSI IT-Grundschutz</td>
+<td style="text-align: left;">Persönliche Überwachung und Freigabe des Krypto- und Cloud-Risikomanagements durch die Geschäftsführung.</td>
+<td style="text-align: left;">Unterzeichneter <strong>§ 38 BSIG Geschäftsführungs-Beschluss</strong> + Management Sign-Off Log (<code>.xlsx</code> / PDF).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CRY-01 / CRY-02</strong><br>Kryptographie-Konzept &amp; Transportsicherheit</td>
+<td style="text-align: left;"><strong>BSI TR-02102-1/-2/-3/-4</strong> &bull; <strong>§ 30 Abs. 2 Nr. 8 BSIG</strong> &bull; PQC-Leitlinie</td>
+<td style="text-align: left;">Verbot von <code>RSA &lt; 3072 Bit</code> nach 2031; Migration auf <strong>ML-KEM-768</strong> (TLS 1.3 / SSH 9.9+) und <strong>RFC 9370</strong> (IKEv2 VPN).</td>
+<td style="text-align: left;"><strong>45-Zeilen CBOM-Inventar &amp; Risiko-Matrix (<code>.xlsx</code>)</strong> + gehärtete <code>sshd_config</code>, <code>openssl.cnf</code>, <code>nginx.conf</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DEV-01 bis DEV-05</strong><br>Sicherer Software-Lebenszyklus &amp; Change Management</td>
+<td style="text-align: left;"><strong>BSI TR-03185</strong> &bull; <strong>DiGA TR-03161</strong> &bull; Cyber Resilience Act (CRA)</td>
+<td style="text-align: left;">Risikobasierte Klassifizierung jedes Cloud-Deployments (<strong>Klasse A: Security/Krypto-Patch</strong>, Klasse B: Minor, Klasse C: Major) ohne Rezertifizierungsverlust.</td>
+<td style="text-align: left;"><strong>3-Klassen Patch-Matrix (<code>.xlsx</code>)</strong> + dokumentierte Release-SOP (<code>SOP-Sicherer-Release-Prozess-TR03185.md</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>OPS-10 /lak-SBOM</strong><br>Schwachstellenmanagement &amp; Supply-Chain-Integrität</td>
+<td style="text-align: left;"><strong>BSI TR-03183-2 (SBOM)</strong> &bull; CRA Meldepflicht (24h/72h)</td>
+<td style="text-align: left;">Automatische Generierung einer maschinenlesbaren <strong>CycloneDX SBOM</strong> und VEX-Bewertung bei jedem Produktions-Build.</td>
+<td style="text-align: left;">Automatisierter CI/CD Release-Gate Workflow (<code>tr03185-release-gate.yml</code>) + Release-Freigabeprotokoll (HTML/PDF).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>BCM-01 / SIM-01</strong><br>Incident Response &amp; Sicherheitsvorfallsmeldung</td>
+<td style="text-align: left;"><strong>§ 32 BSIG (NIS-2)</strong> &bull; BSI-Sensorik &amp; CERT-Bund</td>
+<td style="text-align: left;">Dreistufiger Meldeprozess (<strong>24h Frühwarnung</strong>, <strong>72h Vorfallsmeldung</strong>, 1-Monats-Abschlussbericht) inkl. Krypto-Forensik.</td>
+<td style="text-align: left;">Vorfalls-Melde-Runbook + automatisierter Host-CBOM-Export (<code>bsi_pqc_check.py --json-out</code>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-bmf-fintech-compliance-in-der-cloud-digitale-belege-e-rechnung-en-16931-gobd-kryptographie">4. BMF- &amp; FinTech-Compliance in der Cloud: Digitale Belege, E-Rechnung (EN 16931) &amp; GoBD-Kryptographie</h2>
+<p>Neben dem BSI hat auch das <strong>Bundesministerium der Finanzen (BMF)</strong> im Herbst 2026 (u. a. mit dem Gesetzentwurf <em>„Digitale Belege und digitale Kassen"</em> vom 23.09.2026 sowie dem <em>Jahressteuergesetz 2026</em>) die Anforderungen an Cloud-basierte Buchhaltungs-, ERP-, Kassen- und E-Rechnungs-Systeme (XRechnung / ZUGFeRD nach EN 16931) konkretisiert:</p>
+<ol>
+<li><strong>Kryptographische Unveränderbarkeit und Langzeitarchivierung (GoBD &amp; AO):</strong><br />
+   Steuerlich relevante elektronische Rechnungen, digitale Kassenbelege und Buchungsjournale unterliegen einer gesetzlichen Aufbewahrungsfrist von <strong>8 bis 10 Jahren (§ 147 AO / § 14b UStG)</strong>. Werden diese Dokumente oder ihre qualifizierten elektronischen Signaturen / Zeitstempel (eIDAS / BSI TR-03116) bzw. Cloud-TSE-Signaturen (<strong>BSI TR-03153 / TR-03151</strong>) heute ausschließlich mit kurzlebigen klassischen Algorithmen ohne PQC-fähige Nachsignatur- oder Hash-Ketten-Architektur gesichert, fällt die Archivdauer (2026 bis 2036) exakt über das <strong>BSI-Ablaufdatum 2031/2035</strong> hinaus!</li>
+<li><strong>C5:2026 &amp; TR-02102 als Pflichtnachweis für TaxTech- und FinTech-SaaS:</strong><br />
+   Steuerberater, Wirtschaftsprüfer und Finanzbehörden fordern von Cloud-ERP-Anbietern zunehmend den Nachweis, dass sowohl die Übertragungswege (API-Anbindungen zu DATEV, ELSTER, Peppol-Netzwerk) als auch die Langzeitspeicher gegen zukünftige Entschlüsselung (<em>Store Now, Decrypt Later</em>) gehärtet sind.</li>
+</ol>
+<hr />
+<h2 id="5-technischer-4-schritte-prufplan-so-machen-sie-ihre-cloud-infrastruktur-in-48-stunden-c52026-pqc-auditfest">5. Technischer 4-Schritte-Prüfplan: So machen Sie Ihre Cloud-Infrastruktur in 48 Stunden C5:2026- &amp; PQC-auditfest</h2>
+<h3 id="schritt-1-automatisierter-linux-container-krypto-scan-bsi_pqc_checkpy">Schritt 1: Automatisierter Linux- &amp; Container-Krypto-Scan (<code>bsi_pqc_check.py</code>)</h3>
+<p>Statt Server-Konfigurationen manuell zu sichten, können DevSecOps-Teams und C5-Auditoren unseren quelloffenen <strong>Zero-Dependency Python CLI-Scanner</strong> direkt auf ihren Cloud-VMs, Kubernetes-Worker-Nodes und Bastion-Hosts ausführen:</p>
+<pre><code class="language-bash"># 1. Direkt via pipx ausführen (erzeugt HTML-Audit-Report + lokales CBOM-CSV):
+pipx run git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git --generate-cbom-csv
+
+# 2. Oder als CI/CD-Check mit strukturiertem JSON-Artefakt für das C5-Audit-Dossier:
+curl -sSL https://raw.githubusercontent.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/main/bsi_pqc_check.py | python3 - --json-out c5_cry_findings.json
+</code></pre>
+<p>Der Scanner prüft <code>sshd_config</code>, <code>openssl.cnf</code> und lokale X.509-Zertifikate vollautomatisch gegen <strong>BSI TR-02102-1, -2 und -4</strong> und liefert den direkten technischen Nachweis für die C5-Kriterien <strong>CRY-01 und CRY-02</strong>.</p>
+<h3 id="schritt-2-interaktive-risiko-bugeldberechnung-im-browser-60-sekunden">Schritt 2: Interaktive Risiko- &amp; Bußgeldberechnung im Browser (60 Sekunden)</h3>
+<p>Quantifizieren Sie Ihren aktuellen <strong>BSI Compliance-Gap-Score</strong> für das Auslaufszenario 2031/2035 sowie Ihr regulatorisches Bußgeld- und Haftungsrisiko nach <strong>§ 38 &amp; § 60 BSIG</strong>:<br />
+👉 <strong><a href="pqc-nis2-rechner.html">Jetzt kostenlosen BSI PQC &amp; NIS-2 Risiko- und Bußgeld-Rechner starten (<code>pqc-nis2-rechner.html</code>)</a></strong></p>
+<h3 id="schritt-3-kostenlose-0-csv-audit-leseprobe-schnellstart-matrix-herunterladen">Schritt 3: Kostenlose <code>€0+</code> CSV-Audit-Leseprobe &amp; Schnellstart-Matrix herunterladen</h3>
+<p>Für einen sofortigen Einstieg in die Struktur unserer Prüfungs-Workbooks können Sie unsere <strong>Community Edition (<code>€0+</code> Pay What You Want)</strong> auf Gumroad herunterladen. Sie enthält 6 repräsentative Prüfpunkte aus den beiden Richtlinien <strong>BSI TR-02102-1 (CBOM 2031)</strong> und <strong>BSI TR-03185 (Secure SDLC)</strong> sowie einen <strong>20 % Upgrade-Rabattcode (<code>BSI2026PRO</code>)</strong>:<br />
+👉 <strong><a href="https://kenanghalioun.gumroad.com/l/flcsb">📥 Kostenlose CSV-Audit-Leseprobe &amp; Schnellstart-Matrix herunterladen (€0+)</a></strong></p>
+<h3 id="schritt-4-vollstandige-xlsx-enterprise-workbooks-server-configs-cicd-gates-implementieren">Schritt 4: Vollständige <code>.xlsx</code> Enterprise-Workbooks, Server-Configs &amp; CI/CD-Gates implementieren</h3>
+<p>Um im <strong>BSI C5:2026 Typ-2-Audit</strong>, bei <strong>NIS-2-Prüfungen (§ 33/34 BSIG)</strong> oder im <strong>BfArM DiGA-Verfahren</strong> ohne Abweichungen (Zero Exceptions) zu bestehen, stehen Ihnen unsere beiden schlüsselfertigen Enterprise-Pakete zur Verfügung:</p>
+<hr />
+<div class="cta-box">
+    <h3>📦 Schlüsselfertige Enterprise-Compliance-Toolkits für BSI C5:2026, NIS-2 &amp; TR-02102 / TR-03185</h3>
+    <p>Sparen Sie Wochen an Konzeptions- und Beratungsaufwand mit sofort einsetzbaren Excel-Workbooks (<code>.xlsx</code> mit Live-KPI-Formeln), produktionsfertigen Server-Hardening-Konfigurationen und CI/CD-Pipelines:</p>
+    <ul>
+        <li><strong>🔐 BSI TR-02102-1 PQC &amp; CBOM Migrations-Toolkit (€49):</strong> Enthält <strong>9 Enterprise-Assets</strong> inkl. <code>BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx</code> (3-Tab Excel-Workbook mit Executive Dashboard, 45-Zeilen CBOM-Inventar über TLS/SSH/IPsec/PKI/KMS/DB &amp; § 38 BSIG Sign-Off Log), Drop-in Server-Configs für <strong>OpenSSH 9.9+</strong> (<code>mlkem768x25519-sha256</code>), <strong>OpenSSL 3.5+</strong> (<code>X25519MLKEM768</code>) &amp; <strong>Nginx TLS 1.3</strong>, GitHub Actions &amp; GitLab CI CBOM-Workflows sowie der druckfertigen A4 Geschäftsführungs-Beschlussvorlage (<code>Management-Vorlage-Haftungsfreistellung-BSIG38.html</code>).</li>
+        <li><strong>🛡️ BSI TR-03185 &amp; DiGA TR-03161 Audit-Readiness-Pack (€49):</strong> Enthält <strong>5 Enterprise-Assets</strong> inkl. <code>BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx</code> (3-Tab Excel-Workbook mit Readiness-Scoring, 3-Klassen Patch-Matrix Klasse A/B/C &amp; BfArM DiGA/SBOM Mapping), automatisierter CycloneDX SBOM Release-Gate Pipeline (<code>ci-cd/tr03185-release-gate.yml</code> nach BSI TR-03183-2), vollständiger Release-SOP und druckbarem Freigabeprotokoll.</li>
+    </ul>
+    <div class="cta-links">
+        <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI Compliance Toolkits')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+        <a class="btn" href="https://kenanghalioun.gumroad.com/l/wcqysh">🔐 BSI TR-02102 PQC-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn" style="background:#0f172a;" href="https://kenanghalioun.gumroad.com/l/juznqz">🛡️ BSI TR-03185 Update-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn-outline" href="https://kenanghalioun.gumroad.com/l/flcsb" target="_blank" rel="noopener">📥 Kostenlose CSV-Audit-Leseprobe herunterladen (€0+)</a>
+    </div>
+</div>
+            <div style="margin-top:1rem;font-size:0.84rem;color:#1e3a8a;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:0.75rem 0.95rem;">
+                <div>
+                    ✅ <strong>Sofort-Download (.zip) • Automatischer Kaufbeleg &amp; EU-USt.-Rechnungsgenerierung (inkl. USt-IdNr.-Eintrag) via Gumroad (Merchant of Record)</strong> – Inkl. 3-Tab Excel-Workbooks (<code>.xlsx</code>), Drop-in Server-Configs (OpenSSH 9.9+, OpenSSL 3.5+, Nginx TLS 1.3) &amp; CI/CD-Pipelines.
+                </div>
+                <div style="margin-top:0.6rem;">
+                    <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI Compliance Enterprise-Toolkit')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community-Werkzeuge (MIT-Lizenz) &bull; Fachpublikation &bull; Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <div style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);"><span id="impressum-contact"></span><script>document.getElementById("impressum-contact").innerText=atob("S29udGFrdCAmIHZlcmFudHdvcnRsaWNoZXIgSGVyYXVzZ2ViZXIgKMKnIDUgRERHKTogTW9oYW1tYWQgS2VuYW4gR2hhbGlvdW4sIExvcmNoZXIgU3RyYcOfZSAxMSwgNzMwMzMgR8O2cHBpbmdlbiDigJQgRS1NYWlsIMO8YmVyIEdpdEh1YiBJc3N1ZXMgLyBQcm9maWw=");</script></div>
+        <details class="legal-modal">
+            <summary>Projekt-Hinweis, Open-Source-Lizenz, Impressum &amp; Datenschutz (DSGVO)</summary>
+            <p><strong>Open-Source-Software &amp; Kommerzielle Toolkits:</strong><br>
+            Der CLI-Scanner (<a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">bsi_pqc_check.py</a>) sowie die interaktiven Online-Rechner werden als freie Open-Source-Tools unter der MIT-Lizenz bereitgestellt. Optional erhältliche Enterprise-Workbooks (.xlsx) und gehärtete Referenzkonfigurationen werden über die Plattform Gumroad Inc. (San Francisco, USA) als bevollmächtigter Wiederverkäufer (Merchant of Record) mit automatischer EU-USt.-Rechnungsstellung vertrieben.</p>
+            <p><strong>Kontakt &amp; Bug-Reports:</strong><br>
+            Technische Fragen, Fehlerberichte und Pull-Requests richten Sie bitte an den <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/issues" target="_blank" rel="noopener">GitHub Issue-Tracker</a>.</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+
+    <!-- B2B SEPA Invoice Modal Dialog -->
+    <dialog id="b2b-invoice-dialog" style="max-width: 600px; width: 92%; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); background: #ffffff; color: #0f172a; margin: auto;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.25rem; color: #0f172a;">🏢 B2B-Bestellung auf Rechnung (SEPA)</h3>
+                <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: #64748b;">Offizielle deutsche Firmenrechnung (gem. § 19 UStG) &bull; 14 Tage Zahlungsziel</p>
+            </div>
+            <button type="button" onclick="document.getElementById('b2b-invoice-dialog').close()" style="background:none; border:none; font-size:1.6rem; cursor:pointer; color:#64748b; line-height:1; padding:0 0.25rem;">&times;</button>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.5; color: #334155; margin-bottom: 0.85rem;">
+            Deutsche Unternehmen, Behörden und Körperschaften können alle Compliance-Pakete direkt gegen <strong>SEPA-Überweisung auf Rechnung</strong> beziehen. Sie erhalten die prüffähige PDF/HTML-Rechnung und den Download des Enterprise-Pakets (.zip) unverzüglich per E-Mail.
+        </p>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.84rem;">
+            <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 0.5rem;">Option 1: 1-Klick E-Mail-Bestellung</div>
+            <a id="b2b-mailto-link" href="mailto:kenanghalioun@gmail.com?subject=B2B-Bestellung%20auf%20Rechnung%20(SEPA)%3A%20BSI%20Compliance%20Toolkit" style="display:inline-block; padding: 0.55rem 1.1rem; font-size: 0.88rem; background:#1e3a8a; color:#fff !important; text-decoration:none; border-radius:6px; font-weight:600;">✉️ E-Mail-Bestellung öffnen (Mail-Client) &rarr;</a>
+            
+            <div style="font-weight: 600; color: #1e3a8a; margin-top: 1rem; margin-bottom: 0.4rem;">Option 2: Text für Ihren Einkauf kopieren</div>
+            <textarea id="b2b-copy-text" rows="5" readonly style="width: 100%; font-family: monospace; font-size: 0.78rem; padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; background: #ffffff; resize: vertical;"></textarea>
+            <div style="margin-top: 0.4rem;">
+                <button type="button" onclick="copyB2bOrderText()" id="btn-copy-order" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; font-weight: 600; color: #334155;">📋 Bestelltext in die Zwischenablage kopieren</button>
+                <span id="copy-success-badge" style="display:none; color: #16a34a; font-size: 0.8rem; font-weight: 600; margin-left: 0.5rem;">✓ Kopiert!</span>
+            </div>
+        </div>
+        <div style="font-size: 0.78rem; color: #64748b; line-height: 1.45;">
+            Rechnungsaussteller: Mohammad Kenan Ghalioun &bull; Lorcher Straße 11, 73033 Göppingen &bull; E-Mail: kenanghalioun@gmail.com<br>
+            Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Digitale Lieferung (.zip) erfolgt am gleichen Werktag.
+        </div>
+    </dialog>
+    <script>
+    function openB2bInvoiceModal(productTitle) {
+        var dialog = document.getElementById('b2b-invoice-dialog');
+        if (!dialog) return;
+        var title = productTitle || 'BSI Compliance Enterprise-Toolkit';
+        var mailto = document.getElementById('b2b-mailto-link');
+        var txtArea = document.getElementById('b2b-copy-text');
+        var rawText = 'Sehr geehrter Herr Ghalioun,\n\nbitte stellen Sie uns folgendes Compliance-Paket auf Rechnung (SEPA, 14 Tage Zahlungsziel) aus:\n\nGewünschtes Paket: ' + title + ' (€49)\n\nUnsere Rechnungsanschrift:\nFirma / Organisation:\nAnsprechpartner:\nStraße & Hausnummer:\nPLZ & Ort:\nUSt-IdNr. (optional):\nE-Mail für Rechnungsversand & Download-Lieferung:\n\nVielen Dank!';
+        if (txtArea) txtArea.value = rawText;
+        if (mailto) {
+            var subj = encodeURIComponent('B2B-Bestellung auf Rechnung (SEPA): ' + title);
+            mailto.href = 'mailto:kenanghalioun@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(rawText);
+        }
+        dialog.showModal();
+    }
+    function copyB2bOrderText() {
+        var txt = document.getElementById('b2b-copy-text');
+        if (txt) {
+            txt.select();
+            navigator.clipboard.writeText(txt.value).then(function() {
+                var badge = document.getElementById('copy-success-badge');
+                if (badge) {
+                    badge.style.display = 'inline';
+                    setTimeout(function() { badge.style.display = 'none'; }, 2500);
+                }
+            });
+        }
+    }
+    </script>
+</body>
+</html>
