@@ -34,13 +34,13 @@ Als Nutzer unserer Community-Leseprobe oder unseres Open-Source CLI-Scanners (`b
 
 ### 1. 🔐 BSI TR-02102-1 PQC & CBOM Migrations-Toolkit (9 Enterprise-Dateien)
 * **Inhalt:** `BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx` (3 Tabs), `Krypto-Inventar-PQC-2031.csv`, `PQC-Migrationsplan-2026-2031.md`, `Management-Vorlage-Haftungsfreistellung-BSIG38.html`, 3x Server-Configs (`sshd_config`, `openssl.cnf`, `nginx.conf`), 2x CI/CD-Workflows (GitHub & GitLab).
-* **Jetzt mit 20 % Rabatt (`BSI2026PRO`) herunterladen:**  
-  👉 **[https://kenanghalioun.gumroad.com/l/wcqysh](https://kenanghalioun.gumroad.com/l/wcqysh)**
+* **Jetzt mit 20 % Rabatt (`BSI2026PRO` automatisch angewendet -> €39,20 statt €49) herunterladen:**  
+  👉 **[https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO)**
 
 ### 2. 🛡️ BSI TR-03185 & DiGA TR-03161 Audit-Readiness-Pack (5 Enterprise-Dateien)
 * **Inhalt:** `BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx` (3 Tabs inkl. BfArM DiGA Fast-Track Mapping), `TR-03185-Prozess-Audit-Matrix.csv`, `SOP-Sicherer-Release-Prozess-TR03185.md`, `Checkliste-Update-Ohne-Rezertifizierung.html`, `ci-cd/tr03185-release-gate.yml` (CycloneDX SBOM).
-* **Jetzt mit 20 % Rabatt (`BSI2026PRO`) herunterladen:**  
-  👉 **[https://kenanghalioun.gumroad.com/l/juznqz](https://kenanghalioun.gumroad.com/l/juznqz)**
+* **Jetzt mit 20 % Rabatt (`BSI2026PRO` automatisch angewendet -> €39,20 statt €49) herunterladen:**  
+  👉 **[https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO)**
 
 ---
 
