@@ -2,22 +2,22 @@
 
 Willkommen im `samples/`-Verzeichnis des **[DE-Compliance-Kompass](https://kenanerorr404.github.io/de-compliance-kompass/)**. Hier finden Sie die kostenlose CSV-Prüfungs-Leseprobe (`BSI-Audit-Matrix-Leseprobe.csv`) sowie die direkte Übersicht über alle **9 Dateien** bzw. **5 Dateien** unserer schlüsselfertigen `.xlsx` Enterprise-Compliance-Toolkits.
 
-[![Claim €0+ Starter Pack](https://img.shields.io/badge/%F0%9F%93%A5_Claim_%E2%82%AC0%2B_Starter_Pack-Free_Download-16a34a?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/flcsb)
-[![Unlock 45-Row PQC .xlsx Suite (-20%)](https://img.shields.io/badge/%F0%9F%94%90_Unlock_TR--02102_PQC_.xlsx_Suite_%289_Files%29-%E2%82%AC39.20_%2820%25_OFF%29-1d4ed8?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO)
-[![Unlock TR-03185 / DiGA .xlsx Suite (-20%)](https://img.shields.io/badge/%F0%9F%9B%A1%EF%B8%8F_Unlock_TR--03185_%26_DiGA_.xlsx_Suite_%285_Files%29-%E2%82%AC39.20_%2820%25_OFF%29-0f172a?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO)
+[![Claim €0+ Starter Pack](https://img.shields.io/badge/%F0%9F%93%A5_Claim_%E2%82%AC0%2B_Starter_Pack-Free_Download-16a34a?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/flcsb?wanted=true)
+[![Unlock 45-Row PQC .xlsx Suite (-20%)](https://img.shields.io/badge/%F0%9F%94%90_Unlock_TR--02102_PQC_.xlsx_Suite_%289_Files%29-%E2%82%AC39.20_%2820%25_OFF%29-1d4ed8?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true)
+[![Unlock TR-03185 / DiGA .xlsx Suite (-20%)](https://img.shields.io/badge/%F0%9F%9B%A1%EF%B8%8F_Unlock_TR--03185_%26_DiGA_.xlsx_Suite_%285_Files%29-%E2%82%AC39.20_%2820%25_OFF%29-0f172a?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true)
 
 ---
 
-## ⚡ Sofort-Zugriff (1-Klick Direktlinks inkl. `-20 %` Community-Rabatt `BSI2026PRO`)
+## ⚡ Sofort-Zugriff (1-Klick Direkt-Checkout inkl. `-20 %` Community-Rabatt `BSI2026PRO`)
 
-1. 📥 **[€0+ Starter Pack kostenlos auf Gumroad herunterladen (`flcsb`)](https://kenanghalioun.gumroad.com/l/flcsb)** — CSV-Audit-Leseprobe + Upgrade-Leitfaden.
-2. 🔐 **[Vollständiges 45-Zeilen `.xlsx` CBOM-Workbook + OpenSSH/OpenSSL/Nginx Configs freischalten — €39,20 statt €49 (-20 % angewendet)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO)**
-3. 🛡️ **[Vollständiges TR-03185, CRA-SBOM & DiGA `.xlsx` Audit-Workbook freischalten — €39,20 statt €49 (-20 % angewendet)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO)**
+1. 📥 **[€0+ Starter Pack kostenlos auf Gumroad herunterladen (`flcsb`)](https://kenanghalioun.gumroad.com/l/flcsb?wanted=true)** — CSV-Audit-Leseprobe + Upgrade-Leitfaden.
+2. 🔐 **[Vollständiges 45-Zeilen `.xlsx` CBOM-Workbook + OpenSSH/OpenSSL/Nginx Configs freischalten — €39,20 statt €49 (-20 % angewendet)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true)**
+3. 🛡️ **[Vollständiges TR-03185, CRA-SBOM & DiGA `.xlsx` Audit-Workbook freischalten — €39,20 statt €49 (-20 % angewendet)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true)**
 4. 🧮 **[Kostenloser interaktiver BSI PQC & NIS-2 Bußgeld-/Risiko-Rechner im Browser](https://kenanerorr404.github.io/de-compliance-kompass/pqc-nis2-rechner.html)**
 
 ---
 
-## 📂 Vorschau aller 9 Dateien in der `BSI TR-02102-1 PQC & CBOM Enterprise-Suite` ([`wcqysh/BSI2026PRO`](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO))
+## 📂 Vorschau aller 9 Dateien in der `BSI TR-02102-1 PQC & CBOM Enterprise-Suite` ([`wcqysh/BSI2026PRO`](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true))
 
 | # | Datei im Enterprise-ZIP | Typ | Prüfzweck & enthaltener Inhalt | In `samples/` (Free) | Im Enterprise-Pack (€39,20) |
 | :-: | :--- | :--- | :--- | :-: | :-: |
@@ -31,11 +31,11 @@ Willkommen im `samples/`-Verzeichnis des **[DE-Compliance-Kompass](https://kenan
 | **8** | `ci-cd/github-action-cbom-audit.yml` | **GitHub Action** | Automatisiertes CI/CD-Audit-Gate mit JSON/CSV CBOM-Artefakt-Archivierung für CRA Anhang VII & C5 | ❌ | ✅ **Enthalten** |
 | **9** | `ci-cd/gitlab-ci-cbom-audit.yml` | **GitLab CI** | Schlüsselfertige GitLab-Pipeline für kontinuierliche Krypto-Compliance-Prüfungen | ❌ | ✅ **Enthalten** |
 
-👉 **[🔐 Alle 9 Dateien jetzt für €39,20 statt €49 herunterladen (20 % Rabattcode `BSI2026PRO` automatisch aktiv)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO)**
+👉 **[🔐 Alle 9 Dateien jetzt für €39,20 statt €49 herunterladen (20 % Rabattcode `BSI2026PRO` automatisch aktiv)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true)**
 
 ---
 
-## 🛡️ Vorschau aller 5 Dateien im `BSI TR-03185, CRA-SBOM & DiGA Audit-Pack` ([`juznqz/BSI2026PRO`](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO))
+## 🛡️ Vorschau aller 5 Dateien im `BSI TR-03185, CRA-SBOM & DiGA Audit-Pack` ([`juznqz/BSI2026PRO`](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true))
 
 | # | Datei im Enterprise-ZIP | Typ | Prüfzweck & enthaltener Inhalt | Im Enterprise-Pack (€39,20) |
 | :-: | :--- | :--- | :--- | :-: |
@@ -45,7 +45,7 @@ Willkommen im `samples/`-Verzeichnis des **[DE-Compliance-Kompass](https://kenan
 | **4** | `Checkliste-Update-Ohne-Rezertifizierung.html` | **A4 Protokoll** | Druckbares Patch-Klassifizierungs- und Freigabeformular für Prüfer & Benannte Stellen | ✅ **Enthalten** |
 | **5** | `ci-cd/tr03185-release-gate.yml` | **SBOM CI/CD Gate** | Automatisierte **CycloneDX SBOM-Generierung nach BSI TR-03183-2**, SAST/CVE-Check & Release-Signierung | ✅ **Enthalten** |
 
-👉 **[🛡️ Alle 5 Dateien jetzt für €39,20 statt €49 herunterladen (20 % Rabattcode `BSI2026PRO` automatisch aktiv)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO)**
+👉 **[🛡️ Alle 5 Dateien jetzt für €39,20 statt €49 herunterladen (20 % Rabattcode `BSI2026PRO` automatisch aktiv)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true)**
 
 ---
 
@@ -56,7 +56,7 @@ Willkommen im `samples/`-Verzeichnis des **[DE-Compliance-Kompass](https://kenan
 | `CBOM-001` | Public Ingress Load Balancer | BSI TR-02102-2 | `ECDHE-RSA-AES256-GCM` (`RSA-2048`) | `2031-12-31` | **KRITISCH** | TLS 1.3 Hybrid Groups: `X25519MLKEM768` / `SecP256r1MLKEM768` |
 | `CBOM-002` | Customer Identity & SSH Bastion | BSI TR-02102-4 | `curve25519-sha256` / `ssh-rsa` | `2031-12-31` | **KRITISCH** | OpenSSH >= 9.9 `KexAlgorithms mlkem768x25519-sha256` |
 | `CBOM-003` | B2B Partner IPsec / IKEv2 VPN | BSI TR-02102-3 | `ECDH BrainpoolP384r1` | `2031-12-31` | **KRITISCH** | RFC 9370 Multiple Key Exchanges + `ML-KEM-1024` |
-| **`CBOM-004` … `CBOM-045`** | *PKI, mTLS Mesh, KMS/HSM, PostgreSQL TDE, S3 Backups, Code-Signing …* | *BSI TR-02102-1..4* | *42 weitere Enterprise-Zeilen im `.xlsx` Workbook* | *2031 / 2035* | *Auto-KPI* | **[🔓 Vollversion freischalten (-20 %)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO)** |
+| **`CBOM-004` … `CBOM-045`** | *PKI, mTLS Mesh, KMS/HSM, PostgreSQL TDE, S3 Backups, Code-Signing …* | *BSI TR-02102-1..4* | *42 weitere Enterprise-Zeilen im `.xlsx` Workbook* | *2031 / 2035* | *Auto-KPI* | **[🔓 Vollversion freischalten (-20 %)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true)** |
 
 ---
 
