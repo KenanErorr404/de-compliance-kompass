@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Rechnungspflicht 2027 (EN 16931, XRechnung &amp; ZUGFeRD): GoBD-, NIS-2- &amp; BSI-Krypto-Leitfaden (TR-02102) | DE-Compliance-Kompass</title>
+    <meta name="description" content="Mit dem Auslaufen der allgemeinen Papier- und PDF-Übergangsfrist zum 31. Dezember 2026 gemäß § 14 UStG sowie dem vom Bundeskabinett verabschiedeten BMF-Gesetz">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        .btn-sepa {
+            display: inline-block;
+            padding: 0.5rem 0.95rem;
+            background: #ffffff;
+            color: #1e3a8a !important;
+            border: 1.5px solid #1e3a8a;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.86rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            line-height: 1.4;
+        }
+        .btn-sepa:hover {
+            background: #eff6ff;
+            border-color: #1d4ed8;
+            color: #1d4ed8 !important;
+        }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 5.5rem 1.5rem;
+        }
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #334155;
+            padding: 0.65rem 1rem;
+            z-index: 999;
+            box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.25);
+        }
+        .sticky-bottom-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        .btn-sticky-free {
+            display: inline-block;
+            background: #ffffff;
+            color: #0f172a !important;
+            padding: 0.5rem 0.95rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            border: 1px solid #cbd5e1;
+            white-space: nowrap;
+        }
+        .btn-sticky-free:hover {
+            background: #f1f5f9;
+        }
+        .btn-sticky-pro {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            border: 1px solid #3b82f6;
+            white-space: nowrap;
+        }
+        .btn-sticky-pro:hover {
+            background: #1e40af;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="https://kenanghalioun.gumroad.com/l/flcsb" target="_blank" rel="noopener">📥 Gratis CSV-Leseprobe (€0+)</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation &bull; Stand: 2026-11-08 18:18 UTC
+            </div>
+            <h1 id="e-rechnungspflicht-2027-en-16931-xrechnung-zugferd-gobd-nis-2-bsi-krypto-leitfaden-tr-02102">E-Rechnungspflicht 2027 (EN 16931, XRechnung &amp; ZUGFeRD): GoBD-, NIS-2- &amp; BSI-Krypto-Leitfaden (TR-02102)</h1>
+<p>Mit dem Auslaufen der allgemeinen Papier- und PDF-Übergangsfrist zum <strong>31. Dezember 2026</strong> gemäß <strong>§ 14 UStG</strong> sowie dem vom Bundeskabinett verabschiedeten BMF-Gesetzespaket zur <strong>Digitalisierung handels- und steuerrechtlicher Aufzeichnungen („Digitale Belege", BMF-Pressemitteilung vom 23.09.2026)</strong> und dem <strong>Jahressteuergesetz 2026 (JStG 2026)</strong> steht der deutsche Mittelstand und Enterprise-Sektor vor der größten finanz- und IT-sicherheitsrechtlichen Schnittstellenumstellung seit Einführung der GoBD.</p>
+<p>Ab dem <strong>1. Januar 2027</strong> müssen sämtliche im Inland ansässigen Unternehmen mit einem Vorjahresumsatz von <strong>mehr als 800.000 Euro</strong> im inländischen B2B-Geschäftsverkehr zwingend strukturierte elektronische Rechnungen nach der europäischen Norm <strong>CEN EN 16931</strong> ausstellen – in der Praxis primär als <strong>XRechnung (Version 3.0+)</strong> oder hybrides <strong>ZUGFeRD (ab Profil EN 16931 / Extended, Version 2.2/2.3)</strong>. Zum <strong>1. Januar 2028</strong> entfällt schließlich auch das KMU-Privileg für Unternehmen unterhalb der 800.000-Euro-Schwelle vollständig, flankiert von der europäischen <strong>ViDA-Richtlinie (VAT in the Digital Age)</strong> für das digitale Echtzeit-Meldewesen ab 2030.</p>
+<p>Was in vielen Buchhaltungs- und ERP-Projekten jedoch gefährlich unterschätzt wird: Eine EN-16931-konforme E-Rechnung ist kein statisches Druckdokument mehr, sondern ein <strong>maschinenauswertbarer XML-Datenstrom (UBL 2.1 oder UN/CEFACT CII)</strong> voller hochsensibler Geschäfts-, Preis-, Bank- und Lieferkettendaten. Sobald ERP-Systeme (SAP S/4HANA, Microsoft Dynamics, DATEV, Odoo), <strong>Peppol-AS4-Access-Points</strong>, E-Mail-Gateways und <strong>SFTP-Batch-Schnittstellen</strong> automatisiert XML- und PDF/A-3-Payloads austauschen und über <strong>8 bis 10 Jahre revisionssicher archivieren (§ 14b UStG, § 147 AO, GoBD)</strong>, greifen unmittelbar die strengen IT-Sicherheits- und Kryptographievorgaben aus <strong>NIS-2 (§ 30 &amp; § 38 BSIG)</strong>, <strong><a href="bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html">BSI TR-02102-1 bis -4</a></strong> (Post-Quanten-Frist 2031) und <strong><a href="bsi-tr-03185-software-updates-ohne-rezertifizierung.html">BSI TR-03185</a></strong> (sichere ERP-Updates &amp; SBOM-Pflicht).</p>
+<p>Dieser Praxisleitfaden zeigt CFOs, CISOs, Leitern Rechnungswesen, ERP-Architekten und DevSecOps-Teams, wie Sie die <strong>E-Rechnungspflicht 2026/2027</strong> technisch prüfungssicher umsetzen, XML-/ZUGFeRD-Einfallstore härten und die gesetzliche Aufbewahrungsfrist bis <strong>2035/2037</strong> gegen das <strong>BSI-Krypto-Ablaufdatum 2031</strong> absichern.</p>
+<hr />
+<h2 id="1-gesetzlicher-fahrplan-20252028-14-ustg-bmf-digitalisierungsoffensive-wer-wann-liefern-muss">1. Gesetzlicher Fahrplan 2025–2028 (§ 14 UStG &amp; BMF-Digitalisierungsoffensive): Wer wann liefern muss</h2>
+<p>Durch das Wachstumschancengesetz, die BMF-Verwaltungsanweisungen zur E-Rechnung und die im Herbst 2026 beschlossenen BMF-Maßnahmen zur <strong>Fortentwicklung digitaler Belege und steuerrechtlicher Aufzeichnungen</strong> ist der verbindliche Zeitplan für B2B-Umsätze zwischen inländischen Unternehmern klar definiert:</p>
+<ol>
+<li><strong>Seit 01.01.2025 – Uneingeschränkte Empfangspflicht für alle B2B-Unternehmen:</strong><br />
+   Jedes deutsche Unternehmen (vom Einzelunternehmer bis zum DAX-Konzern) muss bereits seit Anfang 2025 technisch in der Lage sein, EN-16931-konforme E-Rechnungen (<code>XRechnung</code>, <code>ZUGFeRD</code> ab Profil EN 16931) elektronisch zu empfangen, maschinell auszulesen und im XML-Originalformat GoBD-konform aufzubewahren. Ein bloßer Ausdruck des ZUGFeRD-Sichtteils oder die Konvertierung von XML in PDF vernichtet die Beweiskraft und gefährdet den <strong>Vorsteuerabzug nach § 15 UStG</strong>.</li>
+<li><strong>Stichtag 01.01.2027 – Verpflichtender E-Rechnungsversand ab &gt; 800.000 € Vorjahresumsatz:</strong><br />
+   Für alle Unternehmen mit einem Gesamtumsatz nach § 19 Abs. 3 UStG von mehr als <strong>800.000 Euro im Kalenderjahr 2026</strong> endet am 31.12.2026 die Übergangsregelung für Papierrechnungen und unstrukturierte PDF-Dateien. Ab dem <strong>1. Januar 2027</strong> sind Ausgangsrechnungen an inländische B2B-Kunden zwingend im strukturierten EN-16931-Format auszustellen (Ausnahmen gelten lediglich für steuerfreie Umsätze nach § 4 Nr. 8–29 UStG, Kleinbetragsrechnungen bis 250 € nach § 33 UStDV sowie Fahrausweise).</li>
+<li><strong>Übergangsfrist bis 31.12.2027 für KMU (≤ 800.000 €) und klassisches EDI:</strong><br />
+   Unternehmen mit maximal 800.000 Euro Vorjahresumsatz dürfen noch bis Ende 2027 sonstige Rechnungen (Papier/PDF mit Empfängerzustimmung) versenden. Ebenso dürfen bestehende <strong>EDI-Verfahren (z. B. EDIFACT)</strong>, die noch nicht vollständig der Semantik von CEN EN 16931 entsprechen, übergangsweise bis zum <strong>31.12.2027</strong> weitergenutzt werden.</li>
+<li><strong>Ab 01.01.2028 – Vollständige E-Rechnungspflicht &amp; EDI-Harmonisierung:</strong><br />
+   Ab 2028 müssen ausnahmslos alle steuerpflichtigen B2B-Leistungen (außerhalb eng begrenzter Sonderfälle) über EN-16931-kompatible Formate oder interoperable EDI-Mappings abgerechnet werden.</li>
+</ol>
+<hr />
+<h2 id="2-die-10-jahres-aufbewahrungsfalle-warum-gobd-14b-ustg-direkt-in-das-bsi-pqc-ablaufdatum-2031-laufen">2. Die 10-Jahres-Aufbewahrungsfalle: Warum GoBD &amp; § 14b UStG direkt in das BSI-PQC-Ablaufdatum 2031 laufen</h2>
+<p>Die brisanteste Compliance-Schnittstelle zwischen Steuerrecht und Cybersicherheit liegt in der <strong>gesetzlichen Aufbewahrungsdauer elektronischer Buchungsbelege und Rechnungen</strong>:</p>
+<ul>
+<li>Gemäß <strong>§ 14b Abs. 1 UStG</strong> sowie <strong>§ 147 Abs. 3 AO</strong> und den <strong>GoBD</strong> (Grundsätze zur ordnungsmäßigen Führung und Aufbewahrung von Büchern, Aufzeichnungen und Unterlagen in elektronischer Form) müssen Eingangs- und Ausgangsrechnungen im strukturierten XML-Originalformat über <strong>8 bis 10 Jahre</strong> hinweg <strong>unveränderbar, vollständig, maschinell auswertbar und vor unbefugtem Zugriff geschützt</strong> archiviert werden.</li>
+<li>Eine im <strong>Januar 2027</strong> übermittelte B2B-Rechnung unterliegt somit bis mindestens <strong>Ende 2035 bzw. Ende 2037</strong> den gesetzlichen Integritäts-, Authentizitäts- und Vertraulichkeitsanforderungen (DSGVO Art. 32 für personenbezogene Ansprechpartner-/Einzelunternehmerdaten sowie Schutz von Einkaufskonditionen, Stücklisten und IBAN-Verbindungen nach GeschGehG &amp; <strong>§ 30 Abs. 2 Nr. 8 BSIG</strong>).</li>
+</ul>
+<p>Genau in diesen gesetzlichen Aufbewahrungszeitraum fällt jedoch die verbindliche <strong>Krypto-Migrationsfrist des BSI zum 31.12.2031</strong>:</p>
+<ol>
+<li><strong>Harvest-Now, Decrypt-Later (HNDL) auf EDI-, AS4-, SFTP- und SMTP-Verkehr:</strong><br />
+   Klassische asymmetrische Schlüsselaustauschverfahren (<code>RSA-2048</code>, klassisches <code>Diffie-Hellman</code>, nicht-hybrides <code>ECDH P-256</code> / <code>X25519</code>) gelten laut <strong>BSI TR-02102-1</strong> und der <strong>nationalen PQC-Leitlinie 2026</strong> ab Ende 2031 nicht mehr als Stand der Technik gegen kryptographisch relevante Quantencomputer. Angreifer, die heute verschlüsselten E-Rechnungs-Datenverkehr an B2B-Schnittstellen mitschneiden, können komplette Lieferantenstrukturen, Marge-Kalkulationen, Zahlungsziele und Bankdaten innerhalb der laufenden Aufbewahrungsfrist entschlüsseln.</li>
+<li><strong>Langzeit-Integrität digitaler Signaturen &amp; Zeitstempel (XAdES / PAdES / eIDAS):</strong><br />
+   Zwar verlangt § 14 Abs. 3 UStG für den Vorsteuerabzug ein innerbetriebliches Kontrollverfahren (IKS), doch setzen zahlreiche Konzerne, Behörden (B2G über OZG-RE / ZRE) und KRITIS-Betreiber zur Sicherstellung von <strong>Echtheit der Herkunft und Unversehrtheit des Inhalts</strong> qualifizierte elektronische Signaturen, Siegel oder kryptographische Archiv-Zeitstempel (<strong>BSI TR-03125 TR-ESOR</strong>) ein. Verlieren klassische RSA-/ECDSA-Signaturen ohne rechtzeitige Nachsignierung (<em>Re-Timestamping</em>) mit quantensicheren Hash-/Signaturverfahren (<strong>ML-DSA / SLH-DSA</strong>) ihre kryptographische Beweiskraft vor Ablauf der GoBD-Frist 2035/2037, drohen empfindliche Beanstandungen in der Betriebsprüfung.</li>
+</ol>
+<hr />
+<h2 id="3-technische-angriffsvektoren-bei-xrechnung-zugferd-4-kritische-risiken-fur-erp-finanzsysteme">3. Technische Angriffsvektoren bei XRechnung &amp; ZUGFeRD: 4 kritische Risiken für ERP- &amp; Finanzsysteme</h2>
+<p>Mit dem Übergang vom passiven Sicht-PDF zur vollautomatischen Dunkelverarbeitung (<em>Straight-Through Processing</em>) von <code>XRechnung</code> (UBL/CII XML) und <code>ZUGFeRD</code> (PDF/A-3 mit eingebettetem <code>factur-x.xml</code>) entstehen in Unternehmensnetzwerken vier akute Angriffsflächen:</p>
+<h3 id="risiko-1-xml-external-entity-xxe-milliarden-lacher-dos-schema-injection-im-rechnungs-parser">Risiko 1: XML External Entity (XXE), Milliarden-Lacher-DoS &amp; Schema-Injection im Rechnungs-Parser</h3>
+<p>Verarbeiten selbstentwickelte ERP-Konnektoren, ältere Middleware-Bibliotheken oder Eingangsrechnungs-Workflows eingehende UBL-/CII-XML-Dateien ohne strikt deaktiviertes <code>DOCTYPE</code> / External-Entity-Resolution, genügt eine einzige präparierte Eingangsrechnung per E-Mail oder Upload-Portal, um interne Konfigurationsdateien (<code>/etc/passwd</code>, Cloud-IAM-Tokens) auszulesen oder Server-seitige Request-Forgery-Angriffe (<strong>SSRF</strong>) ins interne Finanznetzwerk auszuführen.</p>
+<h3 id="risiko-2-zugferd-pdfa-3-container-discrepancy-eingebettete-schad-anhange">Risiko 2: ZUGFeRD PDF/A-3 Container-Discrepancy &amp; eingebettete Schad-Anhänge</h3>
+<p>Das hybride ZUGFeRD-2.3-Format erlaubt neben dem normierten XML-Kerndatensatz (<code>factur-x.xml</code>) auch rechnungsbegründende Anhänge innerhalb des PDF/A-3-Containers (<code>EmbeddedFiles</code>). Weichen der menschlich lesbare PDF-Sichtteil (z. B. korrekte Lieferanten-IBAN für den Sachbearbeiter im Freigabe-Workflow) und das maschinell in den SEPA-Zahlungslauf übernommene XML-Feld <code>BT-84</code> (<em>Payment account identifier / IBAN</em>) voneinander ab (<strong>Semantic Spoofing / CEO- &amp; BEC-Fraud</strong>), überweist das ERP-System automatisiert auf ein Angreiferkonto!</p>
+<h3 id="risiko-3-ungehartete-ubertragungskanale-smtp-relay-sftp-batch-peppol-as4">Risiko 3: Ungehärtete Übertragungskanäle (SMTP-Relay, SFTP-Batch &amp; Peppol AS4)</h3>
+<p>In der mittelständischen Praxis werden E-Rechnungen über vier Hauptkanäle übertragen:
+* <strong>E-Mail-Postfächer (<code>rechnungseingang@...</code>):</strong> Oft noch mit opportunistischem STARTTLS ohne <strong>MTA-STS / DANE (TLSA)</strong> und veralteten TLS-1.2-Ciphern konfiguriert – ein offenes Einfallstor für Man-in-the-Middle-Manipulation von IBAN-Knoten (<code>cac:PayeeFinancialAccount</code>).
+* <strong>SFTP / SCP Batch-Transfers zu Steuerberatern, Factoring-Banken &amp; EDI-Providern:</strong> Häufig laufen hier Legacy-SSH-Daemons mit <code>ssh-rsa</code> oder rein klassischem <code>curve25519-sha256</code> ohne hybriden Post-Quanten-Schlüsselaustausch nach <strong>BSI TR-02102-4</strong>.
+* <strong>Peppol-Netzwerk (AS4-Protokoll) &amp; REST-APIs:</strong> Erfordern striktes <strong>TLS 1.3</strong> gemäß <strong>BSI TR-02102-2</strong> / <strong>TR-03116-4</strong> sowie zertifikatsbasierte gegenseitige Authentifizierung (<strong>mTLS</strong>).</p>
+<h3 id="risiko-4-ungepatchte-erp-add-ons-fehlende-software-stucklisten-cra-bsi-tr-03185">Risiko 4: Ungepatchte ERP-Add-ons &amp; fehlende Software-Stücklisten (CRA &amp; BSI TR-03185)</h3>
+<p>Fast jeder E-Rechnungs-Stack nutzt Open-Source-XML-Validatoren (z. B. KoSIT Validator, Mustangproject, Apache Santuario, Saxon, libxml2). Nach dem <a href="cra-durchfuehrungsgesetz-nis2-lieferkette-sbom-kryptographie-2026.html">deutschen CRA-Durchführungsgesetz und § 30 Abs. 2 Nr. 4 BSIG</a> müssen Hersteller und Betreiber eine tagesaktuelle <strong>CycloneDX SBOM (BSI TR-03183-2)</strong> führen und kritische Parser-CVEs binnen 24/72 Stunden einspielen – ohne dass jedes Sicherheits-Patch die abgenommene <strong>GoBD-Verfahrensdokumentation</strong> invalidiert (<strong>BSI TR-03185 Klasse-A-Hotfix-Trennung</strong>).</p>
+<hr />
+<h2 id="4-compliance-architektur-matrix-bmf-e-rechnung-en-16931-trifft-auf-gobd-nis-2-bsi-richtlinien">4. Compliance- &amp; Architektur-Matrix: BMF E-Rechnung (EN 16931) trifft auf GoBD, NIS-2 &amp; BSI-Richtlinien</h2>
+<p>Die folgende Prüfmatrix zeigt, wie Sie steuerrechtliche Anforderungen des BMF direkt mit prüfungssicheren technischen Kontrollen des BSI verknüpfen:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prozessschritt der E-Rechnung</th>
+<th style="text-align: left;">Steuer- &amp; Finanzvorgabe (BMF / UStG / GoBD)</th>
+<th style="text-align: left;">Korrespondierender BSI- &amp; NIS-2-Standard</th>
+<th style="text-align: left;">Konkrete technische Umsetzung &amp; Audit-Nachweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. Transport via HTTPS / REST-API / Peppol AS4</strong></td>
+<td style="text-align: left;">Schutz der Übertragungsintegrität &amp; Vertraulichkeit (§ 14 Abs. 1 &amp; 3 UStG, Art. 32 DSGVO)</td>
+<td style="text-align: left;"><strong>BSI TR-02102-2</strong> &amp; <strong>TR-03116-4</strong> (§ 30 Abs. 2 Nr. 8 BSIG)</td>
+<td style="text-align: left;"><strong>TLS 1.3 Only</strong>, mTLS für EDI/AS4-Partner &amp; hybride PQC-Gruppen (<code>X25519MLKEM768</code>, <code>SecP256r1MLKEM768</code>) in OpenSSL 3.5+ / Nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. Automatischer SFTP-Belegtransfer (ERP ↔ DATEV / Bank / EDI)</strong></td>
+<td style="text-align: left;">Abgesicherter Datentransfer steuer- und zahlungsrelevanter Buchungsstapel</td>
+<td style="text-align: left;"><strong>BSI TR-02102-4</strong> (<em>Kryptographische Verfahren: SSH</em>)</td>
+<td style="text-align: left;"><strong>OpenSSH 9.9+</strong> mit <code>mlkem768x25519-sha256</code>, Ed25519-Hostkeys &amp; Abschaltung von <code>ssh-rsa</code> / Diffie-Hellman Group14</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. E-Mail-Rechnungseingang (ZUGFeRD / XRechnung)</strong></td>
+<td style="text-align: left;">Schutz vor Rechnungsmanipulation (IBAN-Fraud) vor Eintritt in das IKS</td>
+<td style="text-align: left;"><strong>BSI TR-03108</strong> (<em>Sicherer E-Mail-Transport</em>)</td>
+<td style="text-align: left;">Erzwingung von <strong>DANE / DNSSEC</strong>, <strong>MTA-STS</strong>, <strong>DMARC (<code>p=reject</code>)</strong>, S/MIME oder PGP-Signaturprüfung am Mail-Gateway</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4. XML-Validierung &amp; Dunkelverarbeitung (<code>BT-84</code> IBAN-Check)</strong></td>
+<td style="text-align: left;">Innerbetriebliches Kontrollverfahren (IKS) nach § 14 Abs. 3 UStG für den Vorsteuerabzug</td>
+<td style="text-align: left;"><strong>OWASP XXE Prevention</strong> &amp; <strong>BSI IT-Grundschutz APP.6</strong></td>
+<td style="text-align: left;">Striktes Schema-/Schematron-Gate (EN 16931 / KoSIT), DTD-Verbot im XML-Parser &amp; automatischer <strong>PDF-vs.-XML-Summen-/IBAN-Abgleich</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5. ERP- &amp; Konnektor-Patching ohne GoBD-Bruch</strong></td>
+<td style="text-align: left;">Fortlaufende Aktualität der <strong>GoBD-Verfahrensdokumentation</strong> (Rz. 151 ff. GoBD)</td>
+<td style="text-align: left;"><strong><a href="bsi-tr-03185-software-updates-ohne-rezertifizierung.html">BSI TR-03185</a></strong> &amp; <strong>BSI TR-03183-2 (SBOM)</strong></td>
+<td style="text-align: left;">Automatisierte <strong>CycloneDX SBOM</strong> aller XML/PDF-Libraries &amp; <strong>Klasse-A/B/C-Patch-Prozess</strong>, der reine Security-Fixes GoBD-konform kapselt</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6. Revisionssichere 8-/10-Jahres-Archivierung (bis 2035/2037)</strong></td>
+<td style="text-align: left;">Unveränderbarkeit &amp; maschinelle Auswertbarkeit des XML-Originals (§ 14b UStG, § 147 AO)</td>
+<td style="text-align: left;"><strong>BSI TR-03125 (TR-ESOR)</strong> &amp; <strong><a href="bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html">BSI TR-02102-1 (PQC 2031)</a></strong></td>
+<td style="text-align: left;">WORM-Speicher mit <code>SHA-384</code>/<code>SHA-512</code> Merkle-Hashes, Krypto-Inventar (<strong>CBOM</strong>) &amp; PQC-fähiger Nachsignierungs-Strategie (<code>ML-DSA</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-technischer-deep-dive-sichere-xml-validierung-pqc-gehartete-e-rechnungs-schnittstellen">5. Technischer Deep-Dive: Sichere XML-Validierung &amp; PQC-gehärtete E-Rechnungs-Schnittstellen</h2>
+<h3 id="a-gehartete-python-prufroutine-fur-en-16931-eingangsrechnungen-xxe-sicher-iban-betrags-kontrolle">A. Gehärtete Python-Prüfroutine für EN-16931-Eingangsrechnungen (XXE-sicher + IBAN-/Betrags-Kontrolle)</h3>
+<p>Um <strong>XXE-Exploits</strong> auszuschließen und im Rahmen des <strong>innerbetrieblichen Kontrollverfahrens (§ 14 Abs. 3 UStG)</strong> kritische Zahlungsparameter (<code>PayableAmount</code>, <code>IBAN</code>) deterministisch vor der ERP-Verbuchung zu verifizieren, darf niemals ein ungeschützter Standard-DOM/SAX-Parser mit aktivierter Entity-Auflösung genutzt werden. In Produktions-Pipelines empfiehlt sich <code>defusedxml</code> kombiniert mit einer strikten Größen- und Stammdaten-Prüfung:</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+&quot;&quot;&quot;GoBD / § 14 UStG Eingangs-Gate: XXE-sichere EN-16931 (UBL 2.1) Vorprüfung.&quot;&quot;&quot;
+from decimal import Decimal
+import xml.etree.ElementTree as ET
+
+MAX_XML_BYTES = 2 * 1024 * 1024  # 2 MB Hard-Limit gegen XML-Bomben
+
+def verify_ubl_invoice_header(raw_xml: bytes, trusted_ibans: set[str]) -&gt; dict:
+    if len(raw_xml) &gt; MAX_XML_BYTES:
+        raise ValueError(&quot;E-Rechnung überschreitet zulässige Maximalgröße (DoS-Schutz).&quot;)
+    if b&quot;&lt;!DOCTYPE&quot; in raw_xml.upper() or b&quot;&lt;!ENTITY&quot; in raw_xml.upper():
+        raise SecurityError(&quot;DTD / External Entities in EN-16931-Rechnungen strikt untersagt (XXE-Gate)!&quot;)
+
+    root = ET.fromstring(raw_xml)
+    ns = {
+        &quot;cbc&quot;: &quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot;,
+        &quot;cac&quot;: &quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot;,
+    }
+    inv_id = (root.findtext(&quot;cbc:ID&quot;, default=&quot;&quot;, namespaces=ns)).strip()
+    iban = (root.findtext(&quot;.//cac:PayeeFinancialAccount/cbc:ID&quot;, default=&quot;&quot;, namespaces=ns)).replace(&quot; &quot;, &quot;&quot;)
+    payable = Decimal(root.findtext(&quot;.//cac:LegalMonetaryTotal/cbc:PayableAmount&quot;, default=&quot;0.00&quot;, namespaces=ns))
+
+    if iban and iban not in trusted_ibans:
+        raise PermissionError(f&quot;WARNUNG (BEC/IBAN-Fraud): Unbekannte Lieferanten-IBAN {iban} in Rechnung {inv_id}!&quot;)
+    return {&quot;invoice_id&quot;: inv_id, &quot;iban&quot;: iban, &quot;payable_eur&quot;: str(payable)}
+</code></pre>
+<h3 id="b-krypto-audit-ihrer-erp-sftp-und-as4-gateways-fur-die-aufbewahrungsfrist-bis-2037">B. Krypto-Audit Ihrer ERP-, SFTP- und AS4-Gateways für die Aufbewahrungsfrist bis 2037</h3>
+<p>Prüfen Sie Ihre Linux-Applikationsserver, Reverse-Proxies (Nginx/HAProxy vor dem Rechnungseingangsportal) und SFTP-Transfer-Hosts mit unserem quelloffenen <strong>Zero-Dependency CLI-Scanner</strong> (<code>bsi_pqc_check.py</code>) auf Konformität mit <strong>BSI TR-02102-1/-2/-4</strong>:</p>
+<pre><code class="language-bash"># Scannt OpenSSH, OpenSSL, TLS-Zertifikate &amp; System-Kryptopolicies und exportiert eine CBOM-CSV für Ihr GoBD-/ISMS-Dossier:
+pipx run git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git --generate-cbom-csv
+</code></pre>
+<p>Stellt der Scanner fest, dass Ihr SFTP-Rechnungstransfer oder Ihr AS4-TLS-Ingress noch kein <strong>OpenSSH 9.9+ (<code>mlkem768x25519-sha256</code>)</strong> bzw. <strong>OpenSSL 3.5+ (<code>X25519MLKEM768</code>)</strong> unterstützt, sollte dieses System im <strong>Krypto-Inventar (CBOM)</strong> umgehend für das nächste Wartungsfenster priorisiert werden.</p>
+<hr />
+<h2 id="6-sofort-umsetzungsplan-in-4-schritten-vor-dem-stichtag-01012027">6. Sofort-Umsetzungsplan in 4 Schritten vor dem Stichtag 01.01.2027</h2>
+<ol>
+<li>
+<p><strong>NIS-2-, Haftungs- &amp; PQC-Risiko-Score für Finanz- und ERP-Systeme berechnen (60 Sek.):</strong><br />
+   Ermitteln Sie kostenfrei im Browser, wie hoch Ihr aktueller Compliance-Gap-Score für langlebige Finanz- und Rechnungsdaten (Aufbewahrung bis 2035+) gemäß <strong>BSI TR-02102-1</strong> und <strong>§ 30 / § 38 BSIG</strong> ausfällt:<br />
+   👉 <strong><a href="pqc-nis2-rechner.html">⚡ Interaktiven BSI PQC &amp; NIS-2 Risiko- und Bußgeld-Rechner starten (<code>pqc-nis2-rechner.html</code>)</a></strong></p>
+</li>
+<li>
+<p><strong>Kostenlose <code>€0+</code> CSV-Audit-Leseprobe für Ihre GoBD- &amp; ISMS-Verfahrensdokumentation laden:</strong><br />
+   Testen Sie unsere <strong>Starter Edition (<code>€0+</code> auf Gumroad)</strong> mit 6 originalen Prüfpunkten aus den BSI-Matrizen für Krypto-Inventarisierung (<strong>TR-02102-1</strong>) und sichere Software-Updates (<strong>TR-03185</strong>) – inklusive <strong>20 % Rabattcode (<code>BSI2026PRO</code>)</strong>:<br />
+   👉 <strong><a href="https://kenanghalioun.gumroad.com/l/flcsb">📥 Kostenlose CSV-Audit-Leseprobe &amp; Schnellstart-Matrix sichern (€0+)</a></strong></p>
+</li>
+<li>
+<p><strong>ERP- &amp; EDI-Patch-Prozess GoBD-fest trennen (<code>BSI TR-03185</code> Suite mit -20 % Vorteil):</strong><br />
+   Dokumentieren Sie Sicherheitsupdates an XML-/ZUGFeRD-Bibliotheken über unsere <strong>3-Klassen-Patch-Matrix (Klasse A/B/C)</strong> und automatische <strong>CycloneDX SBOM-Pipelines</strong>, damit kritische CVE-Hotfixes keine aufwendige Neuabnahme Ihrer GoBD-Verfahrensdokumentation erzwingen:<br />
+   👉 <strong><a href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO">🛡️ BSI TR-03185, SBOM &amp; Patch-Audit Enterprise-Workbook sichern (€39,20 statt €49 mit <code>BSI2026PRO</code>)</a></strong></p>
+</li>
+<li>
+<p><strong>Übertragungswege &amp; Langzeit-Archivierung quantensicher härten (<code>BSI TR-02102</code> Suite mit -20 % Vorteil):</strong><br />
+   Nutzen Sie unser 45-Zeilen <code>.xlsx</code> CBOM-Workbook, produktionsfertige Drop-in-Configs für <strong>OpenSSH 9.9+</strong>, <strong>OpenSSL 3.5+</strong> und <strong>Nginx TLS 1.3</strong> sowie die <strong>§ 38 BSIG Geschäftsführungs-Beschlussvorlage</strong>, um E-Rechnungs-Gateways bis 2037 abzusichern:<br />
+   👉 <strong><a href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO">🔐 BSI TR-02102-1 PQC &amp; CBOM Enterprise-Toolkit sichern (€39,20 statt €49 mit <code>BSI2026PRO</code>)</a></strong></p>
+</li>
+</ol>
+<hr />
+<div class="cta-box">
+    <h3>📦 Schlüsselfertige Enterprise-Toolkits für E-Rechnungs-Gateways, GoBD-Sicherheit, NIS-2 (§ 30 BSIG) &amp; BSI-TR-Audits (-20 % mit Code BSI2026PRO)</h3>
+    <p>Sparen Sie sich tagelange Vorlagenerstellung vor dem E-Rechnungs-Stichtag <strong>01.01.2027</strong>: Unsere beiden Enterprise-Pakete liefern prüfungsfertige Excel-Workbooks (<code>.xlsx</code> mit Live-KPI-Formeln), CI/CD-Pipelines und gehärtete Server-Konfigurationen – inklusive automatischer EU-USt.-Rechnung oder Kauf auf SEPA-Firmenrechnung:</p>
+    <ul>
+        <li><strong>🔐 BSI TR-02102-1 PQC &amp; CBOM Migrations-Toolkit (39,20 € statt 49 € mit <code>BSI2026PRO</code>):</strong> Enthält <strong>9 Enterprise-Dateien</strong> inkl. <code>BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx</code> (3-Tab Excel-Workbook für ERP-, AS4-, SFTP- &amp; Archiv-Schnittstellen mit 10-Jahres-GoBD-Horizont, HNDL-Risiko-Scoring &amp; § 38 BSIG Sign-Off-Log), Drop-in Server-Configs für <strong>OpenSSH 9.9+</strong> (<code>mlkem768x25519-sha256</code>), <strong>OpenSSL 3.5+</strong> (<code>X25519MLKEM768</code>) &amp; <strong>Nginx TLS 1.3</strong> sowie A4 Geschäftsleitungs-Beschlussvorlage.</li>
+        <li><strong>🛡️ BSI TR-03185, CRA-SBOM &amp; Patch-Audit-Pack (39,20 € statt 49 € mit <code>BSI2026PRO</code>):</strong> Enthält <strong>5 Enterprise-Dateien</strong> inkl. <code>BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx</code> (3-Tab Excel-Workbook mit <strong>Klasse-A/B/C-Patch-Matrix</strong> für GoBD- &amp; rezertifizierungsfreie 24h-Sicherheitsupdates an XML-/ZUGFeRD-Komponenten), schlüsselfertiger <strong>CycloneDX SBOM CI/CD-Pipeline (BSI TR-03183-2)</strong>, Release-SOP und Freigabeprotokoll.</li>
+    </ul>
+    <div class="cta-links">
+        <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI Compliance Enterprise-Toolkits')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+        <a class="btn" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO" target="_blank" rel="noopener">🔐 TR-02102 PQC-Suite (39,20 € mit BSI2026PRO) &rarr;</a>
+        <a class="btn btn-secondary" href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO" target="_blank" rel="noopener">🛡️ TR-03185 &amp; SBOM-Suite (39,20 € mit BSI2026PRO) &rarr;</a>
+        <a class="btn" style="background:#0369a1;" href="https://kenanghalioun.gumroad.com/l/flcsb" target="_blank" rel="noopener">📥 Gratis CSV-Leseprobe (€0+)</a>
+    </div>
+</div>
+            <div style="margin-top:1rem;font-size:0.84rem;color:#1e3a8a;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:0.75rem 0.95rem;">
+                <div>
+                    ✅ <strong>Sofort-Download (.zip) • Automatischer Kaufbeleg &amp; EU-USt.-Rechnungsgenerierung (inkl. USt-IdNr.-Eintrag) via Gumroad (Merchant of Record)</strong> – Inkl. 3-Tab Excel-Workbooks (<code>.xlsx</code>), Drop-in Server-Configs (OpenSSH 9.9+, OpenSSL 3.5+, Nginx TLS 1.3) &amp; CI/CD-Pipelines.
+                </div>
+                <div style="margin-top:0.6rem;">
+                    <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI Compliance Enterprise-Toolkit')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community-Werkzeuge (MIT-Lizenz) &bull; Fachpublikation &bull; Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <div style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);"><span id="impressum-contact"></span><script>document.getElementById("impressum-contact").innerText=atob("S29udGFrdCAmIHZlcmFudHdvcnRsaWNoZXIgSGVyYXVzZ2ViZXIgKMKnIDUgRERHKTogTW9oYW1tYWQgS2VuYW4gR2hhbGlvdW4sIExvcmNoZXIgU3RyYcOfZSAxMSwgNzMwMzMgR8O2cHBpbmdlbiDigJQgRS1NYWlsIMO8YmVyIEdpdEh1YiBJc3N1ZXMgLyBQcm9maWw=");</script></div>
+        <details class="legal-modal">
+            <summary>Projekt-Hinweis, Open-Source-Lizenz, Impressum &amp; Datenschutz (DSGVO)</summary>
+            <p><strong>Open-Source-Software &amp; Kommerzielle Toolkits:</strong><br>
+            Der CLI-Scanner (<a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">bsi_pqc_check.py</a>) sowie die interaktiven Online-Rechner werden als freie Open-Source-Tools unter der MIT-Lizenz bereitgestellt. Optional erhältliche Enterprise-Workbooks (.xlsx) und gehärtete Referenzkonfigurationen werden über die Plattform Gumroad Inc. (San Francisco, USA) als bevollmächtigter Wiederverkäufer (Merchant of Record) mit automatischer EU-USt.-Rechnungsstellung vertrieben.</p>
+            <p><strong>Kontakt &amp; Bug-Reports:</strong><br>
+            Technische Fragen, Fehlerberichte und Pull-Requests richten Sie bitte an den <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/issues" target="_blank" rel="noopener">GitHub Issue-Tracker</a>.</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+
+    <!-- Sticky Bottom Conversion Bar (Free Sample vs. Enterprise .xlsx) -->
+    <div class="sticky-bottom-bar" id="sticky-cta-bar">
+        <div class="sticky-bottom-inner">
+            <a class="btn-sticky-free" href="https://kenanghalioun.gumroad.com/l/flcsb" target="_blank" rel="noopener">📥 Kostenlose CSV-Leseprobe + 20% Rabattcode (€0+ auf Gumroad)</a>
+            <a class="btn-sticky-pro" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO" target="_blank" rel="noopener">⚡ Vollständiges 9-Dateien Enterprise .xlsx Toolkit (39,20 € mit Code BSI2026PRO)</a>
+        </div>
+    </div>
+
+    <!-- B2B SEPA Invoice Modal Dialog -->
+    <dialog id="b2b-invoice-dialog" style="max-width: 600px; width: 92%; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); background: #ffffff; color: #0f172a; margin: auto;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.25rem; color: #0f172a;">🏢 B2B-Bestellung auf Rechnung (SEPA)</h3>
+                <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: #64748b;">Offizielle deutsche Firmenrechnung (gem. § 19 UStG) &bull; 14 Tage Zahlungsziel</p>
+            </div>
+            <button type="button" onclick="document.getElementById('b2b-invoice-dialog').close()" style="background:none; border:none; font-size:1.6rem; cursor:pointer; color:#64748b; line-height:1; padding:0 0.25rem;">&times;</button>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.5; color: #334155; margin-bottom: 0.85rem;">
+            Deutsche Unternehmen, Behörden und Körperschaften können alle Compliance-Pakete direkt gegen <strong>SEPA-Überweisung auf Rechnung</strong> beziehen. Sie erhalten die prüffähige PDF/HTML-Rechnung und den Download des Enterprise-Pakets (.zip) unverzüglich per E-Mail.
+        </p>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.84rem;">
+            <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 0.5rem;">Option 1: 1-Klick E-Mail-Bestellung</div>
+            <a id="b2b-mailto-link" href="mailto:kenanghalioun@gmail.com?subject=B2B-Bestellung%20auf%20Rechnung%20(SEPA)%3A%20BSI%20Compliance%20Toolkit" style="display:inline-block; padding: 0.55rem 1.1rem; font-size: 0.88rem; background:#1e3a8a; color:#fff !important; text-decoration:none; border-radius:6px; font-weight:600;">✉️ E-Mail-Bestellung öffnen (Mail-Client) &rarr;</a>
+            
+            <div style="font-weight: 600; color: #1e3a8a; margin-top: 1rem; margin-bottom: 0.4rem;">Option 2: Text für Ihren Einkauf kopieren</div>
+            <textarea id="b2b-copy-text" rows="5" readonly style="width: 100%; font-family: monospace; font-size: 0.78rem; padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; background: #ffffff; resize: vertical;"></textarea>
+            <div style="margin-top: 0.4rem;">
+                <button type="button" onclick="copyB2bOrderText()" id="btn-copy-order" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; font-weight: 600; color: #334155;">📋 Bestelltext in die Zwischenablage kopieren</button>
+                <span id="copy-success-badge" style="display:none; color: #16a34a; font-size: 0.8rem; font-weight: 600; margin-left: 0.5rem;">✓ Kopiert!</span>
+            </div>
+        </div>
+        <div style="font-size: 0.78rem; color: #64748b; line-height: 1.45;">
+            Rechnungsaussteller: Mohammad Kenan Ghalioun &bull; Lorcher Straße 11, 73033 Göppingen &bull; E-Mail: kenanghalioun@gmail.com<br>
+            Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Digitale Lieferung (.zip) erfolgt am gleichen Werktag.
+        </div>
+    </dialog>
+    <script>
+    function openB2bInvoiceModal(productTitle) {
+        var dialog = document.getElementById('b2b-invoice-dialog');
+        if (!dialog) return;
+        var title = productTitle || 'BSI Compliance Enterprise-Toolkit';
+        var mailto = document.getElementById('b2b-mailto-link');
+        var txtArea = document.getElementById('b2b-copy-text');
+        var rawText = 'Sehr geehrter Herr Ghalioun,\n\nbitte stellen Sie uns folgendes Compliance-Paket auf Rechnung (SEPA, 14 Tage Zahlungsziel) aus:\n\nGewünschtes Paket: ' + title + ' (€49)\n\nUnsere Rechnungsanschrift:\nFirma / Organisation:\nAnsprechpartner:\nStraße & Hausnummer:\nPLZ & Ort:\nUSt-IdNr. (optional):\nE-Mail für Rechnungsversand & Download-Lieferung:\n\nVielen Dank!';
+        if (txtArea) txtArea.value = rawText;
+        if (mailto) {
+            var subj = encodeURIComponent('B2B-Bestellung auf Rechnung (SEPA): ' + title);
+            mailto.href = 'mailto:kenanghalioun@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(rawText);
+        }
+        dialog.showModal();
+    }
+    function copyB2bOrderText() {
+        var txt = document.getElementById('b2b-copy-text');
+        if (txt) {
+            txt.select();
+            navigator.clipboard.writeText(txt.value).then(function() {
+                var badge = document.getElementById('copy-success-badge');
+                if (badge) {
+                    badge.style.display = 'inline';
+                    setTimeout(function() { badge.style.display = 'none'; }, 2500);
+                }
+            });
+        }
+    }
+    </script>
+</body>
+</html>
