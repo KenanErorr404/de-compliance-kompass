@@ -250,6 +250,112 @@
             cursor: pointer;
         }
     </style>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="BSI TR-02102-1 (2026-01): Ablaufdatum 2031 für RSA &amp; ECDSA – Der Post-Quanten-Migrationsleitfaden">
+    <meta property="og:description" content="Mit der im Februar 2026 vorgestellten Aktualisierung der Technischen Richtlinie BSI TR-02102 („Kryptographische Verfahren: Empfehlungen und Schlüssellängen“)">
+    <meta property="og:url" content="https://kenanerorr404.github.io/de-compliance-kompass/bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html">
+    <meta property="og:image" content="https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "BSI TR-02102-1 (2026-01): Ablaufdatum 2031 für RSA & ECDSA – Der Post-Quanten-Migrationsleitfaden",
+      "description": "Mit der im Februar 2026 vorgestellten Aktualisierung der Technischen Richtlinie BSI TR-02102 („Kryptographische Verfahren: Empfehlungen und Schlüssellängen“)",
+      "url": "https://kenanerorr404.github.io/de-compliance-kompass/bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html",
+      "image": "https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg",
+      "inLanguage": "de-DE",
+      "author": {
+        "@type": "Person",
+        "name": "Mohammad Kenan Ghalioun"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DE-Compliance-Kompass",
+        "url": "https://kenanerorr404.github.io/de-compliance-kompass/"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "BSI TR-02102 PQC & TR-03185 Enterprise Compliance Toolkits",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Linux, Windows, macOS",
+      "url": "https://kenanerorr404.github.io/de-compliance-kompass/pqc-nis2-rechner.html",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Gratis CSV-Audit-Leseprobe & Schnellstart-Matrix (€0+)",
+          "price": "0.00",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/flcsb?wanted=true"
+        },
+        {
+          "@type": "Offer",
+          "name": "BSI TR-02102-1 PQC & CBOM 9-Dateien Enterprise .xlsx Suite (-20% mit BSI2026PRO)",
+          "price": "39.20",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true"
+        },
+        {
+          "@type": "Offer",
+          "name": "BSI TR-03185 & DiGA/CRA 5-Dateien Enterprise .xlsx Suite (-20% mit BSI2026PRO)",
+          "price": "39.20",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: 1. Analyse des BSI TR-02102-1 Updates (2026): Die konkreten Fristen für RSA, DH und ECC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das Bedrohungsszenario hinter der Entscheidung des BSI ist präzise definiert: Kryptographisch relevante Quantencomputer (CRQC) sind mit Hilfe des Shor-Verfahrens in der Lage, sowohl das Faktorisierungsproblem großer ganzer Zahlen (Basis von RSA) als auch das diskrete Logarithmusproblem in endlichen Körpern und auf elliptischen Kurven (Basis von DH, DSA, ECDH, ECDSA, EdDSA) in Polynomialzeit zu lösen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: Die Fristen-Matrix der aktuellen BSI TR-02102-1 im Überblick\n\n\n\nKryptographischer Anwendungsbereich\nBetroffene klassische Verfahren\nFrist für alleinigen Einsatz (BSI TR-02102-1)\nVerbindliche Zielarchitektur ab Fristende\n\n\n\n\nAsymmetrische Verschlüsselung & Schlüsselaushandlung (KEM / Key Exchange)\nRSA-OAEP, FFDHE (Diffie-Hellman), ECDH (z. B. BrainpoolP256r1, secp256r1, X25519)\nBis maximal Ende 2031 (in Hochsicherheitsumgebungen früher)\nZwingend hybride Schlüsselaushandlung: Klassisches Verfahren + PQC-KEM\n\n\nDigitale Signaturen (Authentisierung & Dokumentensignatur)\nRSA-PSS, DSA, ECDSA, EdDSA\nBis maximal Ende 2035 (Ausnahme: langlebige Root-CAs und Firmware-Signaturen sofort planen)\nHybride Signaturen oder zugelassene zustandsbehaftete Hash-basierte Signaturen (LMS, XMSS) / ML-DSA / SLH-DSA\n\n\nSymmetrische Verschlüsselung & Hashfunktionen\nAES-256, SHA-384, SHA-512, SHA-3\nWeiterhin langfristig empfohlen (Grover-Effekt durch ≥ 256 Bit Schlüssellänge kompensiert)\nBeibehaltung von AES-256 und mindestens 256-Bit-Sicherheitsniveau\n\n\n\n\n2. Pflicht zur Hybrid-Implementierung: Warum das BSI auf PQC + Klassik setzt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ein zentrales Architekturprinzip der deutschen und europäischen Sicherheitsbehörden ist die Pflicht zum hybriden Einsatz in der Übergangsphase. Während einzelne internationale Standards einen direkten Wechsel auf reine Post-Quanten-Algorithmen diskutieren, fordert das BSI in TR-02102-1 ausdrücklich die Kombination eines bewährten klassischen Verfahrens (z. B. ECDH über Brainpool- oder NIST-Kurven mit mindestens 128 Bit klassischer Sicherheit) mit einem quantensicheren Key Encapsulation Mechanism"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: Die Sicherheitslogik des Hybrid-Ansatzes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beim hybriden Schlüsselaustausch werden die erzeugten Geheimnisse (Shared Secrets) beider Verfahren über eine kryptographisch starke Key Derivation Function (KDF, z. B. HKDF nach RFC 5869 oder KMAC) so verknüpft, dass das resultierende Sitzungsgeheimnis genau dann sicher bleibt, wenn mindestens eines der beiden Teilverfahren ungebrochen ist:\n- Sollte sich in einem neueren gitterbasierten PQC-Verfahren eine unerwartete mathematische Schwäche zeigen, schützt weiterhin das Jahrzehnte erprobte ECDH-"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: Vom BSI empfohlene Post-Quanten-Verfahren (KEM & Signaturen)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In der TR-02102-1 hebt das BSI folgende PQC-Algorithmen hervor:\n1. FrodoKEM (FrodoKEM-976, FrodoKEM-1344): Konservatives, auf dem allgemeinen Learning-With-Errors-Problem (Plain LWE ohne zusätzliche algebraische Ring-/Modulstruktur) basierendes Verfahren mit sehr hohen Sicherheitsreserven.\n2. Classic McEliece: Code-basiertes Verfahren mit jahrzehntelanger Kryptoanalyse-Historie; zeichnet sich durch extrem kleine Chiffrate, aber sehr große öffentliche Schlüssel (mehrere Hundert Kilobyte bis über "
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: 3. Rechtliche Tragweite für IT-Leiter und CISOs: Art. 32 DSGVO und NIS-2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Warum darf die Frist 2031 nicht als bloßes Zukunftsprojekt für das Jahr 2030 missverstanden werden? Weil deutsche und europäische Gesetze über dynamische Verweisungsklauseln direkt an die technischen Richtlinien des BSI anknüpfen:"
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <div id="stealth-banner" class="stealth-banner">
