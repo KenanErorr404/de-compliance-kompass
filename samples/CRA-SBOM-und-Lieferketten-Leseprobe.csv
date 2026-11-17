@@ -1,0 +1,8 @@
+Control-ID,Norm / Artikel (CRA & BSI TR-03183-2 / § 30 BSIG),Prüfkriterium & Technische Anforderung,Technischer Nachweis (CycloneDX 1.6 / CI-Gate),Audit-Status,Risikostufe (1-25),Verantwortung
+CRA-SBOM-01,CRA Anhang I Teil I Nr. 1,Auslieferung ohne bekannte ausnutzbare Schwachstellen (Zero Exploitable CVEs at Release),Trivy/Grype VEX Gate (exit-code 1 bei KEV/Critical),ERFÜLLT,4,DevSecOps / PSIRT
+CRA-SBOM-02,BSI TR-03183-2 Kap. 3.1,Maschinenlesbare SBOM im Format CycloneDX >= 1.5/1.6 oder SPDX >= 2.3,sbom.cdx.json Artefakt in jedem Release-Build,ERFÜLLT,3,Release Engineering
+CRA-SBOM-03,BSI TR-03183-2 Kap. 3.3,Kryptographische Prüfsumme (SHA-256/SHA-512) für jede gelieferte Komponente,components[].hashes[] Validierung im CI-Gate,IN UMSETZUNG,15,DevSecOps
+CRA-SBOM-04,BSI TR-03183-1 / RFC 9116,Maschinenlesbare /.well-known/security.txt mit PGP-Key & gültigem Expires-Feld,HTTP 200 Check auf /.well-known/security.txt,OFFEN (KRITISCH),20,PSIRT / WebOps
+SUP-NIS2-01,§ 30 Abs. 2 Nr. 4 BSIG,Verpflichtende Übergabe einer CycloneDX SBOM (BSI TR-03183-2) bei jedem Software-Release,Signierte sbom.cdx.json + VEX-Feed,VERTRAGLICH_VEREINBART,4,IT-Einkauf / CISO
+SUP-NIS2-02,§ 30 Abs. 2 Nr. 4 & § 32 BSIG,Vertragliche 12-Stunden-Meldepflicht des Lieferanten bei Sicherheitsvorfällen / KEV-Exploits,B2B Security SLA Anhang § 4,VERTRAGLICH_VEREINBART,5,Legal / PSIRT
+UPGRADE-INFO,13-Dateien Enterprise Mega-Suite (juznqz),Alle 60 CRA/SBOM/§ 30 BSIG Controls + 2x .xlsx Workbooks + Lieferanten-SLA + CI/CD-Gates (-20% Code BSI2026PRO),https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true,VOLLVERSION (€39.20),1,Enterprise-Pack
