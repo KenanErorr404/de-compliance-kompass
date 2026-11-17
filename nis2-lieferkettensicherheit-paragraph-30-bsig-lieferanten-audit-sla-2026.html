@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIS-2 Lieferkettensicherheit (§ 30 Abs. 2 Nr. 4 BSIG) &amp; Lieferanten-Audit 2026: Vertragliche SLAs, BSI TR-03183-2 (SBOM-Übergabe) und Post-Quanten-Pflichten (TR-02102) | DE-Compliance-Kompass</title>
+    <meta name="description" content="Mit der Durchsetzung des deutschen BSI-Gesetzes (BSIG) in Umsetzung der europäischen NIS-2-Richtlinie (Richtlinie (EU) 2022/2555) sowie dem Start der 24-Stunden">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        .btn-sepa {
+            display: inline-block;
+            padding: 0.5rem 0.95rem;
+            background: #ffffff;
+            color: #1e3a8a !important;
+            border: 1.5px solid #1e3a8a;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.86rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            line-height: 1.4;
+        }
+        .btn-sepa:hover {
+            background: #eff6ff;
+            border-color: #1d4ed8;
+            color: #1d4ed8 !important;
+        }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 5.5rem 1.5rem;
+        }
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #334155;
+            padding: 0.65rem 1rem;
+            z-index: 999;
+            box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.25);
+        }
+        .sticky-bottom-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        .btn-sticky-free {
+            display: inline-block;
+            background: #ffffff;
+            color: #0f172a !important;
+            padding: 0.5rem 0.95rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            border: 1px solid #cbd5e1;
+            white-space: nowrap;
+        }
+        .btn-sticky-free:hover {
+            background: #f1f5f9;
+        }
+        .btn-sticky-pro {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            border: 1px solid #3b82f6;
+            white-space: nowrap;
+        }
+        .btn-sticky-pro:hover {
+            background: #1e40af;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="NIS-2 Lieferkettensicherheit (§ 30 Abs. 2 Nr. 4 BSIG) &amp; Lieferanten-Audit 2026: Vertragliche SLAs, BSI TR-03183-2 (SBOM-Übergabe) und Post-Quanten-Pflichten (TR-02102)">
+    <meta property="og:description" content="Mit der Durchsetzung des deutschen BSI-Gesetzes (BSIG) in Umsetzung der europäischen NIS-2-Richtlinie (Richtlinie (EU) 2022/2555) sowie dem Start der 24-Stunden">
+    <meta property="og:url" content="https://kenanerorr404.github.io/de-compliance-kompass/nis2-lieferkettensicherheit-paragraph-30-bsig-lieferanten-audit-sla-2026.html">
+    <meta property="og:image" content="https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "NIS-2 Lieferkettensicherheit (§ 30 Abs. 2 Nr. 4 BSIG) & Lieferanten-Audit 2026: Vertragliche SLAs, BSI TR-0318",
+      "description": "Mit der Durchsetzung des deutschen BSI-Gesetzes (BSIG) in Umsetzung der europäischen NIS-2-Richtlinie (Richtlinie (EU) 2022/2555) sowie dem Start der 24-Stunden",
+      "url": "https://kenanerorr404.github.io/de-compliance-kompass/nis2-lieferkettensicherheit-paragraph-30-bsig-lieferanten-audit-sla-2026.html",
+      "image": "https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg",
+      "inLanguage": "de-DE",
+      "author": {
+        "@type": "Person",
+        "name": "Mohammad Kenan Ghalioun"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DE-Compliance-Kompass",
+        "url": "https://kenanerorr404.github.io/de-compliance-kompass/"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "BSI TR-02102 PQC & TR-03185 Enterprise Compliance Toolkits",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Linux, Windows, macOS",
+      "url": "https://kenanerorr404.github.io/de-compliance-kompass/pqc-nis2-rechner.html",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Gratis CSV-Audit-Leseprobe & Schnellstart-Matrix (€0+)",
+          "price": "0.00",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/flcsb?wanted=true"
+        },
+        {
+          "@type": "Offer",
+          "name": "BSI TR-02102-1 PQC & CBOM 9-Dateien Enterprise .xlsx Suite (-20% mit BSI2026PRO)",
+          "price": "39.20",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true"
+        },
+        {
+          "@type": "Offer",
+          "name": "BSI TR-03185 & DiGA/CRA 5-Dateien Enterprise .xlsx Suite (-20% mit BSI2026PRO)",
+          "price": "39.20",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: 1. Warum § 30 Abs. 2 Nr. 4 BSIG jeden deutschen B2B-Zulieferer erfasst?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gemäß § 30 Abs. 1 BSIG sind besonders wichtige und wichtige Einrichtungen verpflichtet, geeignete, verhältnismäßige und wirksame technische und organisatorische Maßnahmen (TOMs) zu ergreifen, um Störungen der Verfügbarkeit, Integrität und Vertraulichkeit ihrer informationstechnischen Systeme zu verhindern. § 30 Abs. 2 Nr. 4 BSIG konkretisiert diese Pflicht unmissverständlich auf die Sicherheit der Lieferkette, einschließlich sicherheitsbezogener Aspekte der Beziehungen zwischen den jeweiligen Ei"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: 2. Die 5 unverzichtbaren Klauseln in jedem NIS-2 & CRA Lieferanten-SLA (2026/2027)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Klassische Auftragsverarbeitungsverträge nach Art. 28 DSGVO (AVV) reichen für § 30 Abs. 2 Nr. 4 BSIG und den Cyber Resilience Act (Verordnung (EU) 2024/2847) nicht mehr aus. Während die DSGVO ausschließlich personenbezogene Daten schützt, zielen NIS-2 und CRA auf die betriebliche Resilienz, Software-Lieferketten-Integrität und Schwachstellen-Transparenz sämtlicher B2B-Systeme ab."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: Klausel 1: Verpflichtende 12-Stunden-Frühwarnung zur Wahrung der 24h-BSI/ENISA-Frist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da Ihr eigenes Unternehmen nach § 32 Abs. 1 Nr. 1 BSIG (NIS-2) sowie nach Art. 14 Abs. 2 lit. a CRA innerhalb von maximal 24 Stunden eine Frühwarnung an das BSI bzw. die ENISA abgeben muss, darf Ihr Lieferant im Vorfalls- oder KEV-Exploit-Fall keine 48 oder 72 Stunden mit der Benachrichtigung warten.\n- Vertraglicher Standardwert: „Der Auftragnehmer meldet dem PSIRT des Auftraggebers jeden erheblichen Sicherheitsvorfall sowie jede aktiv ausgenutzte Schwachstelle in bereitgestellten Komponenten un"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: Klausel 2: Unaufgeforderte Übergabe einer BSI TR-03183-2 konformen CycloneDX SBOM + VEX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Verpflichten Sie jeden Software- und Hardware-Zulieferer, mit jedem Major-, Minor- und Patch-Release ein signiertes CycloneDX (≥ 1.5/1.6) JSON-Artefakt gemäß BSI TR-03183 Teil 2 (Version 2.1) zu übergeben:\n- Vollständige Auflösung aller transitiven Abhängigkeiten (dependencies[])\n- Eindeutige Paket-Identifikatoren (components[].purl / cpe)\n- Kryptographische Prüfsummen (SHA-256 / SHA-512 in components[].hashes[])\n- Maschinenlesbares Vulnerability Exploitability eXchange (VEX) Dokument für bekann"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was gilt bei: Klausel 3: Koordinierte Schwachstellenoffenlegung nach BSI TR-03183-1 (/.well-known/security.txt)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Lieferant muss nachweisen, dass er eine RFC-9116- und BSI TR-03183-1-konforme Datei unter /.well-known/security.txt (inkl. gültigem Expires:-Zeitstempel, PGP-Schlüssel und Link zur deutschen/englischen Vulnerability Disclosure Policy) betreibt."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="cra-sbom-rechner.html">🛡️ CRA- &amp; SBOM-Rechner</a>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Gratis CSV-Leseprobe (€0+)</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation &bull; Stand: 2026-11-17 14:02 UTC
+            </div>
+<h1 id="nis-2-lieferkettensicherheit-30-abs-2-nr-4-bsig-lieferanten-audit-2026-vertragliche-slas-bsi-tr-03183-2-sbom-ubergabe-und-post-quanten-pflichten-tr-02102">NIS-2 Lieferkettensicherheit (§ 30 Abs. 2 Nr. 4 BSIG) &amp; Lieferanten-Audit 2026: Vertragliche SLAs, BSI TR-03183-2 (SBOM-Übergabe) und Post-Quanten-Pflichten (TR-02102)</h1>
+<p>Mit der Durchsetzung des deutschen <strong>BSI-Gesetzes (BSIG)</strong> in Umsetzung der europäischen <strong>NIS-2-Richtlinie (Richtlinie (EU) 2022/2555)</strong> sowie dem Start der <strong>24-Stunden-Meldepflicht nach dem Cyber Resilience Act (CRA)</strong> hat sich die rechtliche und technische Prüfpraxis in Deutschland im Herbst 2026 grundlegend verschoben: Selbst Mittelständler, Softwarehäuser, Managed Service Provider (MSP) und Komponentenfertiger, die formal nicht selbst die Schwellenwerte einer „wichtigen" oder „besonders wichtigen Einrichtung" nach § 28 BSIG überschreiten, werden über <strong>§ 30 Abs. 2 Nr. 4 BSIG (Sicherheit der Lieferkette)</strong> unmittelbar in die gesetzliche Nachweiskette ihrer Großkunden, KRITIS-Auftraggeber und öffentlichen Bedarfsträger gezogen.</p>
+<p>Wer heute als B2B-Lieferant, SaaS-Anbieter, Systemintegrator oder Einkaufs-/Compliance-Abteilung agiert, steht vor einer klaren Weichenstellung: <strong>Ohne vertraglich fixierte 12-Stunden-Vorfallsmelde-SLAs, maschinenlesbare CycloneDX SBOM-Übergaben nach BSI TR-03183-2, einen rezertifizierungsfreien Patch-Prozess nach BSI TR-03185 und ein dokumentiertes Post-Quanten-Krypto-Inventar (CBOM nach BSI TR-02102-1) droht der Ausschluss aus bestehenden Rahmenverträgen und Einkaufsportalen.</strong></p>
+<p>Dieser ca. 1.700 Wörter umfassende Praxis-Leitfaden liefert CISOs, IT-Einkäufern, Justiziaren und DevSecOps-Leitern den vollständigen technischen und vertraglichen Bauplan für <strong>§ 30 Abs. 2 Nr. 4 BSIG</strong>, <strong>CRA Anhang I</strong> und <strong>BSI C5:2026</strong>.</p>
+<hr />
+<h2 id="1-warum-30-abs-2-nr-4-bsig-jeden-deutschen-b2b-zulieferer-erfasst">1. Warum § 30 Abs. 2 Nr. 4 BSIG jeden deutschen B2B-Zulieferer erfasst</h2>
+<p>Gemäß <strong>§ 30 Abs. 1 BSIG</strong> sind besonders wichtige und wichtige Einrichtungen verpflichtet, geeignete, verhältnismäßige und wirksame technische und organisatorische Maßnahmen (TOMs) zu ergreifen, um Störungen der Verfügbarkeit, Integrität und Vertraulichkeit ihrer informationstechnischen Systeme zu verhindern. <strong>§ 30 Abs. 2 Nr. 4 BSIG</strong> konkretisiert diese Pflicht unmissverständlich auf die <strong>Sicherheit der Lieferkette</strong>, einschließlich sicherheitsbezogener Aspekte der Beziehungen zwischen den jeweiligen Einrichtungen und ihren <strong>unmittelbaren Anbietern oder Diensteanbietern</strong>.</p>
+<p>Dabei müssen regulierte Unternehmen nach dem Gesetzestext und der Prüfpraxis des <strong>Bundesamts für Sicherheit in der Informationstechnik (BSI)</strong> insbesondere drei Faktoren bei jedem Lieferanten bewerten und vertraglich absichern:</p>
+<ol>
+<li><strong>Die spezifischen Anfälligkeiten (Vulnerabilities) jedes einzelnen unmittelbaren Anbieters und Diensteanbieters:</strong> Wie schnell erkennt und schließt der Lieferant kritische CVEs in seinen Produkten oder Cloud-Diensten? Liegt zu jedem Release eine <strong>maschinenlesbare SBOM nach BSI TR-03183-2</strong> vor?</li>
+<li><strong>Die Gesamtqualität der Produkte und der Cybersicherheitspraxis des Zulieferers, einschließlich seiner sicheren Entwicklungsverfahren (Secure SDLC):</strong> Arbeitet der Lieferant nach den Vorgaben der <strong>BSI TR-03185 („Sichere Software-Lebenszyklus-Prozesse")</strong>, sodass kritische Sicherheitsupdates als isolierte Klasse-A-Hotfixes ohne wochenlangen Re-Zertifizierungs- oder Abnahmestillstand eingespielt werden können?</li>
+<li><strong>Die kryptographische Zukunftssicherheit und Datenübertragungs-Härtung (§ 30 Abs. 2 Nr. 8 BSIG i. V. m. BSI TR-02102):</strong> Setzt der Lieferant für Schnittstellen, Fernwartungszugänge (SSH/VPN), API-Endpunkte (TLS 1.3) und Backups bereits quantensichere Hybridverfahren (<code>X25519MLKEM768</code>, <code>mlkem768x25519-sha256</code>) ein, oder gefährdet er den Auftraggeber durch bis <strong>2031 auslaufende RSA-/ECDSA-Verfahren</strong>?</li>
+</ol>
+<blockquote>
+<p><strong>Persönliche Haftung der Geschäftsleitung (§ 38 BSIG):</strong> Nach <strong>§ 38 Abs. 1 und 2 BSIG</strong> sind die Geschäftsleiter regulierter Unternehmen persönlich dafür verantwortlich, die Risikomanagementmaßnahmen nach § 30 BSIG – einschließlich der Lieferkettensicherheit – zu billigen und ihre Umsetzung zu überwachen. Ein Einkauf von Software, Hardware oder Managed Services ohne dokumentiertes Lieferanten-Sicherheitsaudit begründet im Schadensfall ein unmittelbares Organhaftungsrisiko.</p>
+</blockquote>
+<hr />
+<h2 id="2-die-5-unverzichtbaren-klauseln-in-jedem-nis-2-cra-lieferanten-sla-20262027">2. Die 5 unverzichtbaren Klauseln in jedem NIS-2 &amp; CRA Lieferanten-SLA (2026/2027)</h2>
+<p>Klassische Auftragsverarbeitungsverträge nach Art. 28 DSGVO (AVV) reichen für <strong>§ 30 Abs. 2 Nr. 4 BSIG</strong> und den <strong>Cyber Resilience Act (Verordnung (EU) 2024/2847)</strong> nicht mehr aus. Während die DSGVO ausschließlich personenbezogene Daten schützt, zielen NIS-2 und CRA auf die <strong>betriebliche Resilienz, Software-Lieferketten-Integrität und Schwachstellen-Transparenz</strong> sämtlicher B2B-Systeme ab.</p>
+<p>Jeder neue oder verlängerte IT-Rahmenvertrag, SaaS-Vertrag und Software-Wartungsvertrag muss ab 2026 fünf harte technische Service Level Agreements (SLAs) enthalten:</p>
+<h3 id="klausel-1-verpflichtende-12-stunden-fruhwarnung-zur-wahrung-der-24h-bsienisa-frist">Klausel 1: Verpflichtende 12-Stunden-Frühwarnung zur Wahrung der 24h-BSI/ENISA-Frist</h3>
+<p>Da Ihr eigenes Unternehmen nach <strong>§ 32 Abs. 1 Nr. 1 BSIG</strong> (NIS-2) sowie nach <strong>Art. 14 Abs. 2 lit. a CRA</strong> innerhalb von maximal <strong>24 Stunden</strong> eine Frühwarnung an das BSI bzw. die ENISA abgeben muss, darf Ihr Lieferant im Vorfalls- oder KEV-Exploit-Fall keine 48 oder 72 Stunden mit der Benachrichtigung warten.
+- <strong>Vertraglicher Standardwert:</strong> <em>„Der Auftragnehmer meldet dem PSIRT des Auftraggebers jeden erheblichen Sicherheitsvorfall sowie jede aktiv ausgenutzte Schwachstelle in bereitgestellten Komponenten unverzüglich, spätestens jedoch innerhalb von </em><em>12 Stunden</em><em> nach Kenntniserlangung."</em></p>
+<h3 id="klausel-2-unaufgeforderte-ubergabe-einer-bsi-tr-03183-2-konformen-cyclonedx-sbom-vex">Klausel 2: Unaufgeforderte Übergabe einer BSI TR-03183-2 konformen CycloneDX SBOM + VEX</h3>
+<p>Verpflichten Sie jeden Software- und Hardware-Zulieferer, mit jedem Major-, Minor- und Patch-Release ein signiertes <strong>CycloneDX (≥ 1.5/1.6) JSON-Artefakt</strong> gemäß <strong>BSI TR-03183 Teil 2 (Version 2.1)</strong> zu übergeben:
+- Vollständige Auflösung aller transitiven Abhängigkeiten (<code>dependencies[]</code>)
+- Eindeutige Paket-Identifikatoren (<code>components[].purl</code> / <code>cpe</code>)
+- Kryptographische Prüfsummen (<code>SHA-256</code> / <code>SHA-512</code> in <code>components[].hashes[]</code>)
+- Maschinenlesbares <strong>Vulnerability Exploitability eXchange (VEX)</strong> Dokument für bekannte CVEs, die im konkreten Produktkontext nicht ausnutzbar sind (<code>not_affected</code>).</p>
+<h3 id="klausel-3-koordinierte-schwachstellenoffenlegung-nach-bsi-tr-03183-1-well-knownsecuritytxt">Klausel 3: Koordinierte Schwachstellenoffenlegung nach BSI TR-03183-1 (<code>/.well-known/security.txt</code>)</h3>
+<p>Der Lieferant muss nachweisen, dass er eine RFC-9116- und <strong>BSI TR-03183-1</strong>-konforme Datei unter <code>/.well-known/security.txt</code> (inkl. gültigem <code>Expires:</code>-Zeitstempel, PGP-Schlüssel und Link zur deutschen/englischen Vulnerability Disclosure Policy) betreibt.</p>
+<h3 id="klausel-4-kostenfreie-security-hotfixes-klasse-a-nach-bsi-tr-03185-ohne-funktions-upgrade-zwang">Klausel 4: Kostenfreie Security-Hotfixes (Klasse A nach BSI TR-03185) ohne Funktions-Upgrade-Zwang</h3>
+<p>Gemäß <strong>Art. 13 Abs. 8 CRA</strong> und <strong>BSI TR-03185</strong> müssen Sicherheitsaktualisierungen getrennt von funktionalen Feature-Upgrades bereitgestellt werden, sofern dies technisch machbar ist. Der Lieferant verpflichtet sich, kritische Sicherheitslücken (CVSS ≥ 7.0 oder KEV) als <strong>isolierte Klasse-A-Hotfixes</strong> bereitzustellen, ohne dass der Auftraggeber kostenpflichtige Lizenz-Upgrades erwerben oder eine erneute Gesamtabnahme durchlaufen muss.</p>
+<h3 id="klausel-5-kryptographisches-inventar-cbom-post-quanten-migrationspfad-bis-2031-bsi-tr-02102">Klausel 5: Kryptographisches Inventar (CBOM) &amp; Post-Quanten-Migrationspfad bis 2031 (BSI TR-02102)</h3>
+<p>Der Auftragnehmer legt offen, welche asymmetrischen und symmetrischen Verfahren in seinen Produkten, APIs und Wartungszugängen zum Einsatz kommen (<strong>CBOM</strong>), und garantiert die Unterstützung hybrider Post-Quanten-Schlüsselaustauschverfahren (<strong><code>X25519MLKEM768</code></strong> für TLS 1.3 nach <strong>BSI TR-02102-2</strong> sowie <strong><code>mlkem768x25519-sha256</code></strong> für SSHv2 nach <strong>BSI TR-02102-4</strong>) spätestens vor dem verbindlichen BSI-Ablaufdatum <strong>2031</strong>.</p>
+<hr />
+<h2 id="3-technische-lieferanten-prufung-in-60-sekunden-wie-sie-zulieferer-artefakte-automatisiert-auditieren">3. Technische Lieferanten-Prüfung in 60 Sekunden: Wie Sie Zulieferer-Artefakte automatisiert auditieren</h2>
+<p>Verlassen Sie sich bei Lieferanten-Audits nicht auf reine Selbstauskünfte in PDF-Fragebögen. Mit unserem Open-Source-Prüfwerkzeug <strong><a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/releases/tag/v1.5.0"><code>bsi_pqc_check.py</code> (Version 1.5.0)</a></strong> können sowohl Ihr eigenes DevSecOps-Team als auch Ihre Lieferanten vor jeder Release-Übergabe einen standardisierten technischen Prüflauf durchführen:</p>
+<h3 id="1-automatisierter-cra-bsi-tr-03183-2-sbom-check-per-ghcr-docker-container">1. Automatisierter CRA- &amp; BSI TR-03183-2 SBOM-Check per GHCR Docker-Container</h3>
+<pre><code class="language-bash"># Prüft lokale Projektmanifeste, SBOM-Artefakte (TR-03183-2) und Krypto-Konfigurationen (TR-02102):
+docker run --rm -v &quot;$(pwd):/workspace&quot; ghcr.io/kenanerorr404/bsi-pqc-audit:latest --cra-sbom-check /workspace --json
+</code></pre>
+<h3 id="2-vergleich-der-4-lieferanten-risikoklassen-nach-30-bsig-cra">2. Vergleich der 4 Lieferanten-Risikoklassen nach § 30 BSIG &amp; CRA</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Lieferanten-Kategorie</th>
+<th style="text-align: left;">Typische Beispiele im Mittelstand &amp; KRITIS</th>
+<th style="text-align: left;">Geforderter Prüfnachweis (§ 30 BSIG / CRA)</th>
+<th style="text-align: left;">Empfohlenes Audit-Intervall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Tier-1 Kritische Infrastruktur &amp; Cloud/MSP</strong></td>
+<td style="text-align: left;">Hosting-/Cloud-Provider, Managed SOC, ERP/Core-SaaS, Identity Provider (IAM)</td>
+<td style="text-align: left;"><strong>BSI C5:2026 Typ-2 Testat</strong>, 12h Incident-SLA, PQC-Hybrid-Endpunkte (<code>X25519MLKEM768</code>), vollständiges CBOM</td>
+<td style="text-align: left;">Halbjährlich + kontinuierliches Monitoring</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier-2 Software- &amp; Komponenten-Zulieferer (CRA)</strong></td>
+<td style="text-align: left;">Eingebettete Module, kommerzielle SDKs, Container-Basis-Images, OT-Steuerungen</td>
+<td style="text-align: left;"><strong>CycloneDX 1.6 SBOM nach BSI TR-03183-2</strong> bei jedem Release, VEX-Feed, <strong>BSI TR-03185 Klasse-A-Patch-SLA</strong></td>
+<td style="text-align: left;">Bei jedem Release (automatisiertes CI-Gate)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier-3 Entwicklungs- &amp; IT-Dienstleister</strong></td>
+<td style="text-align: left;">Externe DevSecOps-Agenturen, Wartungsfirmen mit VPN-/SSH-Sprungserver-Zugriff</td>
+<td style="text-align: left;">Gehärtete SSH-Zugänge nach <strong>BSI TR-02102-4 (<code>mlkem768x25519-sha256</code>)</strong>, MFA-Pflicht, Least-Privilege</td>
+<td style="text-align: left;">Jährlich + technischer Config-Scan</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier-4 Standard-Büro- &amp; Randsoftware</strong></td>
+<td style="text-align: left;">Isolierte On-Premise-Hilfswerkzeuge ohne Zugriff auf kritische Geschäftsdaten</td>
+<td style="text-align: left;">CRA CE-Konformitätserklärung (Anhang V), <code>/.well-known/security.txt</code> (BSI TR-03183-1)</td>
+<td style="text-align: left;">Bei Beschaffung / Vertragsverlängerung</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-zwei-kostenlose-online-rechner-fur-ihr-lieferketten-cra-und-pqc-audit-2026">4. Zwei kostenlose Online-Rechner für Ihr Lieferketten-, CRA- und PQC-Audit 2026</h2>
+<p>Um Ihren aktuellen Reifegrad sowie Ihre regulatorische Bußgeld- und Haftungsexposition sofort im Browser (100 % clientseitig, 0 Cookies) zu ermitteln, stehen Ihnen auf dem <strong>DE-Compliance-Kompass</strong> ab sofort zwei spezialisierte interaktive Werkzeuge zur Verfügung:</p>
+<ol>
+<li>🛡️ <strong><a href="cra-sbom-rechner.html">Neu: Interaktiver CRA Produktklassen-, SBOM (BSI TR-03183-2) &amp; 24h-Meldepflicht-Rechner (<code>cra-sbom-rechner.html</code>)</a></strong><br />
+   Ermittelt in 60 Sekunden Ihre CRA-Produktkategorie (Standard vs. Klasse I vs. Klasse II vs. Kritisch), Ihren Konformitätsbewertungspfad (Modul A Selbstbewertung vs. Notified Body Modul B+C/H), Ihren <strong>BSI TR-03183-2 SBOM-Readiness-Score</strong> und Ihr maximales Bußgeldrisiko nach Art. 64 CRA (bis zu 15 Mio. € oder 2,5 % Jahresumsatz).</li>
+<li>⚡ <strong><a href="pqc-nis2-rechner.html">Interaktiver BSI TR-02102 PQC &amp; NIS-2 (§ 30 / § 38 BSIG) Risiko- und Bußgeld-Rechner (<code>pqc-nis2-rechner.html</code>)</a></strong><br />
+   Quantifiziert Ihren Post-Quanten-Migrationsbedarf bis zum verbindlichen BSI-Ablaufdatum <strong>2031</strong> (RSA/ECDSA/DH) sowie Ihre Organhaftungs- und Bußgeld-Exposition nach <strong>§ 38 &amp; § 60 BSIG</strong>.</li>
+</ol>
+<hr />
+<h2 id="5-schlusselfertige-umsetzung-die-neue-13-dateien-cra-sbom-tr-03183-2-tr-03185-nis-2-mega-suite">5. Schlüsselfertige Umsetzung: Die neue 13-Dateien CRA, SBOM (TR-03183-2), TR-03185 &amp; NIS-2 Mega-Suite</h2>
+<p>Damit Sie Lieferanten-Fragebögen, vertragliche § 30 BSIG Sicherheitsanhänge, <code>security.txt</code>-Richtlinien und Excel-Prüfmatrizen nicht von Grund auf neu entwerfen müssen, haben wir unser <strong>BSI TR-03185 Audit-Readiness-Pack (<code>juznqz</code>)</strong> auf eine <strong>umfassende 13-Dateien Enterprise Mega-Suite mit zwei vollständigen <code>.xlsx</code> Workbooks</strong> erweitert – ohne Preiserhöhung!</p>
+<h3 id="was-sie-im-13-dateien-mega-bundle-juznqzbsi2026pro-sofort-erhalten">Was Sie im 13-Dateien Mega-Bundle (<code>juznqz/BSI2026PRO</code>) sofort erhalten:</h3>
+<ul>
+<li>📊 <strong>Excel-Workbook #1 (<code>CRA-und-NIS2-Lieferketten-Audit-Workbook-2026.xlsx</code> – 3 Tabs):</strong></li>
+<li><em>Tab 1 (<code>CRA &amp; TR-03183-2 SBOM</code>):</em> <strong>35 prüffertige Kontrollen</strong> zu CRA Anhang I, CycloneDX 1.6 Pflichtfeldern und VEX-Triage inkl. Live-<code>COUNTIF</code>-Compliance-Auswertung.</li>
+<li><em>Tab 2 (<code>NIS-2 § 30 Lieferkette</code>):</em> <strong>25 Lieferanten-Due-Diligence-Prüfpunkte</strong> (ISO 27001 / BSI C5:2026 Verifikation, 12h Melde-SLAs, PQC-Klauseln).</li>
+<li><em>Tab 3 (<code>24h ENISA &amp; BSI Meldeplan</code>):</em> Gestuftes 24h / 72h / 14d Incident- &amp; Schwachstellen-Runbook nach Art. 14 CRA &amp; § 32 BSIG.</li>
+<li>📊 <strong>Excel-Workbook #2 (<code>BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx</code> – 3 Tabs):</strong></li>
+<li>Readiness-Scoring, <strong>3-Klassen-Patch-Matrix (Klasse A/B/C)</strong> für rezertifizierungsfreie Sicherheitsupdates und BfArM DiGA TR-03161 Mapping.</li>
+<li>📄 <strong>Vertragliche Vorlagen, Policies &amp; CI/CD-Pipelines (11 weitere Dateien):</strong></li>
+<li><code>NIS2-Paragraph30-Lieferanten-Fragebogen-und-SLA.md</code> (Direkt einsetzbarer B2B-Vertragsanhang nach § 30 Abs. 2 Nr. 4 BSIG)</li>
+<li><code>CRA-Vulnerability-Disclosure-Policy-DE.md</code> &amp; <code>BSI-TR-03183-1-security.txt</code> (RFC 9116 konform)</li>
+<li><code>CRA-Konformitaetserklaerung-Anhang-V-SignOff.html</code> &amp; <code>Freigabeprotokoll-Klasse-A-Hotfix-TR03185.html</code></li>
+<li><code>github-actions-cra-tr03183-sbom-vex-gate.yml</code>, <code>gitlab-ci-cra-tr03183-sbom-gate.yml</code> &amp; <code>ci-cd/tr03185-release-gate.yml</code></li>
+<li>Beide CSV-Exporte (<code>CRA-SBOM-und-Lieferketten-Matrix.csv</code> &amp; <code>BSI-TR-03185-Patch-Matrix.csv</code>) für den Direktimport in Jira, GitLab oder ServiceNow.</li>
+</ul>
+<h3 id="ihre-1-klick-download-optionen-inkl-20-promo-code-bsi2026pro">Ihre 1-Klick Download-Optionen (inkl. <code>-20 %</code> Promo-Code <code>BSI2026PRO</code>):</h3>
+<ul>
+<li>📥 <strong><a href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true">Gratis CSV-Audit-Leseprobe &amp; Schnellstart-Matrix herunterladen (€0+)</a></strong></li>
+<li>🛡️ <strong><a href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true">13-Dateien CRA, BSI TR-03183-2 SBOM, TR-03185 &amp; NIS-2 § 30 Mega-Suite sichern (39,20 € statt 49 € mit Code <code>BSI2026PRO</code>)</a></strong></li>
+<li>🔐 <strong><a href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true">9-Dateien BSI TR-02102-1 PQC &amp; CBOM Migrations-Toolkit sichern (39,20 € statt 49 € mit Code <code>BSI2026PRO</code>)</a></strong></li>
+</ul>
+            <hr />
+            <div class="cta-box">
+    <h3>📦 Schlüsselfertige Enterprise-Compliance-Toolkits für BSI C5:2026, NIS-2 &amp; TR-02102 / TR-03185</h3>
+    <p>Sparen Sie Wochen an Konzeptions- und Beratungsaufwand mit sofort einsetzbaren Excel-Workbooks (<code>.xlsx</code> mit Live-KPI-Formeln), produktionsfertigen Server-Hardening-Konfigurationen und CI/CD-Pipelines:</p>
+    <ul>
+        <li><strong>🔐 BSI TR-02102-1 PQC &amp; CBOM Migrations-Toolkit (€49):</strong> Enthält <strong>9 Enterprise-Assets</strong> inkl. <code>BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx</code> (3-Tab Excel-Workbook mit Executive Dashboard, 45-Zeilen CBOM-Inventar über TLS/SSH/IPsec/PKI/KMS/DB &amp; § 38 BSIG Sign-Off Log), Drop-in Server-Configs für <strong>OpenSSH 9.9+</strong> (<code>mlkem768x25519-sha256</code>), <strong>OpenSSL 3.5+</strong> (<code>X25519MLKEM768</code>) &amp; <strong>Nginx TLS 1.3</strong>, GitHub Actions &amp; GitLab CI CBOM-Workflows sowie der druckfertigen A4 Geschäftsführungs-Beschlussvorlage (<code>Management-Vorlage-Haftungsfreistellung-BSIG38.html</code>).</li>
+        <li><strong>🛡️ BSI TR-03185 &amp; DiGA TR-03161 Audit-Readiness-Pack (€49):</strong> Enthält <strong>5 Enterprise-Assets</strong> inkl. <code>BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx</code> (3-Tab Excel-Workbook mit Readiness-Scoring, 3-Klassen Patch-Matrix Klasse A/B/C &amp; BfArM DiGA/SBOM Mapping), automatisierter CycloneDX SBOM Release-Gate Pipeline (<code>ci-cd/tr03185-release-gate.yml</code> nach BSI TR-03183-2), vollständiger Release-SOP und druckbarem Freigabeprotokoll.</li>
+    </ul>
+    <div class="cta-links">
+        <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI Compliance Toolkits')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+        <a class="btn" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true">🔐 BSI TR-02102 PQC-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn" style="background:#0f172a;" href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true">🛡️ BSI TR-03185 Update-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn-outline" href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Kostenlose CSV-Audit-Leseprobe herunterladen (€0+)</a>
+    </div>
+</div>
+            <div style="margin-top:1rem;font-size:0.84rem;color:#1e3a8a;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:0.75rem 0.95rem;">
+                <div>
+                    ✅ <strong>Sofort-Download (.zip) • Automatischer Kaufbeleg &amp; EU-USt.-Rechnungsgenerierung (inkl. USt-IdNr.-Eintrag) via Gumroad (Merchant of Record)</strong> – Inkl. 3-Tab Excel-Workbooks (<code>.xlsx</code>), Drop-in Server-Configs (OpenSSH 9.9+, OpenSSL 3.5+, Nginx TLS 1.3) &amp; CI/CD-Pipelines.
+                </div>
+                <div style="margin-top:0.6rem;">
+                    <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI Compliance Enterprise-Toolkit')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community-Werkzeuge (MIT-Lizenz) &bull; Fachpublikation &bull; Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <div style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);"><span id="impressum-contact"></span><script>document.getElementById("impressum-contact").innerText=atob("S29udGFrdCAmIHZlcmFudHdvcnRsaWNoZXIgSGVyYXVzZ2ViZXIgKMKnIDUgRERHKTogTW9oYW1tYWQgS2VuYW4gR2hhbGlvdW4sIExvcmNoZXIgU3RyYcOfZSAxMSwgNzMwMzMgR8O2cHBpbmdlbiDigJQgRS1NYWlsIMO8YmVyIEdpdEh1YiBJc3N1ZXMgLyBQcm9maWw=");</script></div>
+        <details class="legal-modal">
+            <summary>Projekt-Hinweis, Open-Source-Lizenz, Impressum &amp; Datenschutz (DSGVO)</summary>
+            <p><strong>Open-Source-Software &amp; Kommerzielle Toolkits:</strong><br>
+            Der CLI-Scanner (<a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">bsi_pqc_check.py</a>) sowie die interaktiven Online-Rechner werden als freie Open-Source-Tools unter der MIT-Lizenz bereitgestellt. Optional erhältliche Enterprise-Workbooks (.xlsx) und gehärtete Referenzkonfigurationen werden über die Plattform Gumroad Inc. (San Francisco, USA) als bevollmächtigter Wiederverkäufer (Merchant of Record) mit automatischer EU-USt.-Rechnungsstellung vertrieben.</p>
+            <p><strong>Kontakt &amp; Bug-Reports:</strong><br>
+            Technische Fragen, Fehlerberichte und Pull-Requests richten Sie bitte an den <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/issues" target="_blank" rel="noopener">GitHub Issue-Tracker</a>.</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+
+    <!-- Sticky Bottom Conversion Bar (Free Sample vs. Enterprise .xlsx) -->
+    <div class="sticky-bottom-bar" id="sticky-cta-bar">
+        <div class="sticky-bottom-inner">
+            <a class="btn-sticky-free" href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Kostenlose CSV-Leseprobe + 20% Rabattcode (€0+ Sofort-Download)</a>
+            <a class="btn-sticky-pro" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true" target="_blank" rel="noopener">⚡ Vollständiges 9-Dateien Enterprise .xlsx Toolkit (39,20 € mit Code BSI2026PRO)</a>
+        </div>
+    </div>
+
+    <!-- B2B SEPA Invoice Modal Dialog -->
+    <dialog id="b2b-invoice-dialog" style="max-width: 600px; width: 92%; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); background: #ffffff; color: #0f172a; margin: auto;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.25rem; color: #0f172a;">🏢 B2B-Bestellung auf Rechnung (SEPA)</h3>
+                <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: #64748b;">Offizielle deutsche Firmenrechnung (gem. § 19 UStG) &bull; 14 Tage Zahlungsziel</p>
+            </div>
+            <button type="button" onclick="document.getElementById('b2b-invoice-dialog').close()" style="background:none; border:none; font-size:1.6rem; cursor:pointer; color:#64748b; line-height:1; padding:0 0.25rem;">&times;</button>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.5; color: #334155; margin-bottom: 0.85rem;">
+            Deutsche Unternehmen, Behörden und Körperschaften können alle Compliance-Pakete direkt gegen <strong>SEPA-Überweisung auf Rechnung</strong> beziehen. Sie erhalten die prüffähige PDF/HTML-Rechnung und den Download des Enterprise-Pakets (.zip) unverzüglich per E-Mail.
+        </p>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.84rem;">
+            <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 0.5rem;">Option 1: 1-Klick E-Mail-Bestellung</div>
+            <a id="b2b-mailto-link" href="mailto:kenanghalioun@gmail.com?subject=B2B-Bestellung%20auf%20Rechnung%20(SEPA)%3A%20BSI%20Compliance%20Toolkit" style="display:inline-block; padding: 0.55rem 1.1rem; font-size: 0.88rem; background:#1e3a8a; color:#fff !important; text-decoration:none; border-radius:6px; font-weight:600;">✉️ E-Mail-Bestellung öffnen (Mail-Client) &rarr;</a>
+            
+            <div style="font-weight: 600; color: #1e3a8a; margin-top: 1rem; margin-bottom: 0.4rem;">Option 2: Text für Ihren Einkauf kopieren</div>
+            <textarea id="b2b-copy-text" rows="5" readonly style="width: 100%; font-family: monospace; font-size: 0.78rem; padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; background: #ffffff; resize: vertical;"></textarea>
+            <div style="margin-top: 0.4rem;">
+                <button type="button" onclick="copyB2bOrderText()" id="btn-copy-order" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; font-weight: 600; color: #334155;">📋 Bestelltext in die Zwischenablage kopieren</button>
+                <span id="copy-success-badge" style="display:none; color: #16a34a; font-size: 0.8rem; font-weight: 600; margin-left: 0.5rem;">✓ Kopiert!</span>
+            </div>
+        </div>
+        <div style="font-size: 0.78rem; color: #64748b; line-height: 1.45;">
+            Rechnungsaussteller: Mohammad Kenan Ghalioun &bull; Lorcher Straße 11, 73033 Göppingen &bull; E-Mail: kenanghalioun@gmail.com<br>
+            Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Digitale Lieferung (.zip) erfolgt am gleichen Werktag.
+        </div>
+    </dialog>
+    <script>
+    function openB2bInvoiceModal(productTitle) {
+        var dialog = document.getElementById('b2b-invoice-dialog');
+        if (!dialog) return;
+        var title = productTitle || 'BSI Compliance Enterprise-Toolkit';
+        var mailto = document.getElementById('b2b-mailto-link');
+        var txtArea = document.getElementById('b2b-copy-text');
+        var rawText = 'Sehr geehrter Herr Ghalioun,\n\nbitte stellen Sie uns folgendes Compliance-Paket auf Rechnung (SEPA, 14 Tage Zahlungsziel) aus:\n\nGewünschtes Paket: ' + title + ' (€49)\n\nUnsere Rechnungsanschrift:\nFirma / Organisation:\nAnsprechpartner:\nStraße & Hausnummer:\nPLZ & Ort:\nUSt-IdNr. (optional):\nE-Mail für Rechnungsversand & Download-Lieferung:\n\nVielen Dank!';
+        if (txtArea) txtArea.value = rawText;
+        if (mailto) {
+            var subj = encodeURIComponent('B2B-Bestellung auf Rechnung (SEPA): ' + title);
+            mailto.href = 'mailto:kenanghalioun@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(rawText);
+        }
+        dialog.showModal();
+    }
+    function copyB2bOrderText() {
+        var txt = document.getElementById('b2b-copy-text');
+        if (txt) {
+            txt.select();
+            navigator.clipboard.writeText(txt.value).then(function() {
+                var badge = document.getElementById('copy-success-badge');
+                if (badge) {
+                    badge.style.display = 'inline';
+                    setTimeout(function() { badge.style.display = 'none'; }, 2500);
+                }
+            });
+        }
+    }
+    </script>
+</body>
+</html>

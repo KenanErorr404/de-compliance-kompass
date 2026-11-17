@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRA Produktklassen-, SBOM (BSI TR-03183-2) &amp; 24h-Meldepflicht-Rechner 2026 | DE-Compliance-Kompass</title>
+    <meta name="description" content="Interaktiver B2B-Rechner für den EU Cyber Resilience Act (CRA), BSI TR-03183-2 (CycloneDX SBOM), 24h-ENISA/BSI-Meldepflicht und NIS-2 (§ 30 BSIG) Lieferkettensicherheit.">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+            font-size: 0.92rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+        }
+        h1 { font-size: 1.85rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.35rem; margin-top: 0; color: var(--text); }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            color: #1e293b;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 0.65rem 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background: #ffffff;
+            color: var(--text);
+        }
+        .result-panel {
+            margin-top: 1.75rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: #eff6ff;
+            border: 1.5px solid #93c5fd;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+        .kpi-box {
+            background: #ffffff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .kpi-label { font-size: 0.8rem; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+        .kpi-val { font-size: 1.35rem; font-weight: 800; color: #1e3a8a; margin-top: 0.25rem; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.7rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.93rem;
+        }
+        .btn:hover { background: var(--accent-hover); }
+        .btn-dark { background: #0f172a; }
+        .btn-sepa {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background: #ffffff;
+            color: #1e3a8a !important;
+            border: 1.5px solid #1e3a8a;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+        }
+        footer {
+            max-width: 960px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 5.5rem 1.5rem;
+        }
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #334155;
+            padding: 0.65rem 1rem;
+            z-index: 999;
+        }
+        .sticky-bottom-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        .btn-sticky-free {
+            display: inline-block;
+            background: #ffffff;
+            color: #0f172a !important;
+            padding: 0.5rem 0.95rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+        }
+        .btn-sticky-pro {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+        }
+    </style>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="CRA Produktklassen-, SBOM (BSI TR-03183-2) &amp; 24h-Meldepflicht-Rechner 2026">
+    <meta property="og:description" content="Interaktiver B2B-Rechner für den EU Cyber Resilience Act (CRA), BSI TR-03183-2 (CycloneDX SBOM), 24h-ENISA/BSI-Meldepflicht und NIS-2 (§ 30 BSIG) Lieferkettensi">
+    <meta property="og:url" content="https://kenanerorr404.github.io/de-compliance-kompass/cra-sbom-rechner.html">
+    <meta property="og:image" content="https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "CRA Produktklassen-, SBOM (BSI TR-03183-2) & 24h-Meldepflicht-Rechner 2026",
+      "description": "Interaktiver B2B-Rechner für den EU Cyber Resilience Act (CRA), BSI TR-03183-2 (CycloneDX SBOM), 24h-ENISA/BSI-Meldepflicht und NIS-2 (§ 30 BSIG) Lieferkettensi",
+      "url": "https://kenanerorr404.github.io/de-compliance-kompass/cra-sbom-rechner.html",
+      "image": "https://kenanerorr404.github.io/de-compliance-kompass/og-banner.svg",
+      "inLanguage": "de-DE",
+      "author": {
+        "@type": "Person",
+        "name": "Mohammad Kenan Ghalioun"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DE-Compliance-Kompass",
+        "url": "https://kenanerorr404.github.io/de-compliance-kompass/"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "BSI TR-02102 PQC & TR-03185 Enterprise Compliance Toolkits",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Linux, Windows, macOS",
+      "url": "https://kenanerorr404.github.io/de-compliance-kompass/pqc-nis2-rechner.html",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Gratis CSV-Audit-Leseprobe & Schnellstart-Matrix (€0+)",
+          "price": "0.00",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/flcsb?wanted=true"
+        },
+        {
+          "@type": "Offer",
+          "name": "BSI TR-02102-1 PQC & CBOM 9-Dateien Enterprise .xlsx Suite (-20% mit BSI2026PRO)",
+          "price": "39.20",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true"
+        },
+        {
+          "@type": "Offer",
+          "name": "BSI TR-03185 & DiGA/CRA 5-Dateien Enterprise .xlsx Suite (-20% mit BSI2026PRO)",
+          "price": "39.20",
+          "priceCurrency": "EUR",
+          "url": "https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "📦 Was ist in der 13-Dateien CRA, BSI TR-03183-2 SBOM, TR-03185 & NIS-2 Mega-Suite (`juznqz`) enthalten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unsere ausgebaute Enterprise Mega-Suite kombiniert zwei native 3-Tab Excel-Workbooks (`.xlsx`) mit produktionsfertigen CI/CD-Gates, Lieferanten-SLAs und Melde-Runbooks:"
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="cra-sbom-rechner.html">🛡️ CRA- &amp; SBOM-Rechner</a>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Gratis CSV-Leseprobe (€0+)</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem;">
+                Interaktives B2B Self-Assessment (100 % Browser-basiert &bull; 0 Cookies &bull; Stand: November 2026)
+            </div>
+            <h1>🛡️ CRA Produktklassen-, SBOM (BSI TR-03183-2) &amp; 24h-Meldepflicht-Rechner 2026</h1>
+            <p>Ermitteln Sie in 60 Sekunden Ihren verbindlichen <strong>Konformitätsbewertungspfad nach Verordnung (EU) 2024/2847 (Cyber Resilience Act)</strong>, Ihren <strong>BSI TR-03183-2 CycloneDX SBOM-Readiness-Score</strong>, Ihre <strong>NIS-2 Lieferketten-Pflichten (§ 30 BSIG)</strong> sowie Ihr maximales Bußgeldrisiko nach Art. 64 CRA.</p>
+
+            <div class="form-grid">
+                <div>
+                    <label for="cra-class">1. Produktkategorie (CRA Anhang III / IV)</label>
+                    <select id="cra-class" onchange="recalcCra()">
+                        <option value="standard">Standard-Produkt mit digitalen Elementen (SaaS-Client, App, IoT, Bibliothek)</option>
+                        <option value="class1" selected>Wichtiges Produkt Klasse I (IAM, Browser, Passwort-Manager, VPN, SIEM, Bootloader, Router)</option>
+                        <option value="class2">Wichtiges Produkt Klasse II (Hypervisor, Container-Runtime, Firewall/IDS, Mikrocontroller, OS)</option>
+                        <option value="critical">Kritisches Produkt nach Anhang IV (Smart Meter Gateway, Hardware Security Module, Smartcard)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="sbom-state">2. Aktueller SBOM- &amp; TR-03183-2 Status</label>
+                    <select id="sbom-state" onchange="recalcCra()">
+                        <option value="none" selected>Keine automatische SBOM oder nur manuelle Paketliste (pip/npm list)</option>
+                        <option value="basic">Basis-SBOM (SPDX/CycloneDX) ohne SHA-256-Hashes, VEX oder transitive Tiefe</option>
+                        <option value="tr03183">Vollständige BSI TR-03183-2 CycloneDX 1.6 SBOM + VEX + SHA-256 im CI-Gate</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="cvd-state">3. 24h-ENISA/BSI-Meldeprozess &amp; TR-03185 Patch-Matrix</label>
+                    <select id="cvd-state" onchange="recalcCra()">
+                        <option value="none" selected>Kein /.well-known/security.txt (TR-03183-1) &amp; kein 24h/72h ENISA-Runbook</option>
+                        <option value="partial">security.txt vorhanden, aber keine TR-03185 3-Klassen-Matrix (Rezertifizierungsrisiko)</option>
+                        <option value="ready">Vollständiger 24h/72h Meldeplan + TR-03185 Klasse-A Fast-Track Pipeline</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="turnover-m">4. Weltweiter Jahresumsatz (in Mio. €)</label>
+                    <input type="number" id="turnover-m" value="50" min="1" max="500000" onchange="recalcCra()" oninput="recalcCra()">
+                </div>
+            </div>
+
+            <div class="result-panel" id="cra-results">
+                <div class="kpi-grid">
+                    <div class="kpi-box">
+                        <div class="kpi-label">CRA Konformitätsverfahren</div>
+                        <div class="kpi-val" id="out-module">Modul B+C / H oder Harmonisierte Norm</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-label">TR-03183-2 &amp; 24h Readiness</div>
+                        <div class="kpi-val" id="out-score" style="color:#dc2626;">25 / 100 (Kritisch)</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-label">Max. CRA Bußgeld (Art. 64)</div>
+                        <div class="kpi-val" id="out-fine">15,00 Mio. €</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-label">BSI TR-03185 Patch-Status</div>
+                        <div class="kpi-val" id="out-patch">Re-Zertifizierungsfalle</div>
+                    </div>
+                </div>
+                <div id="out-recommendation" style="font-size:0.95rem; color:#1e293b; background:#ffffff; padding:1rem; border-radius:8px; border:1px solid #cbd5e1;"></div>
+
+                <div class="cta-links">
+                    <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('13-Dateien CRA, SBOM & TR-03185 Mega-Suite')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+                    <a class="btn" href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true">🛡️ 13-Dateien CRA, SBOM (TR-03183-2) &amp; TR-03185 Mega-Suite sichern (39,20 € statt 49 €) &rarr;</a>
+                    <a class="btn btn-dark" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true">🔐 9-Dateien BSI TR-02102 PQC-Toolkit sichern (39,20 €) &rarr;</a>
+                    <a class="btn" style="background:#475569;" href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Gratis CSV-Leseprobe (€0+)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📦 Was ist in der 13-Dateien CRA, BSI TR-03183-2 SBOM, TR-03185 &amp; NIS-2 Mega-Suite (`juznqz`) enthalten?</h2>
+            <p>Unsere ausgebaute Enterprise Mega-Suite kombiniert <strong>zwei native 3-Tab Excel-Workbooks (`.xlsx`)</strong> mit produktionsfertigen CI/CD-Gates, Lieferanten-SLAs und Melde-Runbooks:</p>
+            <ul>
+                <li><strong>Workbook #1 (`CRA-und-NIS2-Lieferketten-Audit-Workbook-2026.xlsx`):</strong> 35 CRA &amp; BSI TR-03183-2 SBOM-Kontrollen (Tab 1), 25 NIS-2 § 30 Lieferketten-Prüfpunkte (Tab 2) und der gestufte 24h/72h/14d ENISA &amp; BSI Meldeplan nach Art. 14 CRA &amp; § 32 BSIG (Tab 3).</li>
+                <li><strong>Workbook #2 (`BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx`):</strong> Readiness-Dashboard, 3-Klassen Patch-Matrix (Klasse A/B/C für Updates ohne Re-Zertifizierungsverlust) und BfArM DiGA / CycloneDX SBOM Mapping.</li>
+                <li><strong>Drop-in Vorlagen &amp; CI/CD-Pipelines:</strong> RFC 9116 `BSI-TR-03183-1-security.txt`, deutsche CVD-Policy (`CRA-Vulnerability-Disclosure-Policy-DE.md`), B2B-Lieferanten-SLA (`NIS2-Paragraph30-Lieferanten-Fragebogen-und-SLA.md`), druckfertige EU-Konformitätserklärung nach Anhang V CRA &amp; § 38 BSIG Sign-Off sowie fertige GitHub Actions &amp; GitLab CI CycloneDX/VEX Release-Gates.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community-Werkzeuge (MIT-Lizenz) &bull; Fachpublikation &bull; Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <div style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);"><span id="impressum-contact"></span><script>document.getElementById("impressum-contact").innerText=atob("S29udGFrdCAmIHZlcmFudHdvcnRsaWNoZXIgSGVyYXVzZ2ViZXIgKMKnIDUgRERHKTogTW9oYW1tYWQgS2VuYW4gR2hhbGlvdW4sIExvcmNoZXIgU3RyYcOfZSAxMSwgNzMwMzMgR8O2cHBpbmdlbiDigJQgRS1NYWlsIMO8YmVyIEdpdEh1YiBJc3N1ZXMgLyBQcm9maWw=");</script></div>
+    </footer>
+
+    <div class="sticky-bottom-bar" id="sticky-cta-bar">
+        <div class="sticky-bottom-inner">
+            <a class="btn-sticky-free" href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Kostenlose CSV-Leseprobe + 20% Rabattcode (€0+ Sofort-Download)</a>
+            <a class="btn-sticky-pro" href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true" target="_blank" rel="noopener">🛡️ 13-Dateien CRA, SBOM (TR-03183-2) &amp; TR-03185 Mega-Suite (39,20 € mit Code BSI2026PRO)</a>
+        </div>
+    </div>
+
+    <!-- B2B SEPA Invoice Modal Dialog -->
+    <dialog id="b2b-invoice-dialog" style="max-width: 600px; width: 92%; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; background: #ffffff; color: #0f172a; margin: auto;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.25rem;">🏢 B2B-Bestellung auf Rechnung (SEPA)</h3>
+                <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: #64748b;">Offizielle deutsche Firmenrechnung (gem. § 19 UStG) &bull; 14 Tage Zahlungsziel</p>
+            </div>
+            <button type="button" onclick="document.getElementById('b2b-invoice-dialog').close()" style="background:none; border:none; font-size:1.6rem; cursor:pointer; color:#64748b;">&times;</button>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.5; color: #334155;">
+            Deutsche Unternehmen, Behörden und Körperschaften können alle Compliance-Pakete direkt gegen <strong>SEPA-Überweisung auf Rechnung</strong> beziehen.
+        </p>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.84rem;">
+            <a id="b2b-mailto-link" href="mailto:kenanghalioun@gmail.com?subject=B2B-Bestellung%20auf%20Rechnung%20(SEPA)" style="display:inline-block; padding: 0.55rem 1.1rem; font-size: 0.88rem; background:#1e3a8a; color:#fff !important; text-decoration:none; border-radius:6px; font-weight:600;">✉️ E-Mail-Bestellung öffnen &rarr;</a>
+            <textarea id="b2b-copy-text" rows="5" readonly style="width: 100%; margin-top: 0.75rem; font-family: monospace; font-size: 0.78rem; padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px;"></textarea>
+        </div>
+    </dialog>
+
+    <script>
+    function recalcCra() {
+        var cls = document.getElementById('cra-class').value;
+        var sbom = document.getElementById('sbom-state').value;
+        var cvd = document.getElementById('cvd-state').value;
+        var turnover = parseFloat(document.getElementById('turnover-m').value) || 50;
+
+        var modText = "Modul A (Selbstbewertung)";
+        var baseRate = 0.025;
+        var minFine = 15.0;
+        if (cls === "standard") {
+            modText = "Modul A (Interne Kontrolle)";
+            baseRate = 0.02;
+            minFine = 10.0;
+        } else if (cls === "class1") {
+            modText = "Harmonisierte Norm oder Modul B+C / H";
+            baseRate = 0.025;
+            minFine = 15.0;
+        } else if (cls === "class2") {
+            modText = "Drittprüfung Pflicht (Notified Body B+C / H)";
+            baseRate = 0.025;
+            minFine = 15.0;
+        } else if (cls === "critical") {
+            modText = "EUCC-Zertifizierung / Drittprüfung Pflicht";
+            baseRate = 0.025;
+            minFine = 15.0;
+        }
+
+        var score = 15;
+        if (sbom === "basic") score += 25;
+        if (sbom === "tr03183") score += 45;
+        if (cvd === "partial") score += 20;
+        if (cvd === "ready") score += 40;
+
+        var maxFine = Math.max(minFine, turnover * baseRate);
+        var scoreEl = document.getElementById('out-score');
+        if (score < 50) {
+            scoreEl.style.color = "#dc2626";
+            scoreEl.innerText = score + " / 100 (Kritische Lücke)";
+        } else if (score < 85) {
+            scoreEl.style.color = "#d97706";
+            scoreEl.innerText = score + " / 100 (Teilkonform)";
+        } else {
+            scoreEl.style.color = "#16a34a";
+            scoreEl.innerText = score + " / 100 (Audit-Ready)";
+        }
+
+        document.getElementById('out-module').innerText = modText;
+        document.getElementById('out-fine').innerText = maxFine.toFixed(2).replace('.', ',') + " Mio. €";
+        document.getElementById('out-patch').innerText = (cvd === "ready") ? "Fast-Track (Klasse A)" : "Re-Zertifizierungsrisiko";
+
+        document.getElementById('out-recommendation').innerHTML =
+            "<strong>Empfohlener Sofort-Maßnahmenplan (CRA Art. 13/14, BSI TR-03183-2 &amp; § 30 BSIG):</strong><br>" +
+            "1. Integrieren Sie das automatisierte CycloneDX 1.6 SBOM- &amp; VEX-Gate nach <strong>BSI TR-03183-2</strong> in Ihre Build-Pipeline (<code>docker run --rm ghcr.io/kenanerorr404/bsi-pqc-audit:latest --cra-sbom-check</code>).<br>" +
+            "2. Hinterlegen Sie eine RFC-9116-konforme <code>/.well-known/security.txt</code> (BSI TR-03183-1) und das 24h/72h ENISA-Melde-Runbook.<br>" +
+            "3. Nutzen Sie die <strong>3-Klassen Patch-Matrix nach BSI TR-03185</strong>, um dringende CVE-Hotfixes als Klasse-A-Release ohne Verlust Ihrer Konformitätsbewertung auszurollen.";
+    }
+    function openB2bInvoiceModal(productTitle) {
+        var dialog = document.getElementById('b2b-invoice-dialog');
+        var txtArea = document.getElementById('b2b-copy-text');
+        var rawText = 'Sehr geehrter Herr Ghalioun,\n\nbitte stellen Sie uns folgendes Compliance-Paket auf Rechnung (SEPA, 14 Tage Zahlungsziel) aus:\n\nGewünschtes Paket: ' + productTitle + ' (€49 / €39,20 mit BSI2026PRO)\n\nUnsere Rechnungsanschrift:\nFirma / Organisation:\nAnsprechpartner:\nStraße & Hausnummer:\nPLZ & Ort:\nE-Mail:\n';
+        if (txtArea) txtArea.value = rawText;
+        if (dialog) dialog.showModal();
+    }
+    recalcCra();
+    </script>
+</body>
+</html>

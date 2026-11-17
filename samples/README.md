@@ -35,17 +35,25 @@ Willkommen im `samples/`-Verzeichnis des **[DE-Compliance-Kompass](https://kenan
 
 ---
 
-## 🛡️ Vorschau aller 5 Dateien im `BSI TR-03185, CRA-SBOM & DiGA Audit-Pack` ([`juznqz/BSI2026PRO`](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true))
+## 🛡️ Vorschau aller 13 Dateien in der `CRA, BSI TR-03183-2 SBOM, TR-03185, NIS-2 § 30 Lieferkette & DiGA Mega-Suite` ([`juznqz/BSI2026PRO`](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true))
 
 | # | Datei im Enterprise-ZIP | Typ | Prüfzweck & enthaltener Inhalt | Im Enterprise-Pack (€39,20) |
 | :-: | :--- | :--- | :--- | :-: |
-| **1** | `BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx` | **Excel Workbook (3 Tabs)** | Readiness-Dashboard + **3-Klassen-Patch-Matrix (Klasse A/B/C)** für 24h/72h-Updates ohne Rezertifizierung + BfArM DiGA TR-03161 Mapping | ✅ **Vollständig** |
-| **2** | `TR-03185-Prozess-Audit-Matrix.csv` | **CSV Import** | Vollständiger Prüfkatalog für Jira / GitLab / Azure DevOps Compliance-Tracking | ✅ **Vollständig** |
-| **3** | `SOP-Sicherer-Release-Prozess-TR03185.md` | **Release SOP** | Auditfeste Verfahrensanweisung für CRA-Durchführungsgesetz, NIS-2 Lieferkette (§ 30 BSIG) & C5 DEV | ✅ **Enthalten** |
-| **4** | `Checkliste-Update-Ohne-Rezertifizierung.html` | **A4 Protokoll** | Druckbares Patch-Klassifizierungs- und Freigabeformular für Prüfer & Benannte Stellen | ✅ **Enthalten** |
-| **5** | `ci-cd/tr03185-release-gate.yml` | **SBOM CI/CD Gate** | Automatisierte **CycloneDX SBOM-Generierung nach BSI TR-03183-2**, SAST/CVE-Check & Release-Signierung | ✅ **Enthalten** |
+| **1** | `CRA-und-NIS2-Lieferketten-Audit-Workbook-2026.xlsx` | **Excel Workbook #1 (3 Tabs)** | **Tab 1:** 35 CRA & BSI TR-03183-2 SBOM Controls (inkl. Live-`COUNTIF`) · **Tab 2:** 25 NIS-2 § 30 Lieferketten-Prüfpunkte · **Tab 3:** Gestufter 24h/72h/14d ENISA & BSI Meldeplan | ✅ **Vollständig** |
+| **2** | `BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx` | **Excel Workbook #2 (3 Tabs)** | Readiness-Dashboard + **3-Klassen-Patch-Matrix (Klasse A/B/C)** für 24h/72h-Updates ohne Rezertifizierung + BfArM DiGA TR-03161 Mapping | ✅ **Vollständig** |
+| **3** | `CRA-SBOM-und-Lieferketten-Matrix.csv` | **CSV Import #1** | 60-Zeilen CRA, TR-03183-2 SBOM & NIS-2 § 30 Lieferketten-Prüfkatalog (UTF-8 CSV) | ✅ **Vollständig** |
+| **4** | `BSI-TR-03185-Patch-Matrix.csv` | **CSV Import #2** | Vollständiger Prüfkatalog für Jira / GitLab / Azure DevOps Compliance-Tracking | ✅ **Vollständig** |
+| **5** | `BSI-TR-03183-1-security.txt` | **RFC 9116 Vorlage** | Konforme `/.well-known/security.txt` Vorlage nach BSI TR-03183-1 inkl. CSAF/PGP-Feldern | ✅ **Enthalten** |
+| **6** | `CRA-Vulnerability-Disclosure-Policy-DE.md` | **CVD Policy (DE)** | Deutsche Richtlinie zur koordinierten Schwachstellenoffenlegung nach CRA Anhang I Teil II | ✅ **Enthalten** |
+| **7** | `NIS2-Paragraph30-Lieferanten-Fragebogen-und-SLA.md` | **Lieferanten-SLA** | Vertraglicher Sicherheitsanhang & Lieferanten-Audit-Fragebogen nach § 30 Abs. 2 Nr. 4 BSIG | ✅ **Enthalten** |
+| **8** | `CRA-Konformitaetserklaerung-Anhang-V-SignOff.html` | **EU-DoC & § 38 BSIG** | Druckfertige EU-Konformitätserklärung nach Anhang V CRA & Vorstands-Freigabeprotokoll | ✅ **Enthalten** |
+| **9** | `SOP-Sicherheitsupdates-ohne-Rezertifizierung-TR03185.md` | **Release SOP** | Auditfeste Verfahrensanweisung für CRA-Durchführungsgesetz, NIS-2 Lieferkette (§ 30 BSIG) & C5 DEV | ✅ **Enthalten** |
+| **10** | `Freigabeprotokoll-Klasse-A-Hotfix-TR03185.html` | **A4 Protokoll** | Druckbares Patch-Klassifizierungs- und Freigabeformular für Prüfer & Benannte Stellen | ✅ **Enthalten** |
+| **11** | `ci-cd/tr03185-release-gate.yml` | **TR-03185 CI Gate** | Automatisierte **CycloneDX SBOM-Generierung nach BSI TR-03183-2**, SAST/CVE-Check & Release-Signierung | ✅ **Enthalten** |
+| **12** | `github-actions-cra-tr03183-sbom-vex-gate.yml` | **GitHub Actions VEX** | Drop-in GitHub Actions Pipeline für CycloneDX 1.6 SBOM + VEX-Triage & GHCR Container-Scan | ✅ **Enthalten** |
+| **13** | `gitlab-ci-cra-tr03183-sbom-gate.yml` | **GitLab CI Gate** | Drop-in GitLab CI Pipeline für kontinuierliche BSI TR-03183-2 SBOM-Compliance | ✅ **Enthalten** |
 
-👉 **[🛡️ Alle 5 Dateien jetzt für €39,20 statt €49 herunterladen (20 % Rabattcode `BSI2026PRO` automatisch aktiv)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true)**
+👉 **[🛡️ Alle 13 Dateien (inkl. 2x `.xlsx` Workbooks) jetzt für €39,20 statt €49 herunterladen (20 % Rabattcode `BSI2026PRO` automatisch aktiv)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true)**
 
 ---
 
