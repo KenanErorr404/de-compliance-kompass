@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive Cybersecurity 2026 (BSI &amp; Auto-ISAC, UN R155/R156 &amp; NIS-2): OTA-Updates (TR-03185), SBOM &amp; Post-Quanten-Kryptographie (TR-02102) für OEMs und Tier-1/Tier-2-Zulieferer | DE-Compliance-Kompass</title>
+    <meta name="description" content="Mit der Unterzeichnung der gemeinsamen Absichtserklärung (Memorandum of Understanding) zwischen dem Bundesamt für Sicherheit in der Informationstechnik (BSI) un">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #1d4ed8;
+            --accent-hover: #1e40af;
+            --border: #e2e8f0;
+            --banner-bg: #fffbeb;
+            --banner-border: #fde68a;
+            --banner-text: #92400e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .stealth-banner {
+            background: var(--banner-bg);
+            border-bottom: 1px solid var(--banner-border);
+            color: var(--banner-text);
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .stealth-banner button {
+            margin-left: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--banner-text);
+            color: var(--banner-text);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.78rem;
+        }
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.5rem;
+        }
+        .header-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.25rem 1.5rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        .tool-promo-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .tool-promo-bar a {
+            background: #ffffff;
+            color: #1e3a8a;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        article {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+        h1 { font-size: 1.9rem; margin-top: 0; color: var(--text); line-height: 1.28; }
+        h2 { font-size: 1.38rem; margin-top: 2.2rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--text); }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        pre, code {
+            background: #f1f5f9;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        pre { padding: 1rem; overflow-x: auto; }
+        code { padding: 0.15rem 0.35rem; }
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.75rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+        }
+        .cta-box h3 { margin-top: 0; color: #1e3a8a; }
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background: var(--accent-hover); text-decoration: none; }
+        .btn-secondary { background: #0f172a; }
+        .btn-sepa {
+            display: inline-block;
+            padding: 0.5rem 0.95rem;
+            background: #ffffff;
+            color: #1e3a8a !important;
+            border: 1.5px solid #1e3a8a;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.86rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            line-height: 1.4;
+        }
+        .btn-sepa:hover {
+            background: #eff6ff;
+            border-color: #1d4ed8;
+            color: #1d4ed8 !important;
+        }
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 2rem 1.5rem 5.5rem 1.5rem;
+        }
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #334155;
+            padding: 0.65rem 1rem;
+            z-index: 999;
+            box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.25);
+        }
+        .sticky-bottom-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        .btn-sticky-free {
+            display: inline-block;
+            background: #ffffff;
+            color: #0f172a !important;
+            padding: 0.5rem 0.95rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            border: 1px solid #cbd5e1;
+            white-space: nowrap;
+        }
+        .btn-sticky-free:hover {
+            background: #f1f5f9;
+        }
+        .btn-sticky-pro {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            border: 1px solid #3b82f6;
+            white-space: nowrap;
+        }
+        .btn-sticky-pro:hover {
+            background: #1e40af;
+        }
+        details.legal-modal {
+            margin-top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+        }
+        details.legal-modal summary {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="stealth-banner" class="stealth-banner">
+        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Kostenlose CSV-Leseprobe &amp; interaktiver Risiko-Rechner sind freigeschaltet. Die €49-Vollpakete sind bis zur Live-Schaltung des externen Checkouts geschützt hinterlegt.
+        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
+    </div>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="index.html">DE-Compliance-Kompass &bull; Technische Richtlinien &amp; B2B-Leitfäden</a>
+            <nav>
+                <a href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Gratis CSV-Leseprobe (€0+)</a>
+                <a href="index.html">&larr; Alle Leitfäden</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="tool-promo-bar">
+            <div>
+                <strong>Interaktiver Schnelltest (60 Sek.):</strong> Prüfen Sie Ihren 2031/2035 Compliance-Gap-Score nach BSI TR-02102-1 &amp; NIS-2.
+            </div>
+            <a href="pqc-nis2-rechner.html">Jetzt Risiko-Score berechnen &rarr;</a>
+        </div>
+        <article>
+            <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Fachpublikation &bull; Stand: 2026-11-17 12:43 UTC
+            </div>
+<h1 id="automotive-cybersecurity-2026-bsi-auto-isac-un-r155r156-nis-2-ota-updates-tr-03185-sbom-post-quanten-kryptographie-tr-02102-fur-oems-und-tier-1tier-2-zulieferer">Automotive Cybersecurity 2026 (BSI &amp; Auto-ISAC, UN R155/R156 &amp; NIS-2): OTA-Updates (TR-03185), SBOM &amp; Post-Quanten-Kryptographie (TR-02102) für OEMs und Tier-1/Tier-2-Zulieferer</h1>
+<p>Mit der Unterzeichnung der gemeinsamen Absichtserklärung (<em>Memorandum of Understanding</em>) zwischen dem <strong>Bundesamt für Sicherheit in der Informationstechnik (BSI)</strong> und dem <strong>Automotive Information Sharing and Analysis Center (Auto-ISAC)</strong> (BSI-Pressemitteilung vom 16. November 2026) erreicht die regulatorische und technische Verschmelzung von <strong>Fahrzeug-Cybersicherheit (UN R155 / UN R156, ISO/SAE 21434)</strong> und <strong>allgemeiner IT-/OT-Regulierung (NIS-2 / § 30 &amp; § 38 BSIG, Cyber Resilience Act)</strong> eine neue Eskalationsstufe. Für Automobilhersteller (OEMs), Tier-1- und Tier-2-Zulieferer, Steuergeräte-Entwickler (ECU), Backend-Plattformbetreiber sowie Ladeinfrastruktur-Hersteller bedeutet dies: <strong>Kryptographische Inventare (CBOM), dokumentierte Software-Update-Prozesse ohne Re-Zertifizierungsverlust (BSI TR-03185) und maschinenlesbare SBOM-Nachweise (BSI TR-03183-2)</strong> werden zur unmittelbaren Voraussetzung für Typgenehmigungen durch das Kraftfahrt-Bundesamt (KBA) und für die Lieferketten-Freigabe nach § 30 Abs. 2 Nr. 4 BSIG.</p>
+<p>Dieser technische B2B-Leitfaden zeigt CISO-, Product-Security- (PSIRT), Homologations- und DevSecOps-Verantwortlichen in der Automobil- und Fertigungsindustrie, wie Sie die neuen Anforderungen aus <strong>BSI/Auto-ISAC</strong>, <strong>UN R155 (CSMS)</strong>, <strong>UN R156 (SUMS)</strong>, <strong>BSI TR-02102-1 (Post-Quanten-Migration 2031/2035)</strong> und <strong>BSI TR-03185 (Secure SDLC)</strong> in einer integrierten Compliance- und CI/CD-Architektur zusammenführen.</p>
+<hr />
+<h2 id="1-regulatorischer-kontext-warum-die-bsi-auto-isac-kooperation-die-automotive-lieferkette-verandert">1. Regulatorischer Kontext: Warum die BSI &amp; Auto-ISAC Kooperation die Automotive-Lieferkette verändert</h2>
+<p>Seit Juli 2024 sind die UNECE-Regulierungen <strong>UN R155</strong> (<em>Cyber Security Management System – CSMS</em>) und <strong>UN R156</strong> (<em>Software Update Management System – SUMS</em>) für alle neu zugelassenen Fahrzeugtypen in der Europäischen Union verbindlich. Parallel dazu unterliegen der Fahrzeugbau und seine kritischen Zulieferer als <strong>wichtige bzw. besonders wichtige Einrichtungen</strong> (Sektor „Herstellung von Kraftwagen und Kraftwagenteilen" nach Anhang II NIS-2-Richtlinie) den strengen Vorgaben des deutschen <strong>BSI-Gesetzes (§§ 30, 32, 38 BSIG)</strong>.</p>
+<p>Durch den am 16.11.2026 formalisierten Informations- und Schwachstellenaustausch zwischen dem <strong>BSI</strong> und dem <strong>Auto-ISAC</strong> entstehen drei unmittelbare operative Konsequenzen für deutsche und europäische Zulieferer:</p>
+<ol>
+<li><strong>Synchronisierte Schwachstellen- und Bedrohungsanalyse (Threat Intelligence &amp; CVD):</strong> Schwachstellen in Automotive-Komponenten, Telematik-Backends, Infotainment-Systemen (IVI), V2X-PKI-Zertifikaten und OT-Fertigungsstraßen werden zwischen Auto-ISAC-Mitgliedern und dem BSI-Lagezentrum abgeglichen. Ein bekannt gewordenes Krypto- oder Firmware-Defizit löst damit gleichzeitig <strong>CSMS-Reaktionspflichten gegenüber dem KBA (UN R155)</strong> und <strong>NIS-2-Meldepflichten gegenüber dem BSI (§ 32 BSIG – 24h Frühwarnung / 72h Vorfallsmeldung)</strong> aus.</li>
+<li><strong>Durchgriff auf Tier-1-, Tier-2- und Embedded-Software-Zulieferer (§ 30 Abs. 2 Nr. 4 BSIG &amp; ISO/SAE 21434):</strong> OEMs müssen im Rahmen ihres CSMS-Audits und ihrer NIS-2-Lieferkettensorgfaltspflicht nachweisen, dass jedes zugelieferte Steuergerät (ECU), jedes SDK und jeder Cloud-Backend-Dienst über ein dokumentiertes <strong>Krypto-Inventar (CBOM)</strong>, eine <strong>CycloneDX/SPDX SBOM nach BSI TR-03183-2</strong> und einen validierten <strong>Vulnerability-Handling-Prozess</strong> verfügt.</li>
+<li><strong>Verzahnung von Fahrzeug-Typgenehmigung (UN R156) und BSI TR-03185:</strong> Over-the-Air-Updates (OTA) für vernetzte Fahrzeuge stehen vor demselben strukturellen Dilemma wie regulierte Medizin- oder KRITIS-Software: Wann erfordert ein Sicherheits-Patch eine aufwendige Nachprüfung oder Erweiterung der Typgenehmigung (RXSWIN – <em>Regulation X Software Identification Number</em>), und wann darf er im beschleunigten Verfahren ausgerollt werden?</li>
+</ol>
+<hr />
+<h2 id="2-das-post-quanten-risiko-im-fahrzeugbau-bsi-tr-02102-1-trifft-auf-15-jahre-fahrzeuglebenszyklus">2. Das Post-Quanten-Risiko im Fahrzeugbau: BSI TR-02102-1 trifft auf 15 Jahre Fahrzeuglebenszyklus</h2>
+<p>In kaum einer anderen Branche ist die im <strong>Februar und Oktober 2026 verschärfte Post-Quanten-Roadmap des BSI (TR-02102-1 &amp; Nationale PQC-Leitlinie)</strong> so zeitkritisch wie in der Automobilindustrie. Während klassische Cloud-Microservices innerhalb weniger Tage aktualisiert werden können, weisen Fahrzeugplattformen (E/E-Architekturen) Entwicklungszyklen von <strong>3 bis 5 Jahren</strong> und eine anschließende Feldlebensdauer von <strong>12 bis 18 Jahren</strong> auf.</p>
+<p>Ein Fahrzeugmodell, dessen E/E-Architektur im Jahr <strong>2026/2027</strong> eingefroren (<em>Design Freeze</em>) und ab <strong>2028/2029</strong> produziert wird, befindet sich im Jahr <strong>2031</strong> – dem verbindlichen <strong>BSI-Ablaufdatum für klassische asymmetrische Verfahren wie RSA-2048/3072, ECDSA P-256 und ECDH X25519 ohne PQC-Hybridisierung</strong> – mitten in der aktiven Serienproduktion und über das Jahr <strong>2040</strong> hinaus auf der Straße.</p>
+<h3 id="kritische-kryptographische-domanen-in-der-automotive-ot-architektur">Kritische kryptographische Domänen in der Automotive- &amp; OT-Architektur</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Domäne im Fahrzeug &amp; Backend</th>
+<th style="text-align: left;">Klassisches Verfahren (bis max. 2031 zulässig)</th>
+<th style="text-align: left;">BSI TR-02102-1 Zielarchitektur (ab 2026 empfohlen, ab 2031 Pflicht)</th>
+<th style="text-align: left;">Regulatorischer Prüfnachweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>OTA-Update-Signatur &amp; Secure Boot (ECU)</strong></td>
+<td style="text-align: left;">RSA-3072 / ECDSA P-256 / Ed25519</td>
+<td style="text-align: left;"><strong>ML-DSA-65 / ML-DSA-87</strong> (FIPS 204) oder zustandsbehaftete Hash-Signaturen (<strong>XMSS / LMS</strong> nach BSI TR-02102-1)</td>
+<td style="text-align: left;">UN R156 (SUMS), ISO/SAE 21434, BSI TR-02102-1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Telematik- &amp; Cloud-Backend-Kommunikation (TLS 1.3 / MQTT)</strong></td>
+<td style="text-align: left;">ECDHE (secp256r1 / X25519)</td>
+<td style="text-align: left;"><strong>Hybrider Schlüsselaustausch <code>X25519MLKEM768</code></strong> (OpenSSL 3.5+ / Nginx TLS 1.3) nach BSI TR-02102-2</td>
+<td style="text-align: left;">NIS-2 (§ 30 Abs. 2 Nr. 8 BSIG), BSI C5:2026 (CRY-01/02)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DevSecOps-, Build-Server- &amp; Werkstätten-Zugriff (SSH)</strong></td>
+<td style="text-align: left;"><code>curve25519-sha256</code> / <code>ecdh-sha2-nistp256</code></td>
+<td style="text-align: left;"><strong><code>mlkem768x25519-sha256</code></strong> (OpenSSH 9.9+) mit symmetrischer <code>aes256-gcm@openssh.com</code></td>
+<td style="text-align: left;">BSI TR-02102-4, § 30 BSIG</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>V2X-PKI (IEEE 1609.2 / ETSI ITS) &amp; Plug &amp; Charge (ISO 15118-20)</strong></td>
+<td style="text-align: left;">ECDSA brainpoolP256r1 / secp256r1</td>
+<td style="text-align: left;"><strong>Krypto-Agilität &amp; hybride Zertifikatsketten</strong> mit geplantem Migrationspfad für Ladeinfrastruktur &amp; Fahrzeug-PKI</td>
+<td style="text-align: left;">BSI Eckpunktepapier Ladeinfrastruktur, UN R155</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Langzeit-Archivierung von Homologations- &amp; Prüfdaten</strong></td>
+<td style="text-align: left;">SHA-256 + RSA-Zeitstempel</td>
+<td style="text-align: left;"><strong>PQC-gesicherte Zeitstempel &amp; Schlüsselkapselung (ML-KEM-768/1024)</strong> zum Schutz gegen <em>Store Now, Decrypt Later</em></td>
+<td style="text-align: left;">GoBD, UN R155 (10+ Jahre Nachweispflicht)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Wichtiger Audit-Hinweis für Tier-1-Zulieferer:</strong> Wenn ein OEM im Rahmen der <strong>ISO/SAE 21434 Cybersecurity Interface Agreement (CIA)</strong> die Einhaltung des „Stands der Technik nach BSI TR-02102" vertraglich vorschreibt, führt eine fehlende Krypto-Agilität oder das Fehlen eines maschinenlesbaren <strong>Cryptographic Bill of Materials (CBOM)</strong> ab 2026 unmittelbar zu Sperrvermerken im Production Part Approval Process (PPAP) bzw. im CSMS-Audit.</p>
+</blockquote>
+<hr />
+<h2 id="3-ota-sicherheitsupdates-ohne-typgenehmigungs-stillstand-un-r156-sums-mit-bsi-tr-03185-harmonisieren">3. OTA-Sicherheitsupdates ohne Typgenehmigungs-Stillstand: UN R156 (SUMS) mit BSI TR-03185 harmonisieren</h2>
+<p>Die UNECE-Regelung <strong>UN R156</strong> verpflichtet Hersteller dazu, jede Softwareänderung daraufhin zu bewerten, ob sie Auswirkungen auf typgenehmigungsrelevante Parameter (z. B. Bremsverhalten, Lenkung, Emissionen, aktive Fahrerassistenzsysteme oder gesetzliche Cybersecurity-Funktionen) hat und somit eine Aktualisierung der <strong>RXSWIN</strong> sowie eine Meldung an die Genehmigungsbehörde (KBA) erfordert.</p>
+<p>Genau hier liefert die <strong>Technische Richtlinie BSI TR-03185 („Sichere Software-Lebenszyklus-Prozesse für Zertifizierungen")</strong> das ideale methodische Rückgrat für Automotive-PSIRT- und Homologationsteams. Durch eine strikte <strong>3-Klassen-Änderungsmatrix</strong> vermeiden Sie, dass dringende CVE-Hotfixes (etwa in OpenSSL, libcurl, dem Linux-Kernel eines Telematik-Gateways oder einem RTOS-TCP/IP-Stack) in monatelangen Re-Zertifizierungs- und Homologationsschleifen stecken bleiben:</p>
+<h3 id="die-3-klassen-patch-matrix-fur-automotive-ota-embedded-gateways-bsi-tr-03185-un-r156">Die 3-Klassen-Patch-Matrix für Automotive OTA &amp; Embedded-Gateways (BSI TR-03185 + UN R156)</h3>
+<ol>
+<li><strong>Klasse A – Isolierter Security-Hotfix (Fast-Track OTA ohne RXSWIN-Erweiterung):</strong></li>
+<li><strong>Kriterium:</strong> Behebung einer kritischen Schwachstelle (z. B. CVSS ≥ 7.0 in einer Drittanbieter-Bibliothek gemäß CycloneDX SBOM) ohne Veränderung der funktionalen Sicherheitsarchitektur (ISO 26262 ASIL-Pfade), der kryptographischen Primitive oder typgenehmigungsrelevanter Fahrzeugparameter.</li>
+<li><strong>Automatisierter Nachweis (CI/CD Release-Gate):</strong> Reproduzierbarer Build, identische API/ABI-Oberfläche, bestandene Regressionstests (HiL/SiL), aktualisierte SBOM nach <strong>BSI TR-03183-2</strong> und signiertes Delta-Manifest.</li>
+<li><strong>Ergebnis:</strong> Sofortiger OTA-Rollout innerhalb der 24h/72h-Reaktionsfristen ohne erneute KBA-Vorabprüfung; lückenlose Dokumentation für das jährliche CSMS/SUMS-Überwachungsaudit.</li>
+<li><strong>Klasse B – Sicherheitsrelevante Konfigurations- oder Krypto-Parameter-Anpassung (Dokumentiertes Delta-Review):</strong></li>
+<li><strong>Kriterium:</strong> Aktivierung hybrider Post-Quanten-Schlüsselaustauschverfahren (z. B. Umstellung des Backend-TLS-Stacks auf <code>X25519MLKEM768</code> oder Deaktivierung veralteter Cipher-Suites), Zertifikatsrotation in der V2X-/Telematik-PKI oder Härtung von Firewall-Regeln auf dem Central Gateway.</li>
+<li><strong>Nachweis:</strong> Aktualisierte Risikoanalyse (TARA nach ISO/SAE 21434), automatisierter Konfigurationsscan mittels <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli"><code>bsi_pqc_check.py</code></a> und formale PSIRT-/CSMS-Freigabe.</li>
+<li><strong>Klasse C – Architektonische Änderung oder Eingriff in Typgenehmigungs-/Safety-Funktionen (Vollständige Re-Validierung / RXSWIN-Update):</strong></li>
+<li><strong>Kriterium:</strong> Änderung von ASIL-relevanten Regelalgorithmen, Austausch des Hardware-Trust-Anchors (HSM/SHE) oder grundlegende Änderung der Sicherheitsarchitektur.</li>
+<li><strong>Nachweis:</strong> Vollständiger Durchlauf des Änderungsmanagements mit dem Technischen Dienst und dem KBA vor Feldverteilung.</li>
+</ol>
+<hr />
+<h2 id="4-technische-sofort-umsetzung-fur-automotive-backend-build-ot-server">4. Technische Sofort-Umsetzung für Automotive-Backend-, Build- &amp; OT-Server</h2>
+<p>Nicht nur das Fahrzeug selbst, sondern vor allem die <strong>OTA-Verteilserver, PKI-/KMS-Backends, CI/CD-Build-Runner und vernetzten Produktionsanlagen (OT)</strong> stehen im Fokus der gemeinsamen BSI/Auto-ISAC-Warnungen. Ein kompromittierter Build-Server oder ein veralteter TLS/SSH-Endpunkt im Telematik-Backend gefährdet die gesamte Fahrzeugflotte.</p>
+<h3 id="1-openssh-99-hartung-fur-build-farmen-hil-prufstande-ot-sprungserver-bsi-tr-02102-4">1. OpenSSH 9.9+ Härtung für Build-Farmen, HiL-Prüfstände &amp; OT-Sprungserver (BSI TR-02102-4)</h3>
+<p>Stellen Sie sicher, dass sämtliche Entwicklungs-, Signatur- und OT-Wartungszugänge ausschließlich quantensichere hybride Schlüsselaustauschverfahren erzwingen:</p>
+<pre><code class="language-ini"># /etc/ssh/sshd_config.d/10-bsi-tr02102-automotive.conf
+KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512@openssh.com
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+HostKeyAlgorithms ssh-ed25519,rsa-sha2-512
+PubkeyAcceptedAlgorithms ssh-ed25519,rsa-sha2-512
+</code></pre>
+<h3 id="2-openssl-35-nginx-tls-13-fur-telematik-mqtt-ota-backends-bsi-tr-02102-2">2. OpenSSL 3.5+ &amp; Nginx TLS 1.3 für Telematik-, MQTT- &amp; OTA-Backends (BSI TR-02102-2)</h3>
+<p>Aktivieren Sie auf allen Fahrzeug-Backend-Endpunkten die hybride Post-Quanten-Gruppe <code>X25519MLKEM768</code> mit klassischem Fallback für Bestandsflotten:</p>
+<pre><code class="language-nginx"># /etc/nginx/conf.d/ota-telematics-pqc.conf
+ssl_protocols TLSv1.3;
+ssl_ecdh_curve X25519MLKEM768:secp384r1:secp256r1;
+ssl_prefer_server_ciphers off;
+add_header Strict-Transport-Security &quot;max-age=63072000; includeSubDomains; preload&quot; always;
+</code></pre>
+<h3 id="3-automatisierter-cicd-compliance-check-cbom-generierung-in-60-sekunden">3. Automatisierter CI/CD-Compliance-Check &amp; CBOM-Generierung in 60 Sekunden</h3>
+<p>Prüfen Sie Ihre Build-Container, OTA-Gateways und ECU-Linux-Images vollautomatisch in Ihrer Pipeline gegen die Vorgaben der <strong>BSI TR-02102-1, -2 und -4</strong>:</p>
+<pre><code class="language-bash">curl -sSL https://raw.githubusercontent.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/main/bsi_pqc_check.py | python3 - --json
+</code></pre>
+<hr />
+<h2 id="5-geschaftsfuhrungs-haftung-38-bsig-bugeld-exposition-60-bsig-im-automotive-sektor">5. Geschäftsführungs-Haftung (§ 38 BSIG) &amp; Bußgeld-Exposition (§ 60 BSIG) im Automotive-Sektor</h2>
+<p>Für Vorstände und Geschäftsführer von OEMs sowie Tier-1-/Tier-2-Zulieferern kumulieren sich im Jahr 2026 zwei scharfe Sanktionsregime:</p>
+<ul>
+<li><strong>NIS-2 / BSIG (§ 38 &amp; § 60 BSIG):</strong> Bußgelder von bis zu <strong>10 Mio. € oder 2 % des weltweiten Jahresumsatzes</strong> (bei besonders wichtigen Einrichtungen) bzw. <strong>7 Mio. € oder 1,4 % des weltweiten Jahresumsatzes</strong> (bei wichtigen Einrichtungen wie dem Kraftfahrzeug- und Teilebau) sowie die <strong>persönliche, nicht delegierbare Organhaftung der Geschäftsleitung nach § 38 BSIG</strong>.</li>
+<li><strong>UN R155 / UN R156 Marktzugangs-Risiko:</strong> Bei schwerwiegenden Mängeln im CSMS/SUMS oder fehlenden Nachweisen über die Lieferkettensicherheit kann das KBA die Erteilung neuer Typgenehmigungen verweigern oder Rückrufe anordnen – ein unmittelbares Umsatzrisiko in Milliardenhöhe.</li>
+</ul>
+<hr />
+<h2 id="6-ihr-4-stufen-aktionsplan-fur-das-csms-sums-nis-2-audit-2026">6. Ihr 4-Stufen-Aktionsplan für das CSMS-, SUMS- &amp; NIS-2-Audit 2026</h2>
+<h3 id="schritt-1-technisches-ist-inventar-cbom-per-open-source-cli-scanner-erstellen">Schritt 1: Technisches Ist-Inventar (CBOM) per Open-Source CLI-Scanner erstellen</h3>
+<p>Führen Sie auf Ihren Telematik-Backends, Build-Servern und Embedded-Linux-Images unseren Abhängigkeits-freien Open-Source-Scanner <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli"><code>bsi_pqc_check.py</code></a> aus, um alle bis 2031 auslaufenden RSA-, ECDSA- und Diffie-Hellman-Konfigurationen lückenlos zu identifizieren.</p>
+<h3 id="schritt-2-interaktive-risiko-bugeldberechnung-im-browser-60-sekunden">Schritt 2: Interaktive Risiko- &amp; Bußgeldberechnung im Browser (60 Sekunden)</h3>
+<p>Quantifizieren Sie Ihren aktuellen <strong>BSI Compliance-Gap-Score</strong> für das Auslaufszenario 2031/2035 sowie Ihr regulatorisches Bußgeld- und Haftungsrisiko nach <strong>§ 38 &amp; § 60 BSIG</strong>:<br />
+👉 <strong><a href="pqc-nis2-rechner.html">Jetzt kostenlosen BSI PQC &amp; NIS-2 Risiko- und Bußgeld-Rechner starten (<code>pqc-nis2-rechner.html</code>)</a></strong></p>
+<h3 id="schritt-3-kostenlose-0-csv-audit-leseprobe-schnellstart-matrix-herunterladen">Schritt 3: Kostenlose <code>€0+</code> CSV-Audit-Leseprobe &amp; Schnellstart-Matrix herunterladen</h3>
+<p>Für einen sofortigen Einstieg in die Struktur unserer Prüfungs-Workbooks können Sie unsere <strong>Community Edition (<code>€0+</code> Pay What You Want)</strong> auf Gumroad herunterladen. Sie enthält 6 repräsentative Prüfpunkte aus <strong>BSI TR-02102-1 (CBOM 2031)</strong> und <strong>BSI TR-03185 (Secure SDLC)</strong> sowie Ihren <strong>20 % Upgrade-Rabattcode (<code>BSI2026PRO</code>)</strong>:<br />
+👉 <strong><a href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true">📥 Kostenlose CSV-Audit-Leseprobe &amp; Schnellstart-Matrix herunterladen (€0+)</a></strong></p>
+<h3 id="schritt-4-vollstandige-xlsx-enterprise-workbooks-server-configs-cicd-gates-implementieren">Schritt 4: Vollständige <code>.xlsx</code> Enterprise-Workbooks, Server-Configs &amp; CI/CD-Gates implementieren</h3>
+<p>Um im <strong>UN R155/R156 CSMS/SUMS-Audit</strong>, bei <strong>TISAX-/BSI C5:2026-Prüfungen</strong> und im <strong>NIS-2-Nachweisverfahren (§ 30 / § 38 BSIG)</strong> ohne Abweichungen (<em>Zero Exceptions</em>) zu bestehen, stehen Ihnen unsere beiden schlüsselfertigen Enterprise-Pakete mit <strong>20 % Sofort-Rabatt (<code>BSI2026PRO</code>)</strong> zur Verfügung:</p>
+<ul>
+<li>🔐 <strong><a href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true">BSI TR-02102-1 PQC &amp; CBOM Migrations-Toolkit sichern (39,20 € statt 49 € mit Code <code>BSI2026PRO</code>)</a></strong> – Inkl. 3-Tab Excel-Workbook (<code>BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx</code>), Drop-in Configs für OpenSSH 9.9+, OpenSSL 3.5+ &amp; Nginx TLS 1.3, CI/CD-Gates und § 38 BSIG Geschäftsführungs-Beschlussvorlage.</li>
+<li>🛡️ <strong><a href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true">BSI TR-03185 &amp; DiGA/Embedded Audit-Readiness-Pack sichern (39,20 € statt 49 € mit Code <code>BSI2026PRO</code>)</a></strong> – Inkl. 3-Tab Excel-Workbook mit 3-Klassen Patch-Matrix (Klasse A/B/C), automatisierter CycloneDX SBOM Release-Gate Pipeline nach BSI TR-03183-2 und druckfertigem Release-Freigabeprotokoll.</li>
+</ul>
+            <hr />
+            <div class="cta-box">
+    <h3>📦 Schlüsselfertige Enterprise-Compliance-Toolkits für BSI C5:2026, NIS-2 &amp; TR-02102 / TR-03185</h3>
+    <p>Sparen Sie Wochen an Konzeptions- und Beratungsaufwand mit sofort einsetzbaren Excel-Workbooks (<code>.xlsx</code> mit Live-KPI-Formeln), produktionsfertigen Server-Hardening-Konfigurationen und CI/CD-Pipelines:</p>
+    <ul>
+        <li><strong>🔐 BSI TR-02102-1 PQC &amp; CBOM Migrations-Toolkit (€49):</strong> Enthält <strong>9 Enterprise-Assets</strong> inkl. <code>BSI-TR-02102-CBOM-und-Risiko-Matrix-2031.xlsx</code> (3-Tab Excel-Workbook mit Executive Dashboard, 45-Zeilen CBOM-Inventar über TLS/SSH/IPsec/PKI/KMS/DB &amp; § 38 BSIG Sign-Off Log), Drop-in Server-Configs für <strong>OpenSSH 9.9+</strong> (<code>mlkem768x25519-sha256</code>), <strong>OpenSSL 3.5+</strong> (<code>X25519MLKEM768</code>) &amp; <strong>Nginx TLS 1.3</strong>, GitHub Actions &amp; GitLab CI CBOM-Workflows sowie der druckfertigen A4 Geschäftsführungs-Beschlussvorlage (<code>Management-Vorlage-Haftungsfreistellung-BSIG38.html</code>).</li>
+        <li><strong>🛡️ BSI TR-03185 &amp; DiGA TR-03161 Audit-Readiness-Pack (€49):</strong> Enthält <strong>5 Enterprise-Assets</strong> inkl. <code>BSI-TR-03185-und-DiGA-TR03161-Audit-Workbook.xlsx</code> (3-Tab Excel-Workbook mit Readiness-Scoring, 3-Klassen Patch-Matrix Klasse A/B/C &amp; BfArM DiGA/SBOM Mapping), automatisierter CycloneDX SBOM Release-Gate Pipeline (<code>ci-cd/tr03185-release-gate.yml</code> nach BSI TR-03183-2), vollständiger Release-SOP und druckbarem Freigabeprotokoll.</li>
+    </ul>
+    <div class="cta-links">
+        <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI Compliance Toolkits')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+        <a class="btn" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true">🔐 BSI TR-02102 PQC-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn" style="background:#0f172a;" href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true">🛡️ BSI TR-03185 Update-Toolkit sichern (€49) &rarr;</a>
+        <a class="btn-outline" href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Kostenlose CSV-Audit-Leseprobe herunterladen (€0+)</a>
+    </div>
+</div>
+            <div style="margin-top:1rem;font-size:0.84rem;color:#1e3a8a;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:0.75rem 0.95rem;">
+                <div>
+                    ✅ <strong>Sofort-Download (.zip) • Automatischer Kaufbeleg &amp; EU-USt.-Rechnungsgenerierung (inkl. USt-IdNr.-Eintrag) via Gumroad (Merchant of Record)</strong> – Inkl. 3-Tab Excel-Workbooks (<code>.xlsx</code>), Drop-in Server-Configs (OpenSSH 9.9+, OpenSSL 3.5+, Nginx TLS 1.3) &amp; CI/CD-Pipelines.
+                </div>
+                <div style="margin-top:0.6rem;">
+                    <button type="button" class="btn-sepa" onclick="openB2bInvoiceModal('BSI Compliance Enterprise-Toolkit')">🏢 B2B-Bestellung auf Rechnung (SEPA)</button>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div>&copy; 2026 DE-Compliance-Kompass &bull; Open-Source Community-Werkzeuge (MIT-Lizenz) &bull; Fachpublikation &bull; Alle Inhalte dienen der technischen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</div>
+        <div style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);"><span id="impressum-contact"></span><script>document.getElementById("impressum-contact").innerText=atob("S29udGFrdCAmIHZlcmFudHdvcnRsaWNoZXIgSGVyYXVzZ2ViZXIgKMKnIDUgRERHKTogTW9oYW1tYWQgS2VuYW4gR2hhbGlvdW4sIExvcmNoZXIgU3RyYcOfZSAxMSwgNzMwMzMgR8O2cHBpbmdlbiDigJQgRS1NYWlsIMO8YmVyIEdpdEh1YiBJc3N1ZXMgLyBQcm9maWw=");</script></div>
+        <details class="legal-modal">
+            <summary>Projekt-Hinweis, Open-Source-Lizenz, Impressum &amp; Datenschutz (DSGVO)</summary>
+            <p><strong>Open-Source-Software &amp; Kommerzielle Toolkits:</strong><br>
+            Der CLI-Scanner (<a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli" target="_blank" rel="noopener">bsi_pqc_check.py</a>) sowie die interaktiven Online-Rechner werden als freie Open-Source-Tools unter der MIT-Lizenz bereitgestellt. Optional erhältliche Enterprise-Workbooks (.xlsx) und gehärtete Referenzkonfigurationen werden über die Plattform Gumroad Inc. (San Francisco, USA) als bevollmächtigter Wiederverkäufer (Merchant of Record) mit automatischer EU-USt.-Rechnungsstellung vertrieben.</p>
+            <p><strong>Kontakt &amp; Bug-Reports:</strong><br>
+            Technische Fragen, Fehlerberichte und Pull-Requests richten Sie bitte an den <a href="https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli/issues" target="_blank" rel="noopener">GitHub Issue-Tracker</a>.</p>
+            <p><strong>Datenschutzhinweis (Art. 13 DSGVO):</strong><br>
+            Diese statische Website verwendet <strong>keine Tracking-Cookies, keine Analyse-Skripte und keine externen Werbenetzwerke</strong>. Alle Berechnungen im PQC-Risiko-Rechner erfolgen zu 100&nbsp;% lokal in Ihrem Browser. Beim Aufruf über GitHub Pages werden durch den Hosting-Provider (GitHub Inc.) technisch notwendige Server-Logdaten zur Gewährleistung der Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO) verarbeitet.</p>
+        </details>
+    </footer>
+
+    <!-- Sticky Bottom Conversion Bar (Free Sample vs. Enterprise .xlsx) -->
+    <div class="sticky-bottom-bar" id="sticky-cta-bar">
+        <div class="sticky-bottom-inner">
+            <a class="btn-sticky-free" href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Kostenlose CSV-Leseprobe + 20% Rabattcode (€0+ Sofort-Download)</a>
+            <a class="btn-sticky-pro" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true" target="_blank" rel="noopener">⚡ Vollständiges 9-Dateien Enterprise .xlsx Toolkit (39,20 € mit Code BSI2026PRO)</a>
+        </div>
+    </div>
+
+    <!-- B2B SEPA Invoice Modal Dialog -->
+    <dialog id="b2b-invoice-dialog" style="max-width: 600px; width: 92%; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); background: #ffffff; color: #0f172a; margin: auto;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.25rem; color: #0f172a;">🏢 B2B-Bestellung auf Rechnung (SEPA)</h3>
+                <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: #64748b;">Offizielle deutsche Firmenrechnung (gem. § 19 UStG) &bull; 14 Tage Zahlungsziel</p>
+            </div>
+            <button type="button" onclick="document.getElementById('b2b-invoice-dialog').close()" style="background:none; border:none; font-size:1.6rem; cursor:pointer; color:#64748b; line-height:1; padding:0 0.25rem;">&times;</button>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.5; color: #334155; margin-bottom: 0.85rem;">
+            Deutsche Unternehmen, Behörden und Körperschaften können alle Compliance-Pakete direkt gegen <strong>SEPA-Überweisung auf Rechnung</strong> beziehen. Sie erhalten die prüffähige PDF/HTML-Rechnung und den Download des Enterprise-Pakets (.zip) unverzüglich per E-Mail.
+        </p>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.84rem;">
+            <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 0.5rem;">Option 1: 1-Klick E-Mail-Bestellung</div>
+            <a id="b2b-mailto-link" href="mailto:kenanghalioun@gmail.com?subject=B2B-Bestellung%20auf%20Rechnung%20(SEPA)%3A%20BSI%20Compliance%20Toolkit" style="display:inline-block; padding: 0.55rem 1.1rem; font-size: 0.88rem; background:#1e3a8a; color:#fff !important; text-decoration:none; border-radius:6px; font-weight:600;">✉️ E-Mail-Bestellung öffnen (Mail-Client) &rarr;</a>
+            
+            <div style="font-weight: 600; color: #1e3a8a; margin-top: 1rem; margin-bottom: 0.4rem;">Option 2: Text für Ihren Einkauf kopieren</div>
+            <textarea id="b2b-copy-text" rows="5" readonly style="width: 100%; font-family: monospace; font-size: 0.78rem; padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; background: #ffffff; resize: vertical;"></textarea>
+            <div style="margin-top: 0.4rem;">
+                <button type="button" onclick="copyB2bOrderText()" id="btn-copy-order" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; font-weight: 600; color: #334155;">📋 Bestelltext in die Zwischenablage kopieren</button>
+                <span id="copy-success-badge" style="display:none; color: #16a34a; font-size: 0.8rem; font-weight: 600; margin-left: 0.5rem;">✓ Kopiert!</span>
+            </div>
+        </div>
+        <div style="font-size: 0.78rem; color: #64748b; line-height: 1.45;">
+            Rechnungsaussteller: Mohammad Kenan Ghalioun &bull; Lorcher Straße 11, 73033 Göppingen &bull; E-Mail: kenanghalioun@gmail.com<br>
+            Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Digitale Lieferung (.zip) erfolgt am gleichen Werktag.
+        </div>
+    </dialog>
+    <script>
+    function openB2bInvoiceModal(productTitle) {
+        var dialog = document.getElementById('b2b-invoice-dialog');
+        if (!dialog) return;
+        var title = productTitle || 'BSI Compliance Enterprise-Toolkit';
+        var mailto = document.getElementById('b2b-mailto-link');
+        var txtArea = document.getElementById('b2b-copy-text');
+        var rawText = 'Sehr geehrter Herr Ghalioun,\n\nbitte stellen Sie uns folgendes Compliance-Paket auf Rechnung (SEPA, 14 Tage Zahlungsziel) aus:\n\nGewünschtes Paket: ' + title + ' (€49)\n\nUnsere Rechnungsanschrift:\nFirma / Organisation:\nAnsprechpartner:\nStraße & Hausnummer:\nPLZ & Ort:\nUSt-IdNr. (optional):\nE-Mail für Rechnungsversand & Download-Lieferung:\n\nVielen Dank!';
+        if (txtArea) txtArea.value = rawText;
+        if (mailto) {
+            var subj = encodeURIComponent('B2B-Bestellung auf Rechnung (SEPA): ' + title);
+            mailto.href = 'mailto:kenanghalioun@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(rawText);
+        }
+        dialog.showModal();
+    }
+    function copyB2bOrderText() {
+        var txt = document.getElementById('b2b-copy-text');
+        if (txt) {
+            txt.select();
+            navigator.clipboard.writeText(txt.value).then(function() {
+                var badge = document.getElementById('copy-success-badge');
+                if (badge) {
+                    badge.style.display = 'inline';
+                    setTimeout(function() { badge.style.display = 'none'; }, 2500);
+                }
+            });
+        }
+    }
+    </script>
+</body>
+</html>
