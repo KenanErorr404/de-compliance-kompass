@@ -5,13 +5,13 @@
     <link>https://kenanerorr404.github.io/de-compliance-kompass/</link>
     <description>Deutsche B2B-Praxisleitfäden, Open-Source CLI-Prüfwerkzeuge und Enterprise .xlsx Compliance-Suites für Post-Quanten-Kryptographie (BSI TR-02102), CycloneDX SBOM (TR-03183-2), sichere Software-Updates (TR-03185), NIS-2 (§ 30/38 BSIG) und den Cyber Resilience Act (CRA).</description>
     <language>de-DE</language>
-    <lastBuildDate>Tue, 17 Nov 2026 18:34:58 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 08:32:15 +0000</lastBuildDate>
     <atom:link href="https://kenanerorr404.github.io/de-compliance-kompass/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>NIS-2 Lieferkettensicherheit (§ 30 Abs. 2 Nr. 4 BSIG) &amp; Lieferanten-Audit 2026: Vertragliche SLAs, BSI TR-03183-2 (SBOM-Übergabe) und Post-Quanten-Pflichten (TR-02102)</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/nis2-lieferkettensicherheit-paragraph-30-bsig-lieferanten-audit-sla-2026.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/nis2-lieferkettensicherheit-paragraph-30-bsig-lieferanten-audit-sla-2026.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Mit der Durchsetzung des deutschen BSI-Gesetzes (BSIG) in Umsetzung der europäischen NIS-2-Richtlinie (Richtlinie (EU) 2022/2555) sowie dem Start der 24-Stunden</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-17 14:02 UTC
@@ -156,7 +156,7 @@ docker run --rm -v &quot;$(pwd):/workspace&quot; ghcr.io/kenanerorr404/bsi-pqc-a
       <title>NIS-2 &amp; Cyber Resilience Act (CRA) 2026: Automatisierte Compliance-Gates &amp; Krypto-Inventarisierung in CI/CD-Pipelines</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/nis2-cra-automatisierte-cyber-abwehr-bsi-2026.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/nis2-cra-automatisierte-cyber-abwehr-bsi-2026.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Auf dem europäischen Cyber Security Directors’ Meeting (CSDM) im Rahmen der Munich Cyber Security Conference (BSI-Meldung vom 13. Februar 2026 – „Steigender B</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
@@ -246,7 +246,7 @@ Berechnen Sie Ihren aktuellen NIS-2- und PQC-Compliance-Gap-Score ohne Installat
       <title>NIS-2 Meldepflicht (§ 32 BSIG) &amp; BSI-Sensorik 2026: Der 24h/72h Incident-Response- und Krypto-Vorfalls-Leitfaden</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/nis2-bsig-32-meldepflicht-sensorik-incident-response-2026.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/nis2-bsig-32-meldepflicht-sensorik-incident-response-2026.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Das Bundesamt für Sicherheit in der Informationstechnik (BSI) baut die bundesweite Reaktionsfähigkeit gegen Cyber-Angriffe massiv aus: Durch eine erweiterte K</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
@@ -360,7 +360,7 @@ Berechnen Sie Ihren aktuellen NIS-2- und PQC-Compliance-Gap-Score ohne Installat
       <title>E-Rechnungspflicht 2027 (EN 16931, XRechnung &amp; ZUGFeRD): GoBD-, NIS-2- &amp; BSI-Krypto-Leitfaden (TR-02102)</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/e-rechnungspflicht-2027-en16931-xrechnung-zugferd-gobd-bsi-sicherheit.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/e-rechnungspflicht-2027-en16931-xrechnung-zugferd-gobd-bsi-sicherheit.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Mit dem Auslaufen der allgemeinen Papier- und PDF-Übergangsfrist zum 31. Dezember 2026 gemäß § 14 UStG sowie dem vom Bundeskabinett verabschiedeten BMF-Gesetz</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-08 18:18 UTC
@@ -550,7 +550,7 @@ pipx run git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git --ge
       <title>Digitale Souveränität &amp; Cloud-Compliance 2026: BSI-Vorgaben für Bundes-, Landes- und KRITIS-Zulieferer</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/digitale-souveraenitaet-cloud-bsi-nis2-lieferkette-2026.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/digitale-souveraenitaet-cloud-bsi-nis2-lieferkette-2026.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Im Februar 2026 haben das BSI und Schwarz Digits (die IT-Sparte der Schwarz Gruppe, u. a. mit STACKIT) im Rahmen der Münchner Sicherheitskonferenz eine strate</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
@@ -644,7 +644,7 @@ pipx run git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git --ge
       <title>CRA-Durchführungsgesetz &amp; NIS-2 Lieferkettensicherheit (§ 30 BSIG) 2026: BSI-Marktüberwachung, SBOM-Pflicht (TR-03183-2) &amp; PQC-Kryptographie (TR-02102)</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/cra-durchfuehrungsgesetz-nis2-lieferkette-sbom-kryptographie-2026.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/cra-durchfuehrungsgesetz-nis2-lieferkette-sbom-kryptographie-2026.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Mit der Verabschiedung des deutschen Durchführungsgesetzes zum Cyber Resilience Act (CRA-Durchführungsgesetz) durch den Deutschen Bundestag (BSI-Pressemitteil</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-07 09:02 UTC
@@ -793,7 +793,7 @@ curl -sSL https://raw.githubusercontent.com/KenanErorr404/bsi-tr02102-pqc-audit-
       <title>Cyber Resilience Act (CRA) 24h-Meldepflicht, BSI TR-03183-2 (CycloneDX SBOM) &amp; KI-Sicherheit 2026: Automatisierte Release-Gates (TR-03185) und Post-Quanten-Härtung (TR-02102)</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/cra-24h-meldepflicht-enisa-bsi-tr03183-sbom-ki-sicherheit-2026.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/cra-24h-meldepflicht-enisa-bsi-tr03183-sbom-ki-sicherheit-2026.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Mit dem verbindlichen Start der 24-Stunden-Meldepflicht für aktiv ausgenutzte Schwachstellen und schwerwiegende Sicherheitsvorfälle nach Artikel 14 des Cyber Re</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-17 13:46 UTC
@@ -929,7 +929,7 @@ curl -sSL https://raw.githubusercontent.com/KenanErorr404/bsi-tr02102-pqc-audit-
       <title>BSI TR-03185 Leitfaden (2026): Software-Updates ohne Re-Zertifizierungsfalle ausrollen</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/bsi-tr-03185-software-updates-ohne-rezertifizierung.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/bsi-tr-03185-software-updates-ohne-rezertifizierung.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Die Softwareentwicklung in regulierten Branchen stand jahrelang vor einem strukturellen Dilemma: Während moderne DevSecOps-Teams Sicherheits-Patches, Dependen</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
@@ -1065,7 +1065,7 @@ curl -sSL https://raw.githubusercontent.com/KenanErorr404/bsi-tr02102-pqc-audit-
       <title>BSI TR-02102-1 (2026-01): Ablaufdatum 2031 für RSA &amp; ECDSA – Der Post-Quanten-Migrationsleitfaden</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/bsi-tr-02102-ende-klassische-verschluesselung-pqc-2031.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Mit der im Februar 2026 vorgestellten Aktualisierung der Technischen Richtlinie BSI TR-02102 („Kryptographische Verfahren: Empfehlungen und Schlüssellängen“)</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
@@ -1180,7 +1180,7 @@ curl -sSL https://raw.githubusercontent.com/KenanErorr404/bsi-tr02102-pqc-audit-
       <title>BSI Smart Meter Gateway (TR-03109), KRITIS-Steuerungsanlagen &amp; IoT-Kryptographie 2026: PQC-Migration (TR-02102) und sichere Firmware-Updates (TR-03185)</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/bsi-smart-meter-gateway-kritis-iot-kryptographie-2026.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/bsi-smart-meter-gateway-kritis-iot-kryptographie-2026.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Mit der dringenden Warnung zur Absicherung vernetzter Steuerungssysteme und Energie-Kleinanlagen (BSI-Pressemitteilung vom 13.10.2026), der neuen nationalen L</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
@@ -1299,7 +1299,7 @@ pipx run git+https://github.com/KenanErorr404/bsi-tr02102-pqc-audit-cli.git --ge
       <title>BSI-Prüfbericht 2026: Sicherheitsmängel in Standardkonfigurationen im Gesundheitswesen beheben (TR-03161 &amp; TR-03185 Leitfaden)</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/bsi-it-sicherheit-gesundheitswesen-diga-tr03161-tr03185.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/bsi-it-sicherheit-gesundheitswesen-diga-tr03161-tr03185.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Die aktuelle Untersuchung des Bundesamts für Sicherheit in der Informationstechnik (BSI, Pressemitteilung vom 17. März 2026 – „BSI bemängelt IT-Sicherheit von</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
@@ -1393,7 +1393,7 @@ Prüfen Sie Ihren aktuellen Compliance-Gap-Score für die Branche <em>„Gesundh
       <title>BSI C5:2026 Cloud-Compliance, IT-Grundschutz &amp; Nationale PQC-Leitlinie: Krypto-Nachweise (CRY), CBOM-Pflicht &amp; DevSecOps-Audit 2026</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/bsi-c5-2026-cloud-testat-pqc-leitlinie-kritis-nis2.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/bsi-c5-2026-cloud-testat-pqc-leitlinie-kritis-nis2.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Mit der Veröffentlichung des neuen Cloud Computing Compliance Criteria Catalogue (C5:2026) (BSI-Pressemitteilung vom 07.04.2026) sowie der gemeinsamen Leitlin</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-04 17:22 UTC
@@ -1527,7 +1527,7 @@ curl -sSL https://raw.githubusercontent.com/KenanErorr404/bsi-tr02102-pqc-audit-
       <title>Automotive Cybersecurity 2026 (BSI &amp; Auto-ISAC, UN R155/R156 &amp; NIS-2): OTA-Updates (TR-03185), SBOM &amp; Post-Quanten-Kryptographie (TR-02102) für OEMs und Tier-1/Tier-2-Zulieferer</title>
       <link>https://kenanerorr404.github.io/de-compliance-kompass/automotive-cybersecurity-bsi-auto-isac-un-r155-r156-nis2-pqc-2026.html</link>
       <guid isPermaLink="true">https://kenanerorr404.github.io/de-compliance-kompass/automotive-cybersecurity-bsi-auto-isac-un-r155-r156-nis2-pqc-2026.html</guid>
-      <pubDate>Tue, 17 Nov 2026 18:34:58 +0000</pubDate>
+      <pubDate>Wed, 18 Nov 2026 08:32:15 +0000</pubDate>
       <description>Mit der Unterzeichnung der gemeinsamen Absichtserklärung (Memorandum of Understanding) zwischen dem Bundesamt für Sicherheit in der Informationstechnik (BSI) un</description>
       <content:encoded><![CDATA[<div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">
                 Fachpublikation &bull; Stand: 2026-11-17 12:43 UTC
