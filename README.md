@@ -3,7 +3,7 @@
 [![Live Portal & Rechner](https://img.shields.io/badge/%E2%9A%A1_Interaktiver_PQC_%26_NIS--2_Rechner-Live_im_Browser-2563eb?style=for-the-badge)](https://kenanerorr404.github.io/de-compliance-kompass/pqc-nis2-rechner.html)
 [![Claim €0+ Starter Pack](https://img.shields.io/badge/%F0%9F%93%A5_Gratis_CSV--Leseprobe_%28%E2%82%AC0%2B%29-Sofort--Checkout-16a34a?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/flcsb?wanted=true)
 [![Unlock 9-File PQC .xlsx Suite (-20%)](https://img.shields.io/badge/%F0%9F%94%90_9--Dateien_PQC_%26_CBOM_.xlsx_Suite-%E2%82%AC39%2C20_%2820%25_OFF%29-1d4ed8?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true)
-[![Unlock 5-File TR-03185 .xlsx Suite (-20%)](https://img.shields.io/badge/%F0%9F%9B%A1%EF%B8%8F_5--Dateien_TR--03185_%26_DiGA_.xlsx_Suite-%E2%82%AC39%2C20_%2820%25_OFF%29-0f172a?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true)
+[![Unlock 13-File CRA, SBOM & NIS-2 .xlsx Suite (-20%)](https://img.shields.io/badge/%F0%9F%9B%A1%EF%B8%8F_13--Dateien_CRA%2C_SBOM_%26_NIS--2_.xlsx_Suite-%E2%82%AC39%2C20_%2820%25_OFF%29-0f172a?style=for-the-badge)](https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true)
 
 Technisches Open-Source-Prüfwerkzeug (`bsi_pqc_check.py`), interaktiver Risiko-Kalkulator und B2B-Fachleitfäden für **CISOs, DevSecOps-Teams, Software-/DiGA-Hersteller, KRITIS-Zulieferer und IT-Prüfer** in Deutschland.
 

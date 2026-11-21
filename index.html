@@ -242,11 +242,7 @@
     </script>
 </head>
 <body>
-    <div id="stealth-banner" class="stealth-banner">
-        <strong>Vorschau- / Stealth-Modus aktiv:</strong> Fachportal, interaktiver PQC-Rechner &amp; kostenlose CSV-Leseprobe sind live.
-        <button type="button" onclick="document.getElementById('stealth-banner').style.display='none'">Ausblenden</button>
-    </div>
-    <main class="container">
+<main class="container">
         <h1>DE-Compliance-Kompass</h1>
         <p style="color: var(--muted); font-size: 1.05rem;">Technische Leitfäden, Audit-Matrizen und Implementierungsvorlagen für BSI Technische Richtlinien, NIS-2 und DSGVO-konforme IT-Architekturen.</p>
 
@@ -257,9 +253,10 @@
                 Prüfen Sie in 60 Sekunden Ihre Post-Quanten-Compliance-Lücke zum BSI-Ablaufdatum 2031 (RSA, ECDH, TLS, SSH, IPsec/IKEv2) und laden Sie unsere kostenlose CSV-Audit-Leseprobe herunter.
             </p>
             <div class="hero-actions">
-                <a class="btn-hero" href="pqc-nis2-rechner.html">⚡ Jetzt Krypto-Risiko-Schnelltest starten &rarr;</a>
-                <a class="btn-hero-secondary" href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Kostenlose CSV-Audit-Leseprobe herunterladen (€0+)</a>
-                <a class="btn-hero-secondary" href="https://github.com/KenanErorr404/de-compliance-kompass" target="_blank" rel="noopener">💻 Open-Source Linux CLI-Scanner (`bsi_pqc_check.py`)</a>
+                <a class="btn-hero" href="https://kenanghalioun.gumroad.com/l/juznqz/BSI2026PRO?wanted=true" target="_blank" rel="noopener">🛡️ 13-Dateien CRA / SBOM / NIS-2 .xlsx Suite (39,20 €) &rarr;</a>
+                <a class="btn-hero" href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true" target="_blank" rel="noopener" style="background: #0ea5e9; color: #0f172a;">🔐 9-Dateien PQC / TR-02102 .xlsx Suite (39,20 €) &rarr;</a>
+                <a class="btn-hero-secondary" href="pqc-nis2-rechner.html">⚡ PQC- &amp; NIS-2-Rechner</a>
+                <a class="btn-hero-secondary" href="https://kenanghalioun.gumroad.com/l/flcsb?wanted=true" target="_blank" rel="noopener">📥 Gratis CSV-Leseprobe (€0+)</a>
             </div>
         </div>
 
@@ -268,10 +265,7 @@
             <p style="color: var(--muted); font-size: 0.95rem; margin-top: 0.25rem;">
                 Sofort einsetzbare B2B-Prüfungspakete für CISOs, DevSecOps-Teams, DiGA-/MedTech-Hersteller und NIS-2-regulierte Einrichtungen (<strong>-20 % Direkt-Rabatt mit Code <code>BSI2026PRO</code> automatisch aktiviert</strong>):
             </p>
-            <ul class="doc-list">
-<li><a href="nis2-lieferkettensicherheit-paragraph-30-bsig-lieferanten-audit-sla-2026.html">NIS-2 Lieferkettensicherheit (§ 30 Abs. 2 Nr. 4 BSIG) &amp; Lieferanten-Audit 2026: Vertragliche SLAs, BSI TR-03183-2 (SBOM-Übergabe) und Post-Quanten-Pflichten (TR-02102)</a><div class="desc">Mit der Durchsetzung des deutschen BSI-Gesetzes (BSIG) in Umsetzung der europäischen NIS-2-Richtlinie (Richtlinie (EU) 2022/2555) sowie dem Start der 24-Stunden-Meld</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-17 14:02 UTC</div></li>
-<li><a href="cra-24h-meldepflicht-enisa-bsi-tr03183-sbom-ki-sicherheit-2026.html">Cyber Resilience Act (CRA) 24h-Meldepflicht, BSI TR-03183-2 (CycloneDX SBOM) &amp; KI-Sicherheit 2026: Automatisierte Release-Gates (TR-03185) und Post-Quanten-Härtung (TR-02102)</a><div class="desc">Mit dem verbindlichen Start der 24-Stunden-Meldepflicht für aktiv ausgenutzte Schwachstellen und schwerwiegende Sicherheitsvorfälle nach Artikel 14 des Cyber Resilie</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-17 13:46 UTC</div></li>
-<li><a href="automotive-cybersecurity-bsi-auto-isac-un-r155-r156-nis2-pqc-2026.html">Automotive Cybersecurity 2026 (BSI &amp; Auto-ISAC, UN R155/R156 &amp; NIS-2): OTA-Updates (TR-03185), SBOM &amp; Post-Quanten-Kryptographie (TR-02102) für OEMs und Tier-1/Tier-2-Zulieferer</a><div class="desc">Mit der Unterzeichnung der gemeinsamen Absichtserklärung (Memorandum of Understanding) zwischen dem Bundesamt für Sicherheit in der Informationstechnik (BSI) und dem</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-17 12:43 UTC</div></li>
+            <ul class="doc-list" id="toolkits-list">
                 <li>
                     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.35rem;">
                         <a href="https://kenanghalioun.gumroad.com/l/wcqysh/BSI2026PRO?wanted=true" target="_blank" rel="noopener" style="margin-bottom:0;">🔐 BSI TR-02102 PQC &amp; NIS-2 (§ 30 BSIG) Enterprise-Migrations-Toolkit (39,20 € statt 49 €) &rarr;</a>
@@ -398,7 +392,10 @@ Options = ServerPreference,PrioritizeChaCha,NoRenegotiation,NoResumptionOnRenego
 
         <div class="card">
             <h2 style="margin-top: 0;">Aktuelle Fachleitfäden &amp; B2B-Compliance-Pakete</h2>
-            <ul class="doc-list">
+            <ul class="doc-list" id="guides-list">
+<li><a href="nis2-lieferkettensicherheit-paragraph-30-bsig-lieferanten-audit-sla-2026.html">NIS-2 Lieferkettensicherheit (§ 30 Abs. 2 Nr. 4 BSIG) &amp; Lieferanten-Audit 2026: Vertragliche SLAs, BSI TR-03183-2 (SBOM-Übergabe) und Post-Quanten-Pflichten (TR-02102)</a><div class="desc">Mit der Durchsetzung des deutschen BSI-Gesetzes (BSIG) in Umsetzung der europäischen NIS-2-Richtlinie (Richtlinie (EU) 2022/2555) sowie dem Start der 24-Stunden-Meld</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-17 14:02 UTC</div></li>
+<li><a href="cra-24h-meldepflicht-enisa-bsi-tr03183-sbom-ki-sicherheit-2026.html">Cyber Resilience Act (CRA) 24h-Meldepflicht, BSI TR-03183-2 (CycloneDX SBOM) &amp; KI-Sicherheit 2026: Automatisierte Release-Gates (TR-03185) und Post-Quanten-Härtung (TR-02102)</a><div class="desc">Mit dem verbindlichen Start der 24-Stunden-Meldepflicht für aktiv ausgenutzte Schwachstellen und schwerwiegende Sicherheitsvorfälle nach Artikel 14 des Cyber Resilie</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-17 13:46 UTC</div></li>
+<li><a href="automotive-cybersecurity-bsi-auto-isac-un-r155-r156-nis2-pqc-2026.html">Automotive Cybersecurity 2026 (BSI &amp; Auto-ISAC, UN R155/R156 &amp; NIS-2): OTA-Updates (TR-03185), SBOM &amp; Post-Quanten-Kryptographie (TR-02102) für OEMs und Tier-1/Tier-2-Zulieferer</a><div class="desc">Mit der Unterzeichnung der gemeinsamen Absichtserklärung (Memorandum of Understanding) zwischen dem Bundesamt für Sicherheit in der Informationstechnik (BSI) und dem</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-17 12:43 UTC</div></li>
 <li><a href="e-rechnungspflicht-2027-en16931-xrechnung-zugferd-gobd-bsi-sicherheit.html">E-Rechnungspflicht 2027 (EN 16931, XRechnung &amp; ZUGFeRD): GoBD-, NIS-2- &amp; BSI-Krypto-Leitfaden (TR-02102)</a><div class="desc">Mit dem Auslaufen der allgemeinen Papier- und PDF-Übergangsfrist zum 31. Dezember 2026 gemäß § 14 UStG sowie dem vom Bundeskabinett verabschiedeten BMF-Gesetz</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-08 18:18 UTC</div></li>
 <li><a href="cra-durchfuehrungsgesetz-nis2-lieferkette-sbom-kryptographie-2026.html">CRA-Durchführungsgesetz &amp; NIS-2 Lieferkettensicherheit (§ 30 BSIG) 2026: BSI-Marktüberwachung, SBOM-Pflicht (TR-03183-2) &amp; PQC-Kryptographie (TR-02102)</a><div class="desc">Mit der Verabschiedung des deutschen Durchführungsgesetzes zum Cyber Resilience Act (CRA-Durchführungsgesetz) durch den Deutschen Bundestag (BSI-Pressemitteil</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-07 09:02 UTC</div></li>
 <li><a href="bsi-c5-2026-cloud-testat-pqc-leitlinie-kritis-nis2.html">BSI C5:2026 Cloud-Compliance, IT-Grundschutz &amp; Nationale PQC-Leitlinie: Krypto-Nachweise (CRY), CBOM-Pflicht &amp; DevSecOps-Audit 2026</a><div class="desc">Mit der Veröffentlichung des neuen Cloud Computing Compliance Criteria Catalogue (C5:2026) (BSI-Pressemitteilung vom 07.04.2026) sowie der gemeinsamen Leitlin</div><div class="meta">Veröffentlicht / Aktualisiert: 2026-11-04 17:22 UTC</div></li>
